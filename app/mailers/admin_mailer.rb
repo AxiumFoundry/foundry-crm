@@ -3,7 +3,7 @@ class AdminMailer < ApplicationMailer
     @submission = submission
 
     mail(
-      to: "dmitry.sychev@axiumfoundry.com",
+      to: "dmitry.sychev@me.com",
       subject: "New Health Check Submission from #{@submission.company_name}"
     )
   end
