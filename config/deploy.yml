@@ -101,7 +101,7 @@ accessories:
   db:
     image: pgvector/pgvector:pg17
     hosts:
-      - root@178.156.175.199
+      - root@5.161.125.85
     env:
       clear:
         POSTGRES_DB: axium_foundry_production
