@@ -5,7 +5,7 @@
 # Create sample credentials
 Credential.create!([
   {
-    title: "4+ Years Full-Stack Development",
+    title: "Senior Full-Stack Engineer",
     organization: "Material (Associate Director)",
     description: "Led greenfield projects, mentored offshore teams, and reduced onboarding from 4 weeks to days with Docker",
     credential_type: "experience",
