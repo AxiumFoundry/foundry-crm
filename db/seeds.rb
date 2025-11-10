@@ -5,25 +5,26 @@
 # Create sample credentials
 Credential.create!([
   {
-    title: "10+ Years Senior Engineering Experience",
-    organization: "Various NYC Startups",
-    description: "Led engineering teams at 5 successful NYC startups from seed to exit",
+    title: "4+ Years Full-Stack Development",
+    organization: "Material (Associate Director)",
+    description: "Led greenfield projects, mentored offshore teams, and reduced onboarding from 4 weeks to days with Docker",
     credential_type: "experience",
     featured: true,
     position: 1
   },
   {
-    title: "Former CTO",
-    organization: "TechStartup (Acquired 2023)",
-    description: "Built and scaled engineering team from 2 to 25 developers",
+    title: "Fullstack Lead Engineer",
+    organization: "Chirrup (Travel Tech SaaS)",
+    description: "Architected and launched production CRM platform with multi-API integration serving 100+ tour operators",
     credential_type: "experience",
     featured: true,
     position: 2
   },
   {
-    title: "AWS Certified Solutions Architect",
-    organization: "Amazon Web Services",
-    credential_type: "certification",
+    title: "Solo Founder & Developer",
+    organization: "RideMentor (Marketplace Platform)",
+    description: "Shipped both web and native iOS app to App Store as solo developer using Rails + Turbo Native",
+    credential_type: "experience",
     featured: true,
     position: 3
   }
