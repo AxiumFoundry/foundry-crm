@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.2].define(version: 2025_11_09_234008) do
+ActiveRecord::Schema[8.2].define(version: 2025_11_10_142506) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -31,6 +31,7 @@ ActiveRecord::Schema[8.2].define(version: 2025_11_09_234008) do
     t.string "testimonial_quote"
     t.string "testimonial_role"
     t.datetime "updated_at", null: false
+    t.string "website_url"
     t.index ["featured"], name: "index_case_studies_on_featured"
     t.index ["published"], name: "index_case_studies_on_published"
     t.index ["slug"], name: "index_case_studies_on_slug", unique: true

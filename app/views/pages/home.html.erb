@@ -66,7 +66,16 @@
       <div class="card-clean max-w-5xl mx-auto">
         <!-- Header -->
         <div class="mb-8">
-          <h3 class="text-3xl md:text-4xl font-bold text-white mb-3"><%= @featured_case_study.client_name %></h3>
+          <div class="flex items-center gap-4 mb-3">
+            <h3 class="text-3xl md:text-4xl font-bold text-white"><%= @featured_case_study.client_name %></h3>
+            <% if @featured_case_study.website_url %>
+              <%= link_to @featured_case_study.website_url, target: "_blank", rel: "noopener noreferrer", class: "text-accent hover:text-primary-dark transition-base" do %>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              <% end %>
+            <% end %>
+          </div>
           <% if @featured_case_study.industry %>
             <span class="badge">
               <%= @featured_case_study.industry %>
@@ -157,104 +166,72 @@
 <section class="section-spacing-md bg-dark-lighter">
   <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
-      <h2 class="text-section mb-4">How We Help You Ship Faster</h2>
+      <h2 class="text-section mb-4">What We Do</h2>
       <p class="max-w-2xl mx-auto">
-        Modern Rails 8 development without the complexity. One stack, every platform.
+        Full-stack expertise from idea to production. We build, modernize, deploy, and scale.
       </p>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-8">
-      <!-- Rails 8 Expertise -->
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Ship Products Faster -->
       <div class="card-clean">
         <div class="flex items-start">
           <div class="section-divider flex-shrink-0"></div>
           <div class="flex-1">
-            <h3 class="text-xl font-bold text-white mb-4">Rails 8 Modernization</h3>
+            <h3 class="text-xl font-bold text-white mb-4">Ship Products Faster</h3>
             <p class="text-gray-300 leading-relaxed mb-4">
-              Upgrade legacy Rails apps or build greenfield projects with the latest Rails 8 stack—Hotwire, Solid Queue, and native deployment tools.
+              Rapid prototyping to production-ready products. Build and launch MVPs, web apps, and native iOS in weeks, not months. Validate your idea quickly with senior engineering judgment.
             </p>
             <p class="text-sm text-gray-400">
-              Rails 8 • Hotwire • Turbo • Stimulus • PostgreSQL
+              MVP Development • Modern Rails • iOS • Web
             </p>
           </div>
         </div>
       </div>
 
-      <!-- Mobile Without Mobile Team -->
+      <!-- Rescue & Modernize -->
       <div class="card-clean">
         <div class="flex items-start">
           <div class="section-divider flex-shrink-0"></div>
           <div class="flex-1">
-            <h3 class="text-xl font-bold text-white mb-4">Native iOS Apps with Minimal Swift</h3>
+            <h3 class="text-xl font-bold text-white mb-4">Rescue & Modernize</h3>
             <p class="text-gray-300 leading-relaxed mb-4">
-              Ship native iOS apps using Turbo Native—100% code sharing with your web app. No separate mobile team, minimal Swift required.
+              Revive slow or outdated Rails applications. Update to modern Rails, fix performance issues, eliminate technical debt, and reduce hosting costs. Your app will feel brand new.
             </p>
             <p class="text-sm text-gray-400">
-              Turbo Native • Action Cable • Real-time sync
+              Rails Upgrades • Performance Tuning • Cost Reduction
             </p>
           </div>
         </div>
       </div>
 
-      <!-- Deploy Anywhere -->
+      <!-- Deploy & Scale -->
       <div class="card-clean">
         <div class="flex items-start">
           <div class="section-divider flex-shrink-0"></div>
           <div class="flex-1">
-            <h3 class="text-xl font-bold text-white mb-4">Deploy Anywhere, Zero Vendor Lock-In</h3>
+            <h3 class="text-xl font-bold text-white mb-4">Deploy & Scale</h3>
             <p class="text-gray-300 leading-relaxed mb-4">
-              Kamal deployment to any cloud provider. Own your infrastructure, control your costs, scale without platform fees.
+              Launch anywhere, scale confidently. We handle deployment, monitoring, and infrastructure—without vendor lock-in. Own your stack, control your costs.
             </p>
             <p class="text-sm text-gray-400">
-              Kamal • Docker • Hetzner • Heroku • Linux
+              Kamal • Docker • Any Cloud • Monitoring
             </p>
           </div>
         </div>
       </div>
 
-      <!-- API Integration -->
+      <!-- Integrate & Extend -->
       <div class="card-clean">
         <div class="flex items-start">
           <div class="section-divider flex-shrink-0"></div>
           <div class="flex-1">
-            <h3 class="text-xl font-bold text-white mb-4">Multi-Platform API Integration</h3>
+            <h3 class="text-xl font-bold text-white mb-4">Integrate & Extend</h3>
             <p class="text-gray-300 leading-relaxed mb-4">
-              Connect your app to any third-party service—payments, communications, CRMs. Expert integration with Stripe, Twilio, SendGrid, and more.
+              Connect payments, SMS, email, and other services. Add native iOS apps without hiring mobile teams. Expand your platform without rebuilding from scratch.
             </p>
             <p class="text-sm text-gray-400">
-              REST APIs • Webhooks • OAuth • Real-time sync
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Performance & Scale -->
-      <div class="card-clean">
-        <div class="flex items-start">
-          <div class="section-divider flex-shrink-0"></div>
-          <div class="flex-1">
-            <h3 class="text-xl font-bold text-white mb-4">Built for Performance & Scale</h3>
-            <p class="text-gray-300 leading-relaxed mb-4">
-              Production-ready architecture from day one. Background jobs, caching, real-time features—all included in Rails 8 with zero configuration.
-            </p>
-            <p class="text-sm text-gray-400">
-              Solid Queue • Solid Cache • Action Cable • Puma
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Developer Experience -->
-      <div class="card-clean">
-        <div class="flex items-start">
-          <div class="section-divider flex-shrink-0"></div>
-          <div class="flex-1">
-            <h3 class="text-xl font-bold text-white mb-4">Professional Code Quality</h3>
-            <p class="text-gray-300 leading-relaxed mb-4">
-              Clean, maintainable code with monitoring, error tracking, and security scanning built in. Your future team will thank you.
-            </p>
-            <p class="text-sm text-gray-400">
-              Honeybadger • RuboCop • Git workflows • Testing
+              APIs • Stripe • Twilio • SendGrid • Turbo Native
             </p>
           </div>
         </div>
