@@ -170,7 +170,7 @@
             <span class="w-2 h-2 bg-accent rounded-full mr-2"></span>
             <%= category %>
           </h3>
-          <div class="space-y-2">
+          <div class="flex flex-wrap gap-2">
             <% techs.each do |tech| %>
               <span class="<%= tech.expert? ? 'badge-accent' : 'badge' %>">
                 <%= tech.name %>
