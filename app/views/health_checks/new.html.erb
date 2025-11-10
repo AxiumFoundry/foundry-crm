@@ -153,10 +153,10 @@
             </div>
 
             <!-- Submit Button -->
-            <div class="pt-4">
-              <%= f.submit "Request Free Health Check →",
-                  data: { form_target: "submit" },
-                  class: "w-full bg-gradient-primary text-gray-900 px-8 py-5 rounded-xl font-black text-xl hover:shadow-2xl hover:shadow-green-500/50 transition-all cursor-pointer btn-glow" %>
+            <div class="pt-2">
+              <%= f.button type: "submit", data: { form_target: "submit" }, class: "w-full btn-primary text-base sm:text-lg py-4" do %>
+                Request Free Health Check →
+              <% end %>
             </div>
 
             <!-- Privacy Note -->
