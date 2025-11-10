@@ -153,37 +153,112 @@
   </div>
 </section>
 
-<!-- Technologies Section -->
+<!-- What We Do Section -->
 <section class="section-spacing-md bg-dark-lighter">
   <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
-      <h2 class="text-section mb-4">Technical Expertise</h2>
+      <h2 class="text-section mb-4">How We Help You Ship Faster</h2>
       <p class="max-w-2xl mx-auto">
-        Battle-tested with modern technologies. We stay at the cutting edge so you don't have to.
+        Modern Rails 8 development without the complexity. One stack, every platform.
       </p>
     </div>
 
     <div class="grid md:grid-cols-3 gap-8">
-      <% @technologies.group_by(&:category).each do |(category, techs)| %>
-        <div class="card-clean">
-          <div class="flex items-start mb-6">
-            <div class="section-divider flex-shrink-0"></div>
-            <div class="flex-1">
-              <h3 class="text-xl font-bold text-white capitalize mb-4"><%= category %></h3>
-              <ul class="space-y-2">
-                <% techs.each do |tech| %>
-                  <li class="flex items-center text-gray-300">
-                    <svg class="w-4 h-4 mr-3 flex-shrink-0 <%= tech.expert? ? 'text-accent' : 'text-gray-600' %>" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                    </svg>
-                    <span class="<%= tech.expert? ? 'text-white font-medium' : '' %>"><%= tech.name %></span>
-                  </li>
-                <% end %>
-              </ul>
-            </div>
+      <!-- Rails 8 Expertise -->
+      <div class="card-clean">
+        <div class="flex items-start">
+          <div class="section-divider flex-shrink-0"></div>
+          <div class="flex-1">
+            <h3 class="text-xl font-bold text-white mb-4">Rails 8 Modernization</h3>
+            <p class="text-gray-300 leading-relaxed mb-4">
+              Upgrade legacy Rails apps or build greenfield projects with the latest Rails 8 stack—Hotwire, Solid Queue, and native deployment tools.
+            </p>
+            <p class="text-sm text-gray-400">
+              Rails 8 • Hotwire • Turbo • Stimulus • PostgreSQL
+            </p>
           </div>
         </div>
-      <% end %>
+      </div>
+
+      <!-- Mobile Without Mobile Team -->
+      <div class="card-clean">
+        <div class="flex items-start">
+          <div class="section-divider flex-shrink-0"></div>
+          <div class="flex-1">
+            <h3 class="text-xl font-bold text-white mb-4">Native iOS Apps Without Swift</h3>
+            <p class="text-gray-300 leading-relaxed mb-4">
+              Ship native iOS apps using Turbo Native—100% code sharing with your web app. No separate mobile team, no Swift required.
+            </p>
+            <p class="text-sm text-gray-400">
+              Turbo Native • Action Cable • Real-time sync
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Deploy Anywhere -->
+      <div class="card-clean">
+        <div class="flex items-start">
+          <div class="section-divider flex-shrink-0"></div>
+          <div class="flex-1">
+            <h3 class="text-xl font-bold text-white mb-4">Deploy Anywhere, Zero Vendor Lock-In</h3>
+            <p class="text-gray-300 leading-relaxed mb-4">
+              Kamal deployment to any cloud provider. Own your infrastructure, control your costs, scale without platform fees.
+            </p>
+            <p class="text-sm text-gray-400">
+              Kamal • Docker • Hetzner • Heroku • Linux
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- API Integration -->
+      <div class="card-clean">
+        <div class="flex items-start">
+          <div class="section-divider flex-shrink-0"></div>
+          <div class="flex-1">
+            <h3 class="text-xl font-bold text-white mb-4">Multi-Platform API Integration</h3>
+            <p class="text-gray-300 leading-relaxed mb-4">
+              Connect your app to any third-party service—payments, communications, CRMs. Expert integration with Stripe, Twilio, SendGrid, and more.
+            </p>
+            <p class="text-sm text-gray-400">
+              REST APIs • Webhooks • OAuth • Real-time sync
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Performance & Scale -->
+      <div class="card-clean">
+        <div class="flex items-start">
+          <div class="section-divider flex-shrink-0"></div>
+          <div class="flex-1">
+            <h3 class="text-xl font-bold text-white mb-4">Built for Performance & Scale</h3>
+            <p class="text-gray-300 leading-relaxed mb-4">
+              Production-ready architecture from day one. Background jobs, caching, real-time features—all included in Rails 8 with zero configuration.
+            </p>
+            <p class="text-sm text-gray-400">
+              Solid Queue • Solid Cache • Action Cable • Puma
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Developer Experience -->
+      <div class="card-clean">
+        <div class="flex items-start">
+          <div class="section-divider flex-shrink-0"></div>
+          <div class="flex-1">
+            <h3 class="text-xl font-bold text-white mb-4">Professional Code Quality</h3>
+            <p class="text-gray-300 leading-relaxed mb-4">
+              Clean, maintainable code with monitoring, error tracking, and security scanning built in. Your future team will thank you.
+            </p>
+            <p class="text-sm text-gray-400">
+              Honeybadger • RuboCop • Git workflows • Testing
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
