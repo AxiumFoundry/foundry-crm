@@ -23,8 +23,107 @@
   </div>
 </section>
 
-<!-- Credentials Section -->
+<!-- What We Do Section -->
 <section class="section-spacing-md bg-dark-lighter">
+  <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-section mb-4">What I Do</h2>
+      <p class="max-w-2xl mx-auto">
+        Full-stack expertise from idea to production. I build, modernize, deploy, and scale.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Ship Products Faster -->
+      <%= link_to ship_faster_path, class: "card-clean hover:border-accent transition-base block" do %>
+        <div class="flex items-start">
+          <div class="section-divider flex-shrink-0"></div>
+          <div class="flex-1">
+            <h3 class="text-xl font-bold text-white mb-4">Ship Products Faster</h3>
+            <p class="text-gray-300 leading-relaxed mb-4">
+              Rapid prototyping to production-ready products. Build and launch MVPs, web apps, and native iOS in weeks, not months. Validate your idea quickly with senior engineering judgment.
+            </p>
+            <p class="text-sm text-gray-400 mb-2">
+              MVP Development • Modern Rails • iOS • Web
+            </p>
+            <p class="text-accent text-sm font-semibold">Learn more →</p>
+          </div>
+        </div>
+      <% end %>
+
+      <!-- Rescue & Modernize -->
+      <%= link_to rescue_modernize_path, class: "card-clean hover:border-accent transition-base block" do %>
+        <div class="flex items-start">
+          <div class="section-divider flex-shrink-0"></div>
+          <div class="flex-1">
+            <h3 class="text-xl font-bold text-white mb-4">Rescue & Modernize</h3>
+            <p class="text-gray-300 leading-relaxed mb-4">
+              Revive slow or outdated Rails applications. Update to modern Rails, fix performance issues, eliminate technical debt, and reduce hosting costs. Your app will feel brand new.
+            </p>
+            <p class="text-sm text-gray-400 mb-2">
+              Rails Upgrades • Performance Tuning • Cost Reduction
+            </p>
+            <p class="text-accent text-sm font-semibold">Learn more →</p>
+          </div>
+        </div>
+      <% end %>
+
+      <!-- Deploy & Scale -->
+      <%= link_to deploy_scale_path, class: "card-clean hover:border-accent transition-base block" do %>
+        <div class="flex items-start">
+          <div class="section-divider flex-shrink-0"></div>
+          <div class="flex-1">
+            <h3 class="text-xl font-bold text-white mb-4">Deploy & Scale</h3>
+            <p class="text-gray-300 leading-relaxed mb-4">
+              Launch anywhere, scale confidently. We handle deployment, monitoring, and infrastructure—without vendor lock-in. Own your stack, control your costs.
+            </p>
+            <p class="text-sm text-gray-400 mb-2">
+              Kamal • Docker • Any Cloud • Monitoring
+            </p>
+            <p class="text-accent text-sm font-semibold">Learn more →</p>
+          </div>
+        </div>
+      <% end %>
+
+      <!-- Integrate & Extend -->
+      <%= link_to integrate_extend_path, class: "card-clean hover:border-accent transition-base block" do %>
+        <div class="flex items-start">
+          <div class="section-divider flex-shrink-0"></div>
+          <div class="flex-1">
+            <h3 class="text-xl font-bold text-white mb-4">Integrate & Extend</h3>
+            <p class="text-gray-300 leading-relaxed mb-4">
+              Connect payments, SMS, email, and other services. Add native iOS apps without hiring mobile teams. Expand your platform without rebuilding from scratch.
+            </p>
+            <p class="text-sm text-gray-400 mb-2">
+              APIs • Stripe • Twilio • SendGrid • Turbo Native
+            </p>
+            <p class="text-accent text-sm font-semibold">Learn more →</p>
+          </div>
+        </div>
+      <% end %>
+
+      <!-- White Label AI Agents -->
+      <%= link_to ai_agents_path, class: "card-clean hover:border-accent transition-base block" do %>
+        <div class="flex items-start">
+          <div class="section-divider flex-shrink-0"></div>
+          <div class="flex-1">
+            <h3 class="text-xl font-bold text-white mb-4">White Label AI Agents</h3>
+            <p class="text-gray-300 leading-relaxed mb-4">
+              Custom AI agents integrated into your product. Customer support, data analysis, content generation, workflow automation. Fully white labeled as your product.
+            </p>
+            <p class="text-sm text-gray-400 mb-2">
+              LLM Integration • Custom Agents • RAG • Function Calling
+            </p>
+            <p class="text-accent text-sm font-semibold">Learn more →</p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<!-- Credentials Section -->
+<section class="section-spacing-md bg-dark">
   <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <h2 class="text-section text-center mb-4">Proven Track Record</h2>
     <p class="text-center mb-16 max-w-2xl mx-auto">
@@ -53,12 +152,12 @@
 </section>
 
 <!-- Featured Case Study -->
-<section class="section-spacing-lg bg-dark">
+<section class="section-spacing-lg bg-dark-lighter">
   <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
       <h2 class="text-section mb-4">Latest Success Story</h2>
       <p class="max-w-2xl mx-auto">
-        Real results from real startups. See how we help companies ship faster.
+        Real results from real startups. See how I help companies ship faster.
       </p>
     </div>
 
@@ -162,84 +261,6 @@
   </div>
 </section>
 
-<!-- What We Do Section -->
-<section class="section-spacing-md bg-dark-lighter">
-  <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-16">
-      <h2 class="text-section mb-4">What We Do</h2>
-      <p class="max-w-2xl mx-auto">
-        Full-stack expertise from idea to production. We build, modernize, deploy, and scale.
-      </p>
-    </div>
-
-    <div class="grid md:grid-cols-2 gap-8">
-      <!-- Ship Products Faster -->
-      <div class="card-clean">
-        <div class="flex items-start">
-          <div class="section-divider flex-shrink-0"></div>
-          <div class="flex-1">
-            <h3 class="text-xl font-bold text-white mb-4">Ship Products Faster</h3>
-            <p class="text-gray-300 leading-relaxed mb-4">
-              Rapid prototyping to production-ready products. Build and launch MVPs, web apps, and native iOS in weeks, not months. Validate your idea quickly with senior engineering judgment.
-            </p>
-            <p class="text-sm text-gray-400">
-              MVP Development • Modern Rails • iOS • Web
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Rescue & Modernize -->
-      <div class="card-clean">
-        <div class="flex items-start">
-          <div class="section-divider flex-shrink-0"></div>
-          <div class="flex-1">
-            <h3 class="text-xl font-bold text-white mb-4">Rescue & Modernize</h3>
-            <p class="text-gray-300 leading-relaxed mb-4">
-              Revive slow or outdated Rails applications. Update to modern Rails, fix performance issues, eliminate technical debt, and reduce hosting costs. Your app will feel brand new.
-            </p>
-            <p class="text-sm text-gray-400">
-              Rails Upgrades • Performance Tuning • Cost Reduction
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Deploy & Scale -->
-      <div class="card-clean">
-        <div class="flex items-start">
-          <div class="section-divider flex-shrink-0"></div>
-          <div class="flex-1">
-            <h3 class="text-xl font-bold text-white mb-4">Deploy & Scale</h3>
-            <p class="text-gray-300 leading-relaxed mb-4">
-              Launch anywhere, scale confidently. We handle deployment, monitoring, and infrastructure—without vendor lock-in. Own your stack, control your costs.
-            </p>
-            <p class="text-sm text-gray-400">
-              Kamal • Docker • Any Cloud • Monitoring
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Integrate & Extend -->
-      <div class="card-clean">
-        <div class="flex items-start">
-          <div class="section-divider flex-shrink-0"></div>
-          <div class="flex-1">
-            <h3 class="text-xl font-bold text-white mb-4">Integrate & Extend</h3>
-            <p class="text-gray-300 leading-relaxed mb-4">
-              Connect payments, SMS, email, and other services. Add native iOS apps without hiring mobile teams. Expand your platform without rebuilding from scratch.
-            </p>
-            <p class="text-sm text-gray-400">
-              APIs • Stripe • Twilio • SendGrid • Turbo Native
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- CTA Section -->
 <section class="section-spacing-lg bg-dark">
   <div class="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
@@ -247,7 +268,7 @@
       Ready to ship faster?
     </h2>
     <p class="text-xl mb-8 max-w-2xl mx-auto">
-      Get a free technical health check. We'll identify quick wins and opportunities to accelerate your product development.
+      Get a free technical health check. I'll identify quick wins and opportunities to accelerate your product development.
     </p>
     <%= link_to "Get Your Free Health Check →", new_health_check_path,
         class: "btn-primary inline-flex items-center justify-center text-xl px-12 py-5",

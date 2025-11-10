@@ -58,6 +58,7 @@
           <!-- Desktop Navigation -->
           <div class="hidden md:flex items-center space-x-8">
             <%= link_to "Work", case_studies_path, class: "text-gray-300 hover:text-white font-medium transition-base" %>
+            <%= link_to "About", about_path, class: "text-gray-300 hover:text-white font-medium transition-base" %>
             <%= link_to "Get Started", new_health_check_path,
                 class: "btn-primary",
                 data: { turbo_frame: "modal" } %>
@@ -78,6 +79,7 @@
       <div class="hidden md:hidden border-t border-gray-800" data-navbar-target="menu">
         <div class="px-4 py-3 space-y-2 bg-dark">
           <%= link_to "Work", case_studies_path, class: "block px-3 py-2 text-gray-300 hover:text-white font-medium transition-base" %>
+          <%= link_to "About", about_path, class: "block px-3 py-2 text-gray-300 hover:text-white font-medium transition-base" %>
           <%= link_to "Get Started", new_health_check_path,
               class: "block btn-primary text-center",
               data: { turbo_frame: "modal" } %>

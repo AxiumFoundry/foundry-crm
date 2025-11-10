@@ -79,7 +79,7 @@
 
             <!-- Metrics -->
             <% if @case_study.metrics %>
-              <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <% @case_study.metrics.each do |key, value| %>
                   <div class="metric-card">
                     <div class="metric-value"><%= value %></div>
@@ -120,7 +120,7 @@
       Ready for similar results?
     </h2>
     <p class="text-xl mb-8 max-w-2xl mx-auto">
-      Let's discuss how we can help your startup ship faster. Get a free technical health check.
+      Let's discuss how I can help your startup ship faster. Get a free technical health check.
     </p>
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
       <%= link_to "Get Your Free Health Check →", new_health_check_path,

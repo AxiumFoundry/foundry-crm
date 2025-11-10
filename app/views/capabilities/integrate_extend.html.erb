@@ -1,0 +1,493 @@
+<!-- Hero Section -->
+<section class="relative min-h-[60vh] flex items-center bg-dark overflow-hidden">
+  <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+    <div class="max-w-4xl">
+      <%= link_to root_path, class: "inline-flex items-center text-accent hover:text-primary-dark font-semibold mb-8 transition-base group" do %>
+        <svg class="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-base" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Back to Home
+      <% end %>
+
+      <h1 class="text-display mb-6">
+        Integrate & Extend
+      </h1>
+
+      <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl leading-relaxed">
+        Connect payments, SMS, email, and other services. Add native iOS apps without hiring mobile teams. Expand your platform without rebuilding from scratch.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4">
+        <%= link_to "Get Free Health Check", new_health_check_path,
+            class: "btn-primary inline-flex items-center justify-center",
+            data: { turbo_frame: "modal" } %>
+        <%= link_to "View Case Studies →", case_studies_path,
+            class: "px-8 py-4 border-2 border-gray-700 text-white font-semibold rounded-lg hover:border-accent transition-base inline-flex items-center justify-center" %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- The Challenge Section -->
+<section class="section-spacing-md bg-dark-lighter">
+  <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="flex items-start mb-8">
+      <div class="section-divider flex-shrink-0"></div>
+      <div class="flex-1">
+        <h2 class="text-section mb-6">The Challenge</h2>
+        <p class="text-xl text-gray-200 leading-relaxed mb-6">
+          Your core product is solid, but you need to add critical integrations and expand to mobile. Payments, email, SMS, booking systems, CRMs—every integration is its own learning curve. And building a separate iOS app means hiring mobile developers and maintaining two codebases.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-6 mt-8">
+          <div class="card-clean">
+            <h3 class="font-bold text-white mb-2">Complex API Integrations</h3>
+            <p class="text-gray-400">Each third party service has different auth, rate limits, webhooks, and error handling. It's not just reading docs.</p>
+          </div>
+          <div class="card-clean">
+            <h3 class="font-bold text-white mb-2">Mobile = Separate Team</h3>
+            <p class="text-gray-400">Traditional mobile development means hiring iOS developers, maintaining two codebases, keeping features in sync.</p>
+          </div>
+          <div class="card-clean">
+            <h3 class="font-bold text-white mb-2">Integration Brittleness</h3>
+            <p class="text-gray-400">APIs change without warning. Webhooks fail silently. You need robust error handling and monitoring.</p>
+          </div>
+          <div class="card-clean">
+            <h3 class="font-bold text-white mb-2">Time to Market</h3>
+            <p class="text-gray-400">Every integration or platform expansion delays your roadmap. Customers are waiting.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- My Approach Section -->
+<section class="section-spacing-md bg-dark">
+  <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="flex items-start mb-12">
+      <div class="section-divider flex-shrink-0"></div>
+      <div class="flex-1">
+        <h2 class="text-section mb-6">My Integration & Extension Approach</h2>
+        <p class="text-xl text-gray-300 mb-8">
+          I integrate third party services the right way—with proper error handling, monitoring, and testing. For mobile, I use Turbo Native to ship native iOS apps without separate codebases or mobile teams.
+        </p>
+      </div>
+    </div>
+
+    <div class="space-y-12">
+      <!-- API Integrations -->
+      <div>
+        <h3 class="text-3xl font-bold text-white mb-6">API & Service Integrations</h3>
+        <div class="space-y-6">
+          <div class="card-clean">
+            <div class="flex items-start">
+              <svg class="w-8 h-8 text-accent mt-1 mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
+              </svg>
+              <div class="flex-1">
+                <h4 class="text-xl font-bold text-white mb-3">Payment Processing</h4>
+                <p class="text-gray-300 mb-3">
+                  Stripe, PayPal, or other payment gateways. I handle subscriptions, one-time payments, webhooks, refunds, and failed payment recovery.
+                </p>
+                <p class="text-sm text-gray-400">Common use cases: SaaS subscriptions, marketplace payments, donation platforms</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-clean">
+            <div class="flex items-start">
+              <svg class="w-8 h-8 text-accent mt-1 mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
+              <div class="flex-1">
+                <h4 class="text-xl font-bold text-white mb-3">Email & SMS</h4>
+                <p class="text-gray-300 mb-3">
+                  SendGrid, Twilio, Mailgun, Postmark. Transactional emails, marketing campaigns, two way SMS, delivery tracking, and bounce handling.
+                </p>
+                <p class="text-sm text-gray-400">Common use cases: Customer notifications, marketing campaigns, SMS verification</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-clean">
+            <div class="flex items-start">
+              <svg class="w-8 h-8 text-accent mt-1 mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+              </svg>
+              <div class="flex-1">
+                <h4 class="text-xl font-bold text-white mb-3">CRM & Marketing Tools</h4>
+                <p class="text-gray-300 mb-3">
+                  HubSpot, Salesforce, Intercom, Segment. Sync customer data, track events, trigger automations, and maintain data consistency.
+                </p>
+                <p class="text-sm text-gray-400">Common use cases: Sales pipelines, customer support, marketing automation</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-clean">
+            <div class="flex items-start">
+              <svg class="w-8 h-8 text-accent mt-1 mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+              </svg>
+              <div class="flex-1">
+                <h4 class="text-xl font-bold text-white mb-3">Industry-Specific APIs</h4>
+                <p class="text-gray-300 mb-3">
+                  Booking systems (FareHarbor), scheduling (Calendly), shipping (Shippo), or any API your business needs. I've integrated dozens of services.
+                </p>
+                <p class="text-sm text-gray-400">We figure out the docs, handle edge cases, and make it reliable</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile (iOS) Expansion -->
+      <div>
+        <h3 class="text-3xl font-bold text-white mb-6">Native iOS Without a Mobile Team</h3>
+        <div class="card-clean">
+          <p class="text-xl text-gray-200 leading-relaxed mb-6">
+            Using Turbo Native, I wrap your Rails web app in a native iOS shell. This gives you a real native app in the App Store—with 100% code sharing between web and mobile. No separate mobile team. No maintaining two codebases.
+          </p>
+
+          <div class="grid md:grid-cols-2 gap-6 mb-6">
+            <div>
+              <h4 class="font-bold text-white mb-2">What you get:</h4>
+              <ul class="space-y-2 text-gray-300">
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-accent mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Native iOS app in App Store
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-accent mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Native navigation and gestures
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-accent mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Push notifications
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-accent mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Offline capability (if needed)
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-bold text-white mb-2">What you save:</h4>
+              <ul class="space-y-2 text-gray-300">
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-accent mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  No iOS developers needed
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-accent mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  No duplicate codebase
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-accent mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Features auto-sync across platforms
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-accent mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  3-5x faster time to market
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="bg-dark-lighter p-6 rounded-lg">
+            <p class="text-sm text-gray-400 mb-2"><strong class="text-white">Real example:</strong></p>
+            <p class="text-gray-300">
+              RideMentor launched both web and native iOS as a solo developer. 100% code sharing. 6 months to App Store. No mobile team. No Swift experts. Just modern Rails + Turbo Native.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What You Get Section -->
+<section class="section-spacing-md bg-dark-lighter">
+  <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="flex items-start mb-8">
+      <div class="section-divider flex-shrink-0"></div>
+      <div class="flex-1">
+        <h2 class="text-section mb-8">What You Get</h2>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="flex items-start">
+            <svg class="w-6 h-6 text-accent mt-1 mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <div>
+              <h3 class="font-bold text-white mb-2">Reliable Integrations</h3>
+              <p class="text-gray-400">Proper error handling, retry logic, monitoring. Integrations that work.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start">
+            <svg class="w-6 h-6 text-accent mt-1 mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <div>
+              <h3 class="font-bold text-white mb-2">Webhook Handling</h3>
+              <p class="text-gray-400">Receive events from third parties, process them reliably, handle failures.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start">
+            <svg class="w-6 h-6 text-accent mt-1 mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <div>
+              <h3 class="font-bold text-white mb-2">Native iOS App</h3>
+              <p class="text-gray-400">Real App Store presence without hiring mobile developers or maintaining separate codebases.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start">
+            <svg class="w-6 h-6 text-accent mt-1 mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <div>
+              <h3 class="font-bold text-white mb-2">Comprehensive Testing</h3>
+              <p class="text-gray-400">Integration tests for all third party services. VCR cassettes for reliable tests.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start">
+            <svg class="w-6 h-6 text-accent mt-1 mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <div>
+              <h3 class="font-bold text-white mb-2">Monitoring & Alerts</h3>
+              <p class="text-gray-400">Know immediately when integrations break or webhooks fail.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start">
+            <svg class="w-6 h-6 text-accent mt-1 mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <div>
+              <h3 class="font-bold text-white mb-2">Documentation</h3>
+              <p class="text-gray-400">Clear docs for how integrations work, how to test them, and how to troubleshoot.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Case Study Section -->
+<section class="section-spacing-md bg-dark">
+  <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="flex items-start mb-8">
+      <div class="section-divider flex-shrink-0"></div>
+      <div class="flex-1">
+        <h2 class="text-section mb-8">Recent Results</h2>
+
+        <div class="card-clean">
+          <div class="flex items-start gap-4 mb-4">
+            <span class="badge">SaaS & Travel Tech</span>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3">Chirrup</h3>
+          <p class="text-gray-300 mb-4">
+            Built a specialized CRM from scratch for tour operators with complex integrations and real time communication.
+          </p>
+          <div class="bg-dark-lighter p-6 rounded-lg mb-6">
+            <p class="text-gray-300 mb-3"><strong class="text-white">Integrations built:</strong></p>
+            <ul class="grid md:grid-cols-2 gap-x-6 gap-y-2 text-gray-400">
+              <li class="flex items-start">
+                <svg class="w-4 h-4 text-accent mt-1 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span><strong>Twilio</strong> - Two way SMS, customer conversations</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-4 h-4 text-accent mt-1 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span><strong>Slack</strong> - Team notifications, alerts</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-4 h-4 text-accent mt-1 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span><strong>SendGrid</strong> - Transactional emails</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-4 h-4 text-accent mt-1 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span><strong>Magpie</strong> - Phone system integration</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-4 h-4 text-accent mt-1 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span><strong>FareHarbor</strong> - Booking platform sync</span>
+              </li>
+            </ul>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+            <div class="metric-card">
+              <div class="metric-value">5</div>
+              <div class="metric-label">API integrations</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-value">8 months</div>
+              <div class="metric-label">Time to launch</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-value">99.9%</div>
+              <div class="metric-label">Uptime</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-value">100+</div>
+              <div class="metric-label">Active operators</div>
+            </div>
+          </div>
+          <blockquote class="border-l-4 border-accent pl-4 italic text-gray-300">
+            "Working with Dmitry was transformative for my business. He took my vision and turned it into a production-ready platform that my customers love. His ability to integrate complex APIs and design scalable systems was exactly what we needed."
+            <cite class="block mt-2 not-italic text-sm text-gray-400">— CEO, Chirrup</cite>
+          </blockquote>
+        </div>
+
+        <div class="text-center mt-12">
+          <%= link_to "View All Case Studies →", case_studies_path,
+              class: "text-lg font-semibold text-accent hover:text-primary-dark transition-base" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Technologies Section -->
+<section class="section-spacing-md bg-dark-lighter">
+  <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="flex items-start">
+      <div class="section-divider flex-shrink-0"></div>
+      <div class="flex-1">
+        <h2 class="text-section mb-8">Technologies Technologies & Services We Integrate Services I Integrate</h2>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="font-bold text-white mb-4">Payments & Commerce</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>Stripe (preferred)</li>
+              <li>PayPal</li>
+              <li>Square</li>
+              <li>Braintree</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-bold text-white mb-4">Communication</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>Twilio (SMS, voice)</li>
+              <li>SendGrid (email)</li>
+              <li>Postmark (email)</li>
+              <li>Mailgun (email)</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-bold text-white mb-4">Mobile</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>Turbo Native (iOS)</li>
+              <li>Action Cable (realtime)</li>
+              <li>Push notifications</li>
+              <li>App Store submission</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="section-spacing-md bg-dark">
+  <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="flex items-start">
+      <div class="section-divider flex-shrink-0"></div>
+      <div class="flex-1">
+        <h2 class="text-section mb-8">Common Questions</h2>
+
+        <div class="space-y-6">
+          <div class="card-clean">
+            <h3 class="text-xl font-bold text-white mb-3">Can you integrate any API?</h3>
+            <p class="text-gray-300 leading-relaxed">
+              Generally yes. I've integrated dozens of services—from common ones like Stripe and Twilio to niche industry specific APIs. If it has an API, I can integrate it. I'll be honest if something is unusually complex or poorly documented.
+            </p>
+          </div>
+
+          <div class="card-clean">
+            <h3 class="text-xl font-bold text-white mb-3">What if the API documentation is terrible?</h3>
+            <p class="text-gray-300 leading-relaxed">
+              This happens more than you'd think. I test extensively, handle edge cases, and build monitoring so I know immediately when something breaks. I document what I learn so your team can maintain it.
+            </p>
+          </div>
+
+          <div class="card-clean">
+            <h3 class="text-xl font-bold text-white mb-3">Will a Turbo Native iOS app feel native?</h3>
+            <p class="text-gray-300 leading-relaxed">
+              Yes. Users can't tell it's not "pure Swift." Native navigation, gestures, animations. Apps like Basecamp and HEY use this approach. RideMentor is in the App Store and feels completely native.
+            </p>
+          </div>
+
+          <div class="card-clean">
+            <h3 class="text-xl font-bold text-white mb-3">Can we add native features later if needed?</h3>
+            <p class="text-gray-300 leading-relaxed">
+              Absolutely. Turbo Native is a hybrid approach—most of your app is shared Rails code, but you can write native Swift for specific features (camera access, AR, offline mode, etc.) when needed.
+            </p>
+          </div>
+
+          <div class="card-clean">
+            <h3 class="text-xl font-bold text-white mb-3">Do you handle App Store submission?</h3>
+            <p class="text-gray-300 leading-relaxed">
+              Yes. I handle app icons, screenshots, metadata, TestFlight beta testing, and the App Store review process. I've shipped dozens of apps and know what Apple looks for.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section-spacing-lg bg-dark-lighter">
+  <div class="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-hero mb-6">
+      Ready to Expand Your Platform?
+    </h2>
+    <p class="text-xl mb-8 max-w-2xl mx-auto">
+      Get a free consultation. I'll discuss your integration needs and show you the fastest path to launching on iOS.
+    </p>
+    <%= link_to "Get Your Free Health Check →", new_health_check_path,
+        class: "btn-primary inline-flex items-center justify-center text-xl px-12 py-5",
+        data: { turbo_frame: "modal" } %>
+  </div>
+</section>
+
+<!-- Modal Frame -->
+<%= turbo_frame_tag "modal" %>

@@ -1,0 +1,406 @@
+<!-- Hero Section -->
+<section class="relative min-h-[60vh] flex items-center bg-dark overflow-hidden">
+  <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+    <div class="max-w-4xl">
+      <%= link_to root_path, class: "inline-flex items-center text-accent hover:text-primary-dark font-semibold mb-8 transition-base group" do %>
+        <svg class="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-base" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Back to Home
+      <% end %>
+
+      <h1 class="text-display mb-6">
+        Ship Products Faster
+      </h1>
+
+      <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl leading-relaxed">
+        From rapid prototyping to production-ready products. Build and launch MVPs, web apps, and native iOS in weeks, not months.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4">
+        <%= link_to "Get Free Health Check", new_health_check_path,
+            class: "btn-primary inline-flex items-center justify-center",
+            data: { turbo_frame: "modal" } %>
+        <%= link_to "View Case Studies →", case_studies_path,
+            class: "px-8 py-4 border-2 border-gray-700 text-white font-semibold rounded-lg hover:border-accent transition-base inline-flex items-center justify-center" %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- The Challenge Section -->
+<section class="section-spacing-md bg-dark-lighter">
+  <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="flex items-start mb-8">
+      <div class="section-divider flex-shrink-0"></div>
+      <div class="flex-1">
+        <h2 class="text-section mb-6">The Challenge</h2>
+        <p class="text-xl text-gray-200 leading-relaxed mb-6">
+          You have a great idea, but you're stuck. Hiring a full engineering team is expensive and slow. Offshore dev shops deliver subpar code. No-code tools hit limitations fast. You need to validate your idea quickly without burning months and hundreds of thousands of dollars.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-6 mt-8">
+          <div class="card-clean">
+            <h3 class="font-bold text-white mb-2">You need to move fast</h3>
+            <p class="text-gray-400">The window to capture your market is closing. Every week of delay costs opportunities.</p>
+          </div>
+          <div class="card-clean">
+            <h3 class="font-bold text-white mb-2">You can't afford a full team yet</h3>
+            <p class="text-gray-400">Hiring senior engineers takes 3-6 months and costs $150K+ per hire before they write a line of code.</p>
+          </div>
+          <div class="card-clean">
+            <h3 class="font-bold text-white mb-2">You need real expertise</h3>
+            <p class="text-gray-400">Junior developers or offshore teams produce technical debt that costs 3x to fix later.</p>
+          </div>
+          <div class="card-clean">
+            <h3 class="font-bold text-white mb-2">You want to validate first</h3>
+            <p class="text-gray-400">Build an MVP, test with real users, then decide if you need a full team.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- My Approach Section -->
+<section class="section-spacing-md bg-dark">
+  <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="flex items-start mb-12">
+      <div class="section-divider flex-shrink-0"></div>
+      <div class="flex-1">
+        <h2 class="text-section mb-6">My Approach</h2>
+        <p class="text-xl text-gray-300 mb-8">
+          I ship MVPs and production-ready products in weeks using modern Rails and native iOS. Senior engineering judgment from day one means you build the right thing, not just fast.
+        </p>
+      </div>
+    </div>
+
+    <div class="space-y-8">
+      <!-- Step 1 -->
+      <div class="card-clean">
+        <div class="flex items-start">
+          <div class="flex-shrink-0 w-12 h-12 bg-accent rounded-lg flex items-center justify-center mr-6">
+            <span class="text-2xl font-bold text-dark">1</span>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold text-white mb-3">Scope & Plan (1 week)</h3>
+            <p class="text-gray-300 leading-relaxed mb-4">
+              I start with a discovery session to understand your vision, users, and business goals. Then I create a detailed scope document that prioritizes features for your MVP. You'll know exactly what I'm building and why.
+            </p>
+            <p class="text-sm text-gray-400">Deliverable: Scope document with user stories, wireframes, and timeline</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="card-clean">
+        <div class="flex items-start">
+          <div class="flex-shrink-0 w-12 h-12 bg-accent rounded-lg flex items-center justify-center mr-6">
+            <span class="text-2xl font-bold text-dark">2</span>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold text-white mb-3">Build Core Features (2-6 weeks)</h3>
+            <p class="text-gray-300 leading-relaxed mb-4">
+              I build your MVP using modern Rails with Hotwire for the web app and Turbo Native for iOS. This means 100% code sharing between platforms—no separate mobile team needed. You get weekly demos and can course-correct as I go.
+            </p>
+            <p class="text-sm text-gray-400">Deliverable: Working web app and native iOS app with core features</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="card-clean">
+        <div class="flex items-start">
+          <div class="flex-shrink-0 w-12 h-12 bg-accent rounded-lg flex items-center justify-center mr-6">
+            <span class="text-2xl font-bold text-dark">3</span>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold text-white mb-3">Deploy & Launch (1 week)</h3>
+            <p class="text-gray-300 leading-relaxed mb-4">
+              I deploy your app to production with proper monitoring, error tracking, and automated backups. For iOS, I handle App Store submission. You launch with confidence knowing everything is production-ready.
+            </p>
+            <p class="text-sm text-gray-400">Deliverable: Live app with monitoring, deployed to App Store (if iOS)</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="card-clean">
+        <div class="flex items-start">
+          <div class="flex-shrink-0 w-12 h-12 bg-accent rounded-lg flex items-center justify-center mr-6">
+            <span class="text-2xl font-bold text-dark">4</span>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold text-white mb-3">Iterate Based on Feedback (Ongoing)</h3>
+            <p class="text-gray-300 leading-relaxed mb-4">
+              After launch, I help you iterate based on real user feedback. Add features that matter, fix pain points, optimize what's slow. This is where your MVP becomes a product customers love.
+            </p>
+            <p class="text-sm text-gray-400">Optional: Ongoing development or hand-off to your team</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What You Get Section -->
+<section class="section-spacing-md bg-dark-lighter">
+  <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="flex items-start mb-8">
+      <div class="section-divider flex-shrink-0"></div>
+      <div class="flex-1">
+        <h2 class="text-section mb-8">What You Get</h2>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="flex items-start">
+            <svg class="w-6 h-6 text-accent mt-1 mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <div>
+              <h3 class="font-bold text-white mb-2">Production-Ready Code</h3>
+              <p class="text-gray-400">Clean, maintainable code with tests. Your future team will thank you.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start">
+            <svg class="w-6 h-6 text-accent mt-1 mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <div>
+              <h3 class="font-bold text-white mb-2">Web + Native iOS</h3>
+              <p class="text-gray-400">100% code sharing means no separate mobile team needed.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start">
+            <svg class="w-6 h-6 text-accent mt-1 mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <div>
+              <h3 class="font-bold text-white mb-2">Modern Rails Stack</h3>
+              <p class="text-gray-400">Rails 7+, Hotwire, Turbo Native. Fast, maintainable, proven.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start">
+            <svg class="w-6 h-6 text-accent mt-1 mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <div>
+              <h3 class="font-bold text-white mb-2">Deployed & Monitored</h3>
+              <p class="text-gray-400">Proper deployment, error tracking, backups. Sleep well at night.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start">
+            <svg class="w-6 h-6 text-accent mt-1 mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <div>
+              <h3 class="font-bold text-white mb-2">Full Code Ownership</h3>
+              <p class="text-gray-400">You own everything. No vendor lock-in. Hire your own team anytime.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start">
+            <svg class="w-6 h-6 text-accent mt-1 mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <div>
+              <h3 class="font-bold text-white mb-2">Senior Engineering Judgment</h3>
+              <p class="text-gray-400">We tell you what to build and what to skip. Honest technical advice.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Recent Results Section -->
+<section class="section-spacing-md bg-dark">
+  <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="flex items-start mb-8">
+      <div class="section-divider flex-shrink-0"></div>
+      <div class="flex-1">
+        <h2 class="text-section mb-8">Recent Results</h2>
+
+        <div class="space-y-6">
+          <!-- Result 1 -->
+          <div class="card-clean">
+            <div class="flex items-start gap-4 mb-4">
+              <span class="badge">Marketplace & EdTech</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-3">RideMentor</h3>
+            <p class="text-gray-300 mb-4">
+              Two-sided marketplace connecting motorcycle riders with service providers. Solo founder needed both web and native iOS without hiring a mobile team.
+            </p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div class="metric-card">
+                <div class="metric-value">6 months</div>
+                <div class="metric-label">Time to App Store</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-value">100%</div>
+                <div class="metric-label">Shared codebase</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-value">Web + iOS</div>
+                <div class="metric-label">Platforms shipped</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-value">Solo dev</div>
+                <div class="metric-label">Team size</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Result 2 -->
+          <div class="card-clean">
+            <div class="flex items-start gap-4 mb-4">
+              <span class="badge">SaaS & Travel Tech</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-3">Chirrup</h3>
+            <p class="text-gray-300 mb-4">
+              Built a specialized CRM from scratch for tour operators with SMS, booking integrations, and automated workflows.
+            </p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div class="metric-card">
+                <div class="metric-value">8 months</div>
+                <div class="metric-label">Time to launch</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-value">5</div>
+                <div class="metric-label">API integrations</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-value">99.9%</div>
+                <div class="metric-label">Uptime</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-value">100+</div>
+                <div class="metric-label">Active operators</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <%= link_to "View All Case Studies →", case_studies_path,
+              class: "text-lg font-semibold text-accent hover:text-primary-dark transition-base" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Technologies Section -->
+<section class="section-spacing-md bg-dark-lighter">
+  <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="flex items-start">
+      <div class="section-divider flex-shrink-0"></div>
+      <div class="flex-1">
+        <h2 class="text-section mb-8">Technologies I Use</h2>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="font-bold text-white mb-4">Backend & Framework</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>Modern Rails (7+)</li>
+              <li>PostgreSQL</li>
+              <li>Redis (caching, jobs)</li>
+              <li>Background jobs</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-bold text-white mb-4">Frontend & Mobile</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>Hotwire & Turbo</li>
+              <li>Stimulus</li>
+              <li>Turbo Native (iOS)</li>
+              <li>Tailwind CSS</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-bold text-white mb-4">Infrastructure</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>Kamal deployment</li>
+              <li>Docker containers</li>
+              <li>Any cloud (AWS, Hetzner, etc.)</li>
+              <li>Error tracking (Honeybadger)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="section-spacing-md bg-dark">
+  <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="flex items-start">
+      <div class="section-divider flex-shrink-0"></div>
+      <div class="flex-1">
+        <h2 class="text-section mb-8">Common Questions</h2>
+
+        <div class="space-y-6">
+          <div class="card-clean">
+            <h3 class="text-xl font-bold text-white mb-3">How long does it take to build an MVP?</h3>
+            <p class="text-gray-300 leading-relaxed">
+              Typically 4-8 weeks from kickoff to launch, depending on scope. Simple MVPs (core features only) in 4 weeks. More complex products with iOS, payments, and integrations in 6-8 weeks. I always start with a scoping session to give you an accurate timeline.
+            </p>
+          </div>
+
+          <div class="card-clean">
+            <h3 class="text-xl font-bold text-white mb-3">What if I need changes during development?</h3>
+            <p class="text-gray-300 leading-relaxed">
+              Expected and encouraged. I do weekly demos so you can see progress and course-correct. Small changes are part of the process. Significant scope changes might extend the timeline, which I'll discuss transparently.
+            </p>
+          </div>
+
+          <div class="card-clean">
+            <h3 class="text-xl font-bold text-white mb-3">Do I need to hire a team after launch?</h3>
+            <p class="text-gray-300 leading-relaxed">
+              Not necessarily. Many clients continue working with us post-launch for ongoing feature development and support. Others hire their own team once product-market fit is proven. You own all the code, so you can take it in any direction.
+            </p>
+          </div>
+
+          <div class="card-clean">
+            <h3 class="text-xl font-bold text-white mb-3">Can you build something other than Rails?</h3>
+            <p class="text-gray-300 leading-relaxed">
+              We specialize in Rails because it's the fastest, most cost-effective stack for startups. That said, I'm pragmatic. If your specific requirements genuinely need something else, I'll tell you honestly and potentially recommend other partners.
+            </p>
+          </div>
+
+          <div class="card-clean">
+            <h3 class="text-xl font-bold text-white mb-3">What happens if you get hit by a bus?</h3>
+            <p class="text-gray-300 leading-relaxed">
+              You own all code and have full documentation. Your app runs on standard technologies (Rails, PostgreSQL) that thousands of developers know. No proprietary lock-in. Any Rails developer can maintain and extend what I build.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section-spacing-lg bg-dark-lighter">
+  <div class="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-hero mb-6">
+      Ready to Ship Your Product?
+    </h2>
+    <p class="text-xl mb-8 max-w-2xl mx-auto">
+      Get a free technical health check. I'll help you scope your MVP, estimate timeline, and identify the fastest path to launch.
+    </p>
+    <%= link_to "Get Your Free Health Check →", new_health_check_path,
+        class: "btn-primary inline-flex items-center justify-center text-xl px-12 py-5",
+        data: { turbo_frame: "modal" } %>
+  </div>
+</section>
+
+<!-- Modal Frame -->
+<%= turbo_frame_tag "modal" %>

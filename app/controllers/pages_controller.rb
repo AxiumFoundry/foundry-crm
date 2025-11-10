@@ -4,4 +4,7 @@ class PagesController < ApplicationController
     @technologies = Technology.featured.by_category
     @credentials = Credential.featured.ordered
   end
+
+  def about
+  end
 end

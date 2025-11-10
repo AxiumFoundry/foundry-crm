@@ -85,10 +85,12 @@
                 <% end %>
                 <%= f.select :company_stage,
                     options_for_select([
-                      ["Pre-seed", "pre_seed"],
-                      ["Seed", "seed"],
+                      ["Just starting / Pre-seed", "pre_seed"],
+                      ["Seed stage", "seed"],
                       ["Series A", "series_a"],
-                      ["Series B+", "series_b_plus"]
+                      ["Series B+", "series_b_plus"],
+                      ["Established company (not venture-backed)", "established"],
+                      ["Enterprise / Large organization", "enterprise"]
                     ]),
                     { prompt: "Select stage" },
                     class: "w-full px-6 py-4 bg-gray-900/50 border-2 border-gray-700 rounded-xl text-white focus:border-green-400 focus:ring-2 focus:ring-green-400/20 transition-all" %>
@@ -161,7 +163,7 @@
 
             <!-- Privacy Note -->
             <p class="text-sm text-gray-500 text-center">
-              We respect your privacy. Your information will only be used to contact you about your health check.
+              I respect your privacy. Your information will only be used to contact you about your health check.
             </p>
           <% end %>
         <% end %>
