@@ -3,7 +3,7 @@ class AdminMailer < ApplicationMailer
     @submission = submission
 
     mail(
-      to: ENV.fetch("ADMIN_EMAIL", "admin@example.com"),
+      to: "dmitry.sychev@axiumfoundry.com",
       subject: "New Health Check Submission from #{@submission.company_name}"
     )
   end
