@@ -1,0 +1,21 @@
+<h2>Thank you for requesting a NYC Startup Health Check!</h2>
+
+<p>Hi <%= @submission.contact_name %>,</p>
+
+<p>I've received your request for a free technical health check for <%= @submission.company_name %>.</p>
+
+<p><strong>Here's what happens next:</strong></p>
+<ol>
+  <li>I'll review your submission within 24 hours</li>
+  <li>You'll receive a calendar link to schedule our 30-minute session</li>
+  <li>We'll discuss your technical challenges and identify quick wins</li>
+</ol>
+
+<p>Based on what you've shared, I'm particularly interested in discussing your challenges with:</p>
+<p><em><%= @submission.main_challenges %></em></p>
+
+<p>
+  Talk soon,<br>
+  <strong>Your Technical Consultant</strong><br>
+  Senior Technical Consultant for NYC Startups
+</p>

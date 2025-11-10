@@ -1,0 +1,152 @@
+<!-- Hero Section -->
+<section class="relative bg-mesh py-24 overflow-hidden">
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div class="absolute top-10 right-20 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-10 left-20 w-96 h-96 bg-green-500/10 rounded-full blur-3xl"></div>
+  </div>
+
+  <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 relative z-10">
+    <%= link_to case_studies_path, class: "inline-flex items-center text-green-400 hover:text-green-300 font-semibold mb-8 transition-colors group" do %>
+      <svg class="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+      </svg>
+      All Case Studies
+    <% end %>
+
+    <h1 class="text-display mb-6"><%= @case_study.client_name %></h1>
+    <% if @case_study.industry %>
+      <span class="inline-block px-6 py-2 bg-purple-500/20 text-purple-300 text-lg font-semibold rounded-full border border-purple-500/30">
+        <%= @case_study.industry %>
+      </span>
+    <% end %>
+  </div>
+</section>
+
+<!-- Main Content -->
+<section class="py-16 bg-gradient-dark">
+  <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="glass rounded-3xl overflow-hidden mb-8">
+      <div class="p-8 md:p-12">
+        <!-- Challenge & Solution -->
+        <div class="grid md:grid-cols-2 gap-12 mb-12">
+          <!-- Challenge -->
+          <div>
+            <div class="flex items-center mb-6">
+              <div class="w-12 h-12 bg-red-500/20 rounded-xl flex items-center justify-center mr-4">
+                <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                </svg>
+              </div>
+              <h2 class="text-2xl font-bold text-red-400">The Challenge</h2>
+            </div>
+
+            <p class="text-xl text-gray-200 leading-relaxed mb-4"><%= @case_study.challenge_summary %></p>
+
+            <% if @case_study.challenge_details %>
+              <div class="text-gray-400 leading-relaxed space-y-3">
+                <%= simple_format(@case_study.challenge_details, class: "mb-0") %>
+              </div>
+            <% end %>
+          </div>
+
+          <!-- Solution -->
+          <div>
+            <div class="flex items-center mb-6">
+              <div class="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center mr-4">
+                <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+              <h2 class="text-2xl font-bold text-green-400">The Solution</h2>
+            </div>
+
+            <% if @case_study.solution %>
+              <div class="text-gray-300 leading-relaxed space-y-3">
+                <%= simple_format(@case_study.solution, class: "mb-0") %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+
+        <!-- Results -->
+        <div class="border-t border-gray-700 pt-12">
+          <div class="flex items-center mb-8">
+            <div class="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mr-4">
+              <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+              </svg>
+            </div>
+            <h2 class="text-2xl font-bold text-blue-400">The Results</h2>
+          </div>
+
+          <% if @case_study.results %>
+            <p class="text-xl text-gray-200 leading-relaxed mb-8">
+              <%= @case_study.results %>
+            </p>
+          <% end %>
+
+          <!-- Metrics -->
+          <% if @case_study.metrics %>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <% @case_study.metrics.each do |key, value| %>
+                <div class="bg-gradient-dark p-6 rounded-2xl border border-gray-700 text-center hover-lift">
+                  <div class="text-2xl md:text-3xl font-black gradient-text mb-2 leading-tight"><%= value %></div>
+                  <div class="text-xs text-gray-400 uppercase tracking-wide leading-tight"><%= key %></div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+
+        <!-- Testimonial -->
+        <% if @case_study.testimonial_quote %>
+          <div class="border-t border-gray-700 pt-12 mt-12">
+            <blockquote class="relative bg-gradient-dark p-10 rounded-2xl border border-gray-700">
+              <svg class="absolute top-6 left-6 w-12 h-12 text-purple-500/20" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+              </svg>
+
+              <p class="text-2xl text-gray-200 italic mb-6 pl-16 leading-relaxed">
+                "<%= @case_study.testimonial_quote %>"
+              </p>
+
+              <cite class="not-italic pl-16 flex items-center">
+                <div class="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center mr-4">
+                  <span class="text-gray-900 font-black text-lg">
+                    <%= @case_study.testimonial_author.split.map(&:first).join %>
+                  </span>
+                </div>
+                <div>
+                  <div class="font-bold text-white text-lg"><%= @case_study.testimonial_author %></div>
+                  <div class="text-gray-400"><%= @case_study.testimonial_role %></div>
+                </div>
+              </cite>
+            </blockquote>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-24 bg-mesh">
+  <div class="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-hero mb-6">
+      Ready for similar results?
+    </h2>
+    <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+      Let's discuss how we can help your startup ship faster. Get a free technical health check.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <%= link_to "Get Your Free Health Check →", new_health_check_path,
+          class: "inline-block px-10 py-5 bg-gradient-primary text-gray-900 font-black rounded-lg text-xl hover:shadow-2xl hover:shadow-green-500/50 transition-all btn-glow",
+          data: { turbo_frame: "modal" } %>
+      <%= link_to "← Back to All Case Studies", case_studies_path,
+          class: "inline-block px-10 py-5 glass text-white font-bold rounded-lg text-xl hover:bg-white/10 transition-all" %>
+    </div>
+  </div>
+</section>
+
+<!-- Modal Frame -->
+<%= turbo_frame_tag "modal" %>

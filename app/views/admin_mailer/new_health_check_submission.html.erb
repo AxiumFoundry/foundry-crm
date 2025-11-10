@@ -1,0 +1,14 @@
+<h2>New Health Check Submission</h2>
+
+<p><strong>Company:</strong> <%= @submission.company_name %></p>
+<p><strong>Contact:</strong> <%= @submission.contact_name %></p>
+<p><strong>Email:</strong> <%= @submission.email %></p>
+<p><strong>Phone:</strong> <%= @submission.phone || "Not provided" %></p>
+<p><strong>Stage:</strong> <%= @submission.company_stage&.humanize || "Not specified" %></p>
+<p><strong>Team Size:</strong> <%= @submission.team_size || "Not specified" %></p>
+<p><strong>Tech Stack:</strong> <%= @submission.tech_stack %></p>
+<p><strong>Challenges:</strong> <%= @submission.main_challenges %></p>
+<p><strong>Urgency:</strong> <%= @submission.urgency&.humanize || "Not specified" %></p>
+
+<p><strong>Status:</strong> <%= @submission.status %></p>
+<p><strong>Submitted:</strong> <%= @submission.created_at.strftime("%B %d, %Y at %I:%M %p") %></p>
