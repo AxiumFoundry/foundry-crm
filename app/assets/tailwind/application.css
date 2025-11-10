@@ -12,6 +12,21 @@
   --color-text-muted: #9ca3af;
 }
 
+/* Professional Gradient Background */
+body {
+  background: #0a0e27;
+  min-height: 100vh;
+}
+
+/* Alternating Section Gradients */
+.bg-dark {
+  background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0a0e27 100%);
+}
+
+.bg-dark-lighter {
+  background: linear-gradient(135deg, #151b35 0%, #1f2847 50%, #151b35 100%);
+}
+
 /* Minimal Transitions */
 .transition-base {
   transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
