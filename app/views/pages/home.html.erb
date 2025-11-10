@@ -1,57 +1,45 @@
 <!-- Hero Section -->
-<section class="relative min-h-screen flex items-center bg-mesh overflow-hidden">
-  <!-- Animated Background Elements -->
-  <div class="absolute inset-0 overflow-hidden pointer-events-none">
-    <div class="absolute top-20 right-10 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
-    <div class="absolute bottom-20 left-10 w-96 h-96 bg-green-500/10 rounded-full blur-3xl animate-pulse delay-200"></div>
-  </div>
-
+<section class="relative min-h-screen flex items-center bg-dark overflow-hidden">
   <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 relative z-10">
     <div class="max-w-4xl">
-      <h1 class="text-display mb-6 animate-fade-in-up">
+      <h1 class="text-display mb-6">
         Ship faster.
         <br>
-        <span class="gradient-text">Without the headcount.</span>
+        <span class="text-accent">Without the headcount.</span>
       </h1>
 
-      <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl leading-relaxed animate-fade-in-up delay-100">
+      <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl leading-relaxed">
         Expert technical leadership for ambitious NYC startups. Get senior engineering expertise without the full-time hire.
       </p>
 
-      <div class="flex flex-col sm:flex-row gap-4 animate-fade-in-up delay-200">
+      <div class="flex flex-col sm:flex-row gap-4">
         <%= link_to "Get Free Health Check", new_health_check_path,
-            class: "px-8 py-4 bg-gradient-primary text-gray-900 font-bold rounded-lg text-lg hover:shadow-2xl hover:shadow-green-500/50 transition-all btn-glow inline-flex items-center justify-center",
+            class: "btn-primary inline-flex items-center justify-center",
             data: { turbo_frame: "modal" } %>
         <%= link_to "View Our Work →", case_studies_path,
-            class: "px-8 py-4 glass text-white font-bold rounded-lg text-lg hover:bg-white/10 transition-all inline-flex items-center justify-center" %>
+            class: "px-8 py-4 border-2 border-gray-700 text-white font-semibold rounded-lg hover:border-accent transition-base inline-flex items-center justify-center" %>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Credentials Section -->
-<section class="py-24 bg-dark-lighter">
+<section class="section-spacing-md bg-dark-lighter">
   <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <h2 class="text-section text-center mb-4">Proven Track Record</h2>
-    <p class="text-gray-400 text-center mb-16 max-w-2xl mx-auto">
+    <p class="text-center mb-16 max-w-2xl mx-auto">
       Trusted by NYC's fastest-growing startups to solve their toughest technical challenges
     </p>
 
     <div class="grid md:grid-cols-3 gap-8">
-      <% @credentials.each_with_index do |credential, index| %>
-        <div class="glass p-8 rounded-2xl hover-lift animate-fade-in-up" style="animation-delay: <%= index * 100 %>ms;">
-          <div class="flex items-start space-x-4">
-            <div class="flex-shrink-0">
-              <div class="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center">
-                <svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
-                </svg>
-              </div>
-            </div>
+      <% @credentials.each do |credential| %>
+        <div class="card-clean">
+          <div class="flex items-start">
+            <div class="section-divider flex-shrink-0"></div>
             <div class="flex-1">
               <h3 class="text-xl font-bold text-white mb-2"><%= credential.title %></h3>
               <% if credential.organization %>
-                <p class="text-green-400 text-sm font-semibold mb-3"><%= credential.organization %></p>
+                <p class="text-accent text-sm font-semibold mb-3"><%= credential.organization %></p>
               <% end %>
               <% if credential.description %>
                 <p class="text-gray-400 leading-relaxed"><%= credential.description %></p>
@@ -65,144 +53,128 @@
 </section>
 
 <!-- Featured Case Study -->
-<section class="py-24 bg-mesh">
+<section class="section-spacing-lg bg-dark">
   <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
       <h2 class="text-section mb-4">Latest Success Story</h2>
-      <p class="text-gray-400 max-w-2xl mx-auto">
+      <p class="max-w-2xl mx-auto">
         Real results from real startups. See how we help companies ship faster.
       </p>
     </div>
 
     <% if @featured_case_study %>
-      <div class="glass rounded-3xl overflow-hidden hover-scale max-w-5xl mx-auto">
-        <div class="p-8 md:p-12">
-          <!-- Header -->
-          <div class="mb-8">
-            <h3 class="text-3xl md:text-4xl font-bold text-white mb-3"><%= @featured_case_study.client_name %></h3>
-            <% if @featured_case_study.industry %>
-              <span class="inline-block px-4 py-1.5 bg-purple-500/20 text-purple-300 text-sm font-semibold rounded-full border border-purple-500/30">
-                <%= @featured_case_study.industry %>
-              </span>
-            <% end %>
-          </div>
+      <div class="card-clean max-w-5xl mx-auto">
+        <!-- Header -->
+        <div class="mb-8">
+          <h3 class="text-3xl md:text-4xl font-bold text-white mb-3"><%= @featured_case_study.client_name %></h3>
+          <% if @featured_case_study.industry %>
+            <span class="badge">
+              <%= @featured_case_study.industry %>
+            </span>
+          <% end %>
+        </div>
 
-          <!-- Challenge & Solution -->
-          <div class="grid md:grid-cols-2 gap-8 mb-8">
-            <div>
-              <div class="flex items-center mb-4">
-                <div class="w-10 h-10 bg-red-500/20 rounded-lg flex items-center justify-center mr-3">
-                  <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
-                  </svg>
-                </div>
-                <h4 class="text-xl font-bold text-red-400">The Challenge</h4>
-              </div>
-              <p class="text-gray-300 leading-relaxed mb-3"><%= @featured_case_study.challenge_summary %></p>
-              <% if @featured_case_study.challenge_details %>
-                <p class="text-gray-400 text-sm"><%= simple_format(@featured_case_study.challenge_details, class: "mb-2") %></p>
-              <% end %>
-            </div>
-
-            <div>
-              <div class="flex items-center mb-4">
-                <div class="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center mr-3">
-                  <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                  </svg>
-                </div>
-                <h4 class="text-xl font-bold text-green-400">The Solution</h4>
-              </div>
-              <% if @featured_case_study.solution %>
-                <p class="text-gray-300 leading-relaxed"><%= simple_format(@featured_case_study.solution, class: "mb-2") %></p>
-              <% end %>
-            </div>
-          </div>
-
-          <!-- Results -->
-          <div class="border-t border-gray-700 pt-8">
-            <div class="flex items-center mb-6">
-              <div class="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center mr-3">
-                <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                </svg>
-              </div>
-              <h4 class="text-xl font-bold text-blue-400">The Results</h4>
-            </div>
-
-            <% if @featured_case_study.results %>
-              <p class="text-gray-300 mb-6 leading-relaxed"><%= @featured_case_study.results %></p>
-            <% end %>
-
-            <% if @featured_case_study.metrics %>
-              <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                <% @featured_case_study.metrics.each do |key, value| %>
-                  <div class="bg-gradient-dark p-4 rounded-xl border border-gray-700">
-                    <div class="text-xl md:text-2xl font-black gradient-text mb-1 leading-tight"><%= value %></div>
-                    <div class="text-xs text-gray-400 leading-tight"><%= key %></div>
-                  </div>
+        <!-- Challenge & Solution -->
+        <div class="grid md:grid-cols-2 gap-8 mb-8">
+          <div>
+            <div class="flex items-start mb-4">
+              <div class="section-divider flex-shrink-0"></div>
+              <div>
+                <h4 class="text-xl font-bold text-white mb-3">The Challenge</h4>
+                <p class="text-gray-300 leading-relaxed mb-3"><%= @featured_case_study.challenge_summary %></p>
+                <% if @featured_case_study.challenge_details %>
+                  <p class="text-gray-400 text-sm"><%= simple_format(@featured_case_study.challenge_details, class: "mb-2") %></p>
                 <% end %>
               </div>
-            <% end %>
+            </div>
           </div>
 
-          <!-- Testimonial -->
-          <% if @featured_case_study.testimonial_quote %>
-            <div class="border-t border-gray-700 pt-8">
-              <blockquote class="relative">
-                <svg class="absolute top-0 left-0 w-8 h-8 text-purple-500/30 -mt-2 -ml-2" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-                </svg>
-                <p class="text-xl text-gray-300 italic mb-4 pl-6">
+          <div>
+            <div class="flex items-start mb-4">
+              <div class="section-divider flex-shrink-0"></div>
+              <div>
+                <h4 class="text-xl font-bold text-white mb-3">The Solution</h4>
+                <% if @featured_case_study.solution %>
+                  <p class="text-gray-300 leading-relaxed"><%= simple_format(@featured_case_study.solution, class: "mb-2") %></p>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Results -->
+        <div class="border-t border-gray-800 pt-8">
+          <div class="flex items-start mb-6">
+            <div class="section-divider flex-shrink-0"></div>
+            <div class="flex-1">
+              <h4 class="text-xl font-bold text-white mb-3">The Results</h4>
+              <% if @featured_case_study.results %>
+                <p class="text-gray-300 mb-6 leading-relaxed"><%= @featured_case_study.results %></p>
+              <% end %>
+
+              <% if @featured_case_study.metrics %>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                  <% @featured_case_study.metrics.each do |key, value| %>
+                    <div class="metric-card">
+                      <div class="metric-value"><%= value %></div>
+                      <div class="metric-label"><%= key %></div>
+                    </div>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial -->
+        <% if @featured_case_study.testimonial_quote %>
+          <div class="border-t border-gray-800 pt-8">
+            <div class="flex items-start">
+              <div class="w-1 bg-accent h-auto mr-6"></div>
+              <blockquote class="flex-1">
+                <p class="text-xl text-gray-300 italic mb-4">
                   "<%= @featured_case_study.testimonial_quote %>"
                 </p>
-                <cite class="not-italic pl-6">
+                <cite class="not-italic">
                   <div class="font-bold text-white"><%= @featured_case_study.testimonial_author %></div>
                   <div class="text-gray-400 text-sm"><%= @featured_case_study.testimonial_role %></div>
                 </cite>
               </blockquote>
             </div>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
       </div>
 
       <div class="text-center mt-12">
         <%= link_to "View All Case Studies →", case_studies_path,
-            class: "inline-block text-lg font-semibold text-green-400 hover:text-green-300 transition-colors" %>
+            class: "text-lg font-semibold text-accent hover:text-primary-dark transition-base" %>
       </div>
     <% end %>
   </div>
 </section>
 
 <!-- Technologies Section -->
-<section class="py-24 bg-dark-lighter">
+<section class="section-spacing-md bg-dark-lighter">
   <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
       <h2 class="text-section mb-4">Technical Expertise</h2>
-      <p class="text-gray-400 max-w-2xl mx-auto">
+      <p class="max-w-2xl mx-auto">
         Battle-tested with modern technologies. We stay at the cutting edge so you don't have to.
       </p>
     </div>
 
     <div class="grid md:grid-cols-3 gap-8">
-      <% @technologies.group_by(&:category).each_with_index do |(category, techs), index| %>
-        <div class="glass p-6 rounded-2xl animate-fade-in-up" style="animation-delay: <%= index * 100 %>ms;">
+      <% @technologies.group_by(&:category).each do |(category, techs)| %>
+        <div>
           <h3 class="text-lg font-bold text-white mb-4 capitalize flex items-center">
-            <span class="w-2 h-2 bg-green-400 rounded-full mr-2"></span>
+            <span class="w-2 h-2 bg-accent rounded-full mr-2"></span>
             <%= category %>
           </h3>
           <div class="space-y-2">
             <% techs.each do |tech| %>
-              <div class="inline-flex items-center">
-                <span class="px-3 py-1.5 <%= tech.expert? ? 'bg-gradient-primary text-gray-900 font-bold' : 'bg-gray-800 text-gray-300' %> rounded-full text-sm mr-2 mb-2 transition-transform hover:scale-105">
-                  <%= tech.name %>
-                  <% if tech.expert? %>
-                    <svg class="inline-block w-3 h-3 ml-1" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                    </svg>
-                  <% end %>
-                </span>
-              </div>
+              <span class="<%= tech.expert? ? 'badge-accent' : 'badge' %>">
+                <%= tech.name %>
+              </span>
             <% end %>
           </div>
         </div>
@@ -212,16 +184,16 @@
 </section>
 
 <!-- CTA Section -->
-<section class="py-24 bg-mesh">
+<section class="section-spacing-lg bg-dark">
   <div class="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
     <h2 class="text-hero mb-6">
       Ready to ship faster?
     </h2>
-    <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+    <p class="text-xl mb-8 max-w-2xl mx-auto">
       Get a free technical health check. We'll identify quick wins and opportunities to accelerate your product development.
     </p>
     <%= link_to "Get Your Free Health Check →", new_health_check_path,
-        class: "inline-block px-10 py-5 bg-gradient-primary text-gray-900 font-black rounded-lg text-xl hover:shadow-2xl hover:shadow-green-500/50 transition-all btn-glow",
+        class: "btn-primary inline-flex items-center justify-center text-xl px-12 py-5",
         data: { turbo_frame: "modal" } %>
   </div>
 </section>
