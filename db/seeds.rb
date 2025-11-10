@@ -76,28 +76,27 @@ CaseStudy.create!(
 
 # Create technologies
 technologies = [
-  # Backend
-  { name: "Ruby on Rails", category: "backend", proficiency_level: 5, featured: true },
-  { name: "Node.js", category: "backend", proficiency_level: 4, featured: true },
-  { name: "Python", category: "backend", proficiency_level: 4, featured: false },
-  { name: "Go", category: "backend", proficiency_level: 3, featured: false },
+  # Backend & Core
+  { name: "Ruby", category: "backend", proficiency_level: 5, featured: true },
+  { name: "Rails", category: "backend", proficiency_level: 5, featured: true },
+  { name: "PostgreSQL", category: "backend", proficiency_level: 5, featured: true },
+  { name: "MongoDB", category: "backend", proficiency_level: 4, featured: true },
+  { name: "Solid Queue", category: "backend", proficiency_level: 5, featured: true },
 
   # Frontend
-  { name: "React", category: "frontend", proficiency_level: 4, featured: true },
-  { name: "Hotwire/Turbo", category: "frontend", proficiency_level: 5, featured: true },
-  { name: "TypeScript", category: "frontend", proficiency_level: 4, featured: true },
-  { name: "Vue.js", category: "frontend", proficiency_level: 3, featured: false },
+  { name: "JavaScript", category: "frontend", proficiency_level: 5, featured: true },
+  { name: "HTML5", category: "frontend", proficiency_level: 5, featured: true },
+  { name: "CSS", category: "frontend", proficiency_level: 5, featured: true },
+  { name: "Tailwind CSS", category: "frontend", proficiency_level: 5, featured: true },
+  { name: "Bootstrap", category: "frontend", proficiency_level: 4, featured: false },
 
-  # Database
-  { name: "PostgreSQL", category: "database", proficiency_level: 5, featured: true },
-  { name: "Redis", category: "database", proficiency_level: 4, featured: true },
-  { name: "MongoDB", category: "database", proficiency_level: 3, featured: false },
-
-  # DevOps
-  { name: "AWS", category: "devops", proficiency_level: 4, featured: true },
-  { name: "Docker", category: "devops", proficiency_level: 4, featured: true },
-  { name: "Kubernetes", category: "devops", proficiency_level: 3, featured: false },
-  { name: "CI/CD", category: "devops", proficiency_level: 5, featured: true }
+  # Database & Infrastructure
+  { name: "Git", category: "devops", proficiency_level: 5, featured: true },
+  { name: "Docker", category: "devops", proficiency_level: 5, featured: true },
+  { name: "Heroku", category: "devops", proficiency_level: 5, featured: true },
+  { name: "Hetzner", category: "devops", proficiency_level: 4, featured: true },
+  { name: "Kamal", category: "devops", proficiency_level: 5, featured: true },
+  { name: "RSpec", category: "devops", proficiency_level: 5, featured: true }
 ]
 
 technologies.each do |tech|
