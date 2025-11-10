@@ -3,7 +3,7 @@
 # Install the pg driver:
 #   gem install pg
 # On macOS with Homebrew:
-#   gem install pg -- --with-pg-config=/opt/homebrew/bin/pg_config
+#   gem install pg -- --with-pg-config=/usr/local/bin/pg_config
 # On Windows:
 #   gem install pg
 #       Choose the win32 build.
@@ -17,7 +17,7 @@ default: &default
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
-  max_connections: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   <% if ENV["DB_HOST"] %>
   host: <%= ENV["DB_HOST"] %>
   username: postgres
@@ -26,8 +26,21 @@ default: &default
 
 
 development:
-  <<: *default
-  database: axium_foundry_development
+  primary:
+    <<: *default
+    database: axium_foundry_development
+  cache:
+    <<: *default
+    database: axium_foundry_development_cache
+    migrations_paths: db/cache_migrate
+  queue:
+    <<: *default
+    database: axium_foundry_development_queue
+    migrations_paths: db/queue_migrate
+  cable:
+    <<: *default
+    database: axium_foundry_development_cable
+    migrations_paths: db/cable_migrate
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
@@ -61,7 +74,28 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: axium_foundry_test
+  database: axium_foundry_test<%= ENV["TEST_ENV_NUMBER"] %>
+
+staging:
+  primary: &primary_staging
+    <<: *default
+    host: axium_foundry-db
+    database: axium_foundry_staging
+    username: axium_foundry
+    password: <%= ENV["POSTGRES_PASSWORD"] %>
+  cache:
+    <<: *primary_staging
+    database: axium_foundry_staging_cache
+    migrations_paths: db/cache_migrate
+  queue:
+    <<: *primary_staging
+    database: axium_foundry_staging_queue
+    migrations_paths: db/queue_migrate
+  cable:
+    <<: *primary_staging
+    database: axium_foundry_staging_cable
+    migrations_paths: db/cable_migrate
+
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,21 +114,16 @@ test:
 #   production:
 #     url: <%= ENV["MY_APP_DATABASE_URL"] %>
 #
-# Connection URLs for non-primary databases can also be configured using
-# environment variables. The variable name is formed by concatenating the
-# connection name with `_DATABASE_URL`. For example:
-#
-#   CACHE_DATABASE_URL="postgres://cacheuser:cachepass@localhost/cachedatabase"
-#
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
 production:
   primary: &primary_production
     <<: *default
+    host: axium_foundry-db
     database: axium_foundry_production
     username: axium_foundry
-    password: <%= ENV["AXIUM_FOUNDRY_DATABASE_PASSWORD"] %>
+    password: <%= ENV["POSTGRES_PASSWORD"] %>
   cache:
     <<: *primary_production
     database: axium_foundry_production_cache
