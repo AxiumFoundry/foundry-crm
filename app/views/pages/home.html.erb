@@ -1,162 +1,143 @@
-<!-- Hero Section -->
-<section class="relative min-h-screen flex items-center bg-dark overflow-hidden">
-  <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 relative z-10">
-    <div class="max-w-4xl">
-      <h1 class="text-display mb-6">
+<!-- Hero Section - Modern Studio -->
+<section class="relative min-h-screen flex items-center bg-navy overflow-hidden">
+  <!-- Rust Accent Line -->
+  <div class="absolute left-0 md:left-16 top-1/4 w-2 h-48 bg-primary"></div>
+
+  <div class="container mx-auto max-w-7xl px-8 lg:px-16 py-48 relative z-10">
+    <div class="max-w-5xl pl-0 md:pl-12">
+      <h1 class="text-display mb-12 leading-none">
         Ship faster.
         <br>
         <span class="text-accent">Without the headcount.</span>
       </h1>
 
-      <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl leading-relaxed">
+      <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-2xl leading-relaxed font-light">
         Expert technical leadership for ambitious NYC startups. Get senior engineering expertise without the full-time hire.
       </p>
 
-      <div class="flex flex-col sm:flex-row gap-4">
+      <div class="flex flex-col sm:flex-row gap-6">
         <%= link_to "Get Free Health Check", new_health_check_path,
             class: "btn-primary inline-flex items-center justify-center",
             data: { turbo_frame: "modal" } %>
         <%= link_to "View Our Work →", case_studies_path,
-            class: "px-8 py-4 border-2 border-gray-700 text-white font-semibold rounded-lg hover:border-accent transition-base inline-flex items-center justify-center" %>
+            class: "btn-secondary inline-flex items-center justify-center" %>
       </div>
     </div>
   </div>
 </section>
 
-<!-- What We Do Section -->
-<section class="section-spacing-md bg-dark-lighter">
-  <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-16">
-      <h2 class="text-section mb-4">What I Do</h2>
-      <p class="max-w-2xl mx-auto">
+<!-- What We Do Section - Modern Studio -->
+<section class="section-spacing-lg bg-navy">
+  <div class="container mx-auto max-w-7xl px-8 lg:px-16">
+    <div class="mb-24">
+      <h2 class="text-section mb-6">What I Do</h2>
+      <p class="text-lg text-gray-300 max-w-2xl font-light">
         Full-stack expertise from idea to production. I build, modernize, deploy, and scale.
       </p>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-8">
+    <div class="grid md:grid-cols-2 gap-16">
       <!-- Ship Products Faster -->
-      <%= link_to ship_faster_path, class: "card-clean hover:border-accent transition-base block" do %>
-        <div class="flex items-start">
-          <div class="section-divider flex-shrink-0"></div>
-          <div class="flex-1">
-            <h3 class="text-xl font-bold text-white mb-4">Ship Products Faster</h3>
-            <p class="text-gray-300 leading-relaxed mb-4">
-              Rapid prototyping to production-ready products. Build and launch MVPs, web apps, and native iOS in weeks, not months. Validate your idea quickly with senior engineering judgment.
-            </p>
-            <p class="text-sm text-gray-400 mb-2">
-              MVP Development • Modern Rails • iOS • Web
-            </p>
-            <p class="text-accent text-sm font-semibold">Learn more →</p>
-          </div>
-        </div>
+      <%= link_to ship_faster_path, class: "card-clean hover:border-accent transition-base block group" do %>
+        <div class="border-l-4 border-primary pl-8 mb-6"></div>
+        <h3 class="text-2xl font-bold text-white mb-6">Ship Products Faster</h3>
+        <p class="text-gray-300 leading-relaxed mb-6 font-light">
+          Rapid prototyping to production-ready products. Build and launch MVPs, web apps, and native iOS in weeks, not months. Validate your idea quickly with senior engineering judgment.
+        </p>
+        <p class="text-xs uppercase tracking-wider text-gray-500 mb-4 font-semibold">
+          MVP Development • Modern Rails • iOS • Web
+        </p>
+        <p class="text-accent text-sm font-semibold uppercase tracking-wider">Learn more →</p>
       <% end %>
 
       <!-- Rescue & Modernize -->
-      <%= link_to rescue_modernize_path, class: "card-clean hover:border-accent transition-base block" do %>
-        <div class="flex items-start">
-          <div class="section-divider flex-shrink-0"></div>
-          <div class="flex-1">
-            <h3 class="text-xl font-bold text-white mb-4">Rescue & Modernize</h3>
-            <p class="text-gray-300 leading-relaxed mb-4">
-              Revive slow or outdated Rails applications. Update to modern Rails, fix performance issues, eliminate technical debt, and reduce hosting costs. Your app will feel brand new.
-            </p>
-            <p class="text-sm text-gray-400 mb-2">
-              Rails Upgrades • Performance Tuning • Cost Reduction
-            </p>
-            <p class="text-accent text-sm font-semibold">Learn more →</p>
-          </div>
-        </div>
+      <%= link_to rescue_modernize_path, class: "card-clean hover:border-accent transition-base block group" do %>
+        <div class="border-l-4 border-primary pl-8 mb-6"></div>
+        <h3 class="text-2xl font-bold text-white mb-6">Rescue & Modernize</h3>
+        <p class="text-gray-300 leading-relaxed mb-6 font-light">
+          Revive slow or outdated Rails applications. Update to modern Rails, fix performance issues, eliminate technical debt, and reduce hosting costs. Your app will feel brand new.
+        </p>
+        <p class="text-xs uppercase tracking-wider text-gray-500 mb-4 font-semibold">
+          Rails Upgrades • Performance Tuning • Cost Reduction
+        </p>
+        <p class="text-accent text-sm font-semibold uppercase tracking-wider">Learn more →</p>
       <% end %>
 
       <!-- Deploy & Scale -->
-      <%= link_to deploy_scale_path, class: "card-clean hover:border-accent transition-base block" do %>
-        <div class="flex items-start">
-          <div class="section-divider flex-shrink-0"></div>
-          <div class="flex-1">
-            <h3 class="text-xl font-bold text-white mb-4">Deploy & Scale</h3>
-            <p class="text-gray-300 leading-relaxed mb-4">
-              Launch anywhere, scale confidently. We handle deployment, monitoring, and infrastructure—without vendor lock-in. Own your stack, control your costs.
-            </p>
-            <p class="text-sm text-gray-400 mb-2">
-              Kamal • Docker • Any Cloud • Monitoring
-            </p>
-            <p class="text-accent text-sm font-semibold">Learn more →</p>
-          </div>
-        </div>
+      <%= link_to deploy_scale_path, class: "card-clean hover:border-accent transition-base block group" do %>
+        <div class="border-l-4 border-primary pl-8 mb-6"></div>
+        <h3 class="text-2xl font-bold text-white mb-6">Deploy & Scale</h3>
+        <p class="text-gray-300 leading-relaxed mb-6 font-light">
+          Launch anywhere, scale confidently. We handle deployment, monitoring, and infrastructure—without vendor lock-in. Own your stack, control your costs.
+        </p>
+        <p class="text-xs uppercase tracking-wider text-gray-500 mb-4 font-semibold">
+          Kamal • Docker • Any Cloud • Monitoring
+        </p>
+        <p class="text-accent text-sm font-semibold uppercase tracking-wider">Learn more →</p>
       <% end %>
 
       <!-- Integrate & Extend -->
-      <%= link_to integrate_extend_path, class: "card-clean hover:border-accent transition-base block" do %>
-        <div class="flex items-start">
-          <div class="section-divider flex-shrink-0"></div>
-          <div class="flex-1">
-            <h3 class="text-xl font-bold text-white mb-4">Integrate & Extend</h3>
-            <p class="text-gray-300 leading-relaxed mb-4">
-              Connect payments, SMS, email, and other services. Add native iOS apps without hiring mobile teams. Expand your platform without rebuilding from scratch.
-            </p>
-            <p class="text-sm text-gray-400 mb-2">
-              APIs • Stripe • Twilio • SendGrid • Turbo Native
-            </p>
-            <p class="text-accent text-sm font-semibold">Learn more →</p>
-          </div>
-        </div>
+      <%= link_to integrate_extend_path, class: "card-clean hover:border-accent transition-base block group" do %>
+        <div class="border-l-4 border-primary pl-8 mb-6"></div>
+        <h3 class="text-2xl font-bold text-white mb-6">Integrate & Extend</h3>
+        <p class="text-gray-300 leading-relaxed mb-6 font-light">
+          Connect payments, SMS, email, and other services. Add native iOS apps without hiring mobile teams. Expand your platform without rebuilding from scratch.
+        </p>
+        <p class="text-xs uppercase tracking-wider text-gray-500 mb-4 font-semibold">
+          APIs • Stripe • Twilio • SendGrid • Turbo Native
+        </p>
+        <p class="text-accent text-sm font-semibold uppercase tracking-wider">Learn more →</p>
       <% end %>
 
       <!-- White Label AI Agents -->
-      <%= link_to ai_agents_path, class: "card-clean hover:border-accent transition-base block" do %>
-        <div class="flex items-start">
-          <div class="section-divider flex-shrink-0"></div>
-          <div class="flex-1">
-            <h3 class="text-xl font-bold text-white mb-4">White Label AI Agents</h3>
-            <p class="text-gray-300 leading-relaxed mb-4">
-              Custom AI agents integrated into your product. Customer support, data analysis, content generation, workflow automation. Fully white labeled as your product.
-            </p>
-            <p class="text-sm text-gray-400 mb-2">
-              LLM Integration • Custom Agents • RAG • Function Calling
-            </p>
-            <p class="text-accent text-sm font-semibold">Learn more →</p>
-          </div>
-        </div>
+      <%= link_to ai_agents_path, class: "card-clean hover:border-accent transition-base block group" do %>
+        <div class="border-l-4 border-primary pl-8 mb-6"></div>
+        <h3 class="text-2xl font-bold text-white mb-6">White Label AI Agents</h3>
+        <p class="text-gray-300 leading-relaxed mb-6 font-light">
+          Custom AI agents integrated into your product. Customer support, data analysis, content generation, workflow automation. Fully white labeled as your product.
+        </p>
+        <p class="text-xs uppercase tracking-wider text-gray-500 mb-4 font-semibold">
+          LLM Integration • Custom Agents • RAG • Function Calling
+        </p>
+        <p class="text-accent text-sm font-semibold uppercase tracking-wider">Learn more →</p>
       <% end %>
     </div>
   </div>
 </section>
 
-<!-- Credentials Section -->
-<section class="section-spacing-md bg-dark">
-  <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <h2 class="text-section text-center mb-4">Proven Track Record</h2>
-    <p class="text-center mb-16 max-w-2xl mx-auto">
-      Trusted by NYC's fastest-growing startups to solve their toughest technical challenges
-    </p>
+<!-- Credentials Section - Modern Studio -->
+<section class="section-spacing-lg bg-dark-lighter">
+  <div class="container mx-auto max-w-7xl px-8 lg:px-16">
+    <div class="mb-24">
+      <h2 class="text-section mb-6">Proven Track Record</h2>
+      <p class="text-lg text-gray-300 max-w-2xl font-light">
+        Trusted by NYC's fastest-growing startups to solve their toughest technical challenges
+      </p>
+    </div>
 
-    <div class="grid md:grid-cols-3 gap-8">
+    <div class="grid md:grid-cols-3 gap-12">
       <% @credentials.each do |credential| %>
         <div class="card-clean">
-          <div class="flex items-start">
-            <div class="section-divider flex-shrink-0"></div>
-            <div class="flex-1">
-              <h3 class="text-xl font-bold text-white mb-2"><%= credential.title %></h3>
-              <% if credential.organization %>
-                <p class="text-accent text-sm font-semibold mb-3"><%= credential.organization %></p>
-              <% end %>
-              <% if credential.description %>
-                <p class="text-gray-400 leading-relaxed"><%= credential.description %></p>
-              <% end %>
-            </div>
-          </div>
+          <div class="border-l-4 border-primary pl-8 mb-6"></div>
+          <h3 class="text-xl font-bold text-white mb-3"><%= credential.title %></h3>
+          <% if credential.organization %>
+            <p class="text-accent text-sm font-semibold mb-4 uppercase tracking-wider"><%= credential.organization %></p>
+          <% end %>
+          <% if credential.description %>
+            <p class="text-gray-300 leading-relaxed font-light"><%= credential.description %></p>
+          <% end %>
         </div>
       <% end %>
     </div>
   </div>
 </section>
 
-<!-- Featured Case Study -->
-<section class="section-spacing-lg bg-dark-lighter">
-  <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-16">
-      <h2 class="text-section mb-4">Latest Success Story</h2>
-      <p class="max-w-2xl mx-auto">
+<!-- Featured Case Study - Modern Studio -->
+<section class="section-spacing-lg bg-navy">
+  <div class="container mx-auto max-w-7xl px-8 lg:px-16">
+    <div class="mb-24">
+      <h2 class="text-section mb-6">Latest Success Story</h2>
+      <p class="text-lg text-gray-300 max-w-2xl font-light">
         Real results from real startups. See how I help companies ship faster.
       </p>
     </div>
@@ -164,9 +145,9 @@
     <% if @featured_case_study %>
       <div class="card-clean max-w-5xl mx-auto">
         <!-- Header -->
-        <div class="mb-8">
-          <div class="flex items-center gap-4 mb-3">
-            <h3 class="text-3xl md:text-4xl font-bold text-white"><%= @featured_case_study.client_name %></h3>
+        <div class="mb-12">
+          <div class="flex items-center gap-4 mb-4">
+            <h3 class="text-4xl md:text-5xl font-bold text-white"><%= @featured_case_study.client_name %></h3>
             <% if @featured_case_study.website_url %>
               <%= link_to @featured_case_study.website_url, target: "_blank", rel: "noopener noreferrer", class: "text-accent hover:text-primary-dark transition-base" do %>
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -183,69 +164,57 @@
         </div>
 
         <!-- Challenge & Solution -->
-        <div class="grid md:grid-cols-2 gap-8 mb-8">
+        <div class="grid md:grid-cols-2 gap-12 mb-12">
           <div>
-            <div class="flex items-start mb-4">
-              <div class="section-divider flex-shrink-0"></div>
-              <div>
-                <h4 class="text-xl font-bold text-white mb-3">The Challenge</h4>
-                <p class="text-gray-300 leading-relaxed mb-3"><%= @featured_case_study.challenge_summary %></p>
-                <% if @featured_case_study.challenge_details %>
-                  <p class="text-gray-400 text-sm"><%= simple_format(@featured_case_study.challenge_details, class: "mb-2") %></p>
-                <% end %>
-              </div>
-            </div>
+            <div class="border-l-4 border-primary pl-8 mb-4"></div>
+            <h4 class="text-2xl font-bold text-white mb-4">The Challenge</h4>
+            <p class="text-gray-300 leading-relaxed mb-4 font-light"><%= @featured_case_study.challenge_summary %></p>
+            <% if @featured_case_study.challenge_details %>
+              <p class="text-gray-400 text-sm font-light"><%= simple_format(@featured_case_study.challenge_details, class: "mb-2") %></p>
+            <% end %>
           </div>
 
           <div>
-            <div class="flex items-start mb-4">
-              <div class="section-divider flex-shrink-0"></div>
-              <div>
-                <h4 class="text-xl font-bold text-white mb-3">The Solution</h4>
-                <% if @featured_case_study.solution %>
-                  <p class="text-gray-300 leading-relaxed"><%= simple_format(@featured_case_study.solution, class: "mb-2") %></p>
-                <% end %>
-              </div>
-            </div>
+            <div class="border-l-4 border-primary pl-8 mb-4"></div>
+            <h4 class="text-2xl font-bold text-white mb-4">The Solution</h4>
+            <% if @featured_case_study.solution %>
+              <p class="text-gray-300 leading-relaxed font-light"><%= simple_format(@featured_case_study.solution, class: "mb-2") %></p>
+            <% end %>
           </div>
         </div>
 
         <!-- Results -->
-        <div class="border-t border-gray-800 pt-8">
-          <div class="flex items-start mb-6">
-            <div class="section-divider flex-shrink-0"></div>
-            <div class="flex-1">
-              <h4 class="text-xl font-bold text-white mb-3">The Results</h4>
-              <% if @featured_case_study.results %>
-                <p class="text-gray-300 mb-6 leading-relaxed"><%= @featured_case_study.results %></p>
-              <% end %>
+        <div class="border-t border-gray-700 pt-12">
+          <div class="border-l-4 border-primary pl-8 mb-4"></div>
+          <h4 class="text-2xl font-bold text-white mb-6">The Results</h4>
+          <% if @featured_case_study.results %>
+            <p class="text-gray-300 mb-8 leading-relaxed font-light"><%= @featured_case_study.results %></p>
+          <% end %>
 
-              <% if @featured_case_study.metrics %>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                  <% @featured_case_study.metrics.each do |key, value| %>
-                    <div class="metric-card">
-                      <div class="metric-value"><%= value %></div>
-                      <div class="metric-label"><%= key %></div>
-                    </div>
-                  <% end %>
+          <% if @featured_case_study.metrics %>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <% @featured_case_study.metrics.each do |key, value| %>
+                <div class="metric-card">
+                  <div class="metric-value"><%= value %></div>
+                  <div class="metric-label"><%= key %></div>
                 </div>
               <% end %>
             </div>
-          </div>
+          <% end %>
         </div>
 
         <!-- Testimonial -->
         <% if @featured_case_study.testimonial_quote %>
-          <div class="border-t border-gray-800 pt-8">
-            <div class="flex items-start">
-              <div class="w-1 bg-accent h-auto mr-6"></div>
+          <div class="border-t border-gray-700 pt-12 mt-12">
+            <div class="flex items-start gap-8">
+              <div class="w-2 bg-accent h-24 shrink-0"></div>
               <blockquote class="flex-1">
-                <p class="text-xl text-gray-300 italic mb-4">
+                <p class="text-2xl text-gray-300 mb-6 font-light leading-relaxed">
                   "<%= @featured_case_study.testimonial_quote %>"
                 </p>
                 <cite class="not-italic">
                   <div class="font-bold text-white"><%= @featured_case_study.testimonial_author %></div>
-                  <div class="text-gray-400 text-sm"><%= @featured_case_study.testimonial_role %></div>
+                  <div class="text-gray-400 text-sm uppercase tracking-wider"><%= @featured_case_study.testimonial_role %></div>
                 </cite>
               </blockquote>
             </div>
@@ -253,25 +222,25 @@
         <% end %>
       </div>
 
-      <div class="text-center mt-12">
+      <div class="text-center mt-16">
         <%= link_to "View All Case Studies →", case_studies_path,
-            class: "text-lg font-semibold text-accent hover:text-primary-dark transition-base" %>
+            class: "text-sm font-semibold text-accent hover:text-primary-dark transition-base uppercase tracking-wider" %>
       </div>
     <% end %>
   </div>
 </section>
 
-<!-- CTA Section -->
-<section class="section-spacing-lg bg-dark">
-  <div class="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-    <h2 class="text-hero mb-6">
+<!-- CTA Section - Modern Studio -->
+<section class="section-spacing-lg bg-dark-lighter">
+  <div class="container mx-auto max-w-4xl px-8 lg:px-16 text-center">
+    <h2 class="text-hero mb-8">
       Ready to ship faster?
     </h2>
-    <p class="text-xl mb-8 max-w-2xl mx-auto">
+    <p class="text-xl mb-12 max-w-2xl mx-auto font-light text-gray-300 leading-relaxed">
       Get a free technical health check. I'll identify quick wins and opportunities to accelerate your product development.
     </p>
-    <%= link_to "Get Your Free Health Check →", new_health_check_path,
-        class: "btn-primary inline-flex items-center justify-center text-xl px-12 py-5",
+    <%= link_to "Get Your Free Health Check", new_health_check_path,
+        class: "btn-primary inline-flex items-center justify-center",
         data: { turbo_frame: "modal" } %>
   </div>
 </section>

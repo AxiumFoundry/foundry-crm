@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cat:*)",
+      "Bash(bundle install:*)",
+      "Bash(bin/rails generate:*)",
+      "Bash(bin/rails db:create:*)",
+      "Bash(ruby -v:*)",
+      "Bash(rails -v:*)",
+      "Bash(bin/rails db:reset:*)",
+      "Bash(git remote add:*)",
+      "Bash(git add:*)",
+      "Bash(convert:*)",
+      "Bash(ls:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(bin/rails db:seed:*)",
+      "Bash(bin/rails runner:*)",
+      "Bash(pkill:*)",
+      "Bash(bin/rails:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
