@@ -55,18 +55,18 @@ CaseStudy.create!(
 # Create RideMentor case study
 CaseStudy.create!(
   client_name: "RideMentor",
-  industry: "Marketplace & EdTech",
-  challenge_summary: "Building a two-sided marketplace iOS app as a solo developer without a mobile engineering background",
-  challenge_details: "As a solo founder, I needed to build a complex two-sided marketplace connecting motorcycle riders with experienced mentors. The challenge wasn't just building the web app—I needed a native iOS experience without hiring a mobile team or learning Swift. The app required real-time features, complex matching logic, payment processing, and had to feel native on iOS while sharing 100% of the business logic with the web platform.",
-  solution: "Leveraged Rails 8 with Hotwire and Turbo Native to build once, deploy everywhere. Built the entire backend and business logic in Rails, used Turbo to create real-time interactions without JavaScript frameworks, and wrapped the entire experience in Turbo Native for iOS. This allowed me to ship a native iOS app to the App Store as a solo Rails developer—no Swift, no separate mobile codebase, no mobile team required.",
-  results: "Successfully launched both web and native iOS applications as a single developer. The Rails monolith powers both platforms with zero code duplication. Deployed to the iOS App Store and achieved feature parity between web and mobile with a fraction of the typical development time and cost.",
+  industry: "Local Services",
+  challenge_summary: "Building a full-featured motorcycle services marketplace with native iOS app as a solo developer",
+  challenge_details: "As a solo founder, I set out to build the #1 hub for motorcycle riders to find trusted service providers across 8 categories: storage, mechanics, detailing, mentoring, gear, training, towing, and insurance. The platform needed a complete booking system, provider subscriptions (Stripe + Apple IAP), business claim verification, admin moderation workflows, and a native iOS app—all without hiring a team or learning Swift.",
+  solution: "Built a comprehensive two-sided marketplace using Rails 8 with Hotwire and Turbo Native. The platform features real-time booking management, multi-channel notifications (in-app, push, email), Stripe and Apple In-App Purchase payment processing, a business claim system with document verification, duplicate detection with fuzzy matching, and full admin tools for moderation. Wrapped the entire experience in Hotwire Native to ship a native iOS app to the App Store—100% shared codebase, zero Swift code.",
+  results: "Launched a production marketplace at ridementor.com with native iOS app on the App Store. The platform supports provider subscriptions ($79/month unlimited plan), processes bookings across 8 service categories, and includes complete admin tooling for approval workflows, review moderation, and marketing campaigns. Deployed via Kamal with automated PostgreSQL backups to S3.",
   metrics: {
     "Team size" => "Solo developer",
+    "Service categories" => "8",
     "Platforms shipped" => "Web + iOS",
-    "Shared codebase" => "100%",
-    "Time to App Store" => "6 months"
+    "Test coverage" => "1,239+ tests"
   },
-  testimonial_quote: "Building RideMentor solo taught me that with the right stack-Rails, Hotwire, and Turbo Native-you don't need a full team to ship sophisticated multi-platform applications. This is the power I bring to every client engagement.",
+  testimonial_quote: "Building RideMentor solo proved that with Rails 8, Hotwire, and Turbo Native, a single developer can ship a sophisticated multi-platform marketplace. This is the power I bring to every client engagement.",
   testimonial_author: "Dmitry Sychev",
   testimonial_role: "Founder, Axium Foundry & RideMentor",
   featured: true,

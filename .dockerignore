@@ -49,3 +49,5 @@
 # Ignore Docker-related files
 /.dockerignore
 /Dockerfile*
+
+.claude/settings.local.json
