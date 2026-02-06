@@ -1,4 +1,4 @@
-name: "axium_foundry"
+name: "axium_foundry_landing"
 
 services:
   rails-app:

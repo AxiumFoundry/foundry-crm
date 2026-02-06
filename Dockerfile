@@ -2,8 +2,8 @@
 # check=error=true
 
 # This Dockerfile is designed for production, not development. Use with Kamal or build'n'run by hand:
-# docker build -t axium_foundry .
-# docker run -d -p 80:80 -e RAILS_MASTER_KEY=<value from config/master.key> --name axium_foundry axium_foundry
+# docker build -t axium_foundry_landing .
+# docker run -d -p 80:80 -e RAILS_MASTER_KEY=<value from config/master.key> --name axium_foundry_landing axium_foundry_landing
 
 # For a containerized dev environment, see Dev Containers: https://guides.rubyonrails.org/getting_started_with_devcontainer.html
 
