@@ -16,7 +16,6 @@
     "HONEYBADGER_PERSONAL_AUTH_TOKEN": "${localEnv:HONEYBADGER_PERSONAL_AUTH_TOKEN}",
     "SELENIUM_HOST": "selenium",
     "DB_HOST": "postgres",
-    "SSH_AUTH_SOCK": "/ssh-agent"
   },
   "forwardPorts": [3000, 5432, 11434],
   "mounts": [
