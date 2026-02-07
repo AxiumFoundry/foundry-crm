@@ -7,6 +7,10 @@
     {
       "fingerprint": "6b967b7268172ea91c638eea7f9f3ceed5ad5e6f2f5a9da97816922e6d2f29c7",
       "note": "website_url is validated to only allow http/https URLs"
+    },
+    {
+      "fingerprint": "a6e2c6bf348eb0f9effc5d91c9f330b520aba5129ef476af57a5e4f3e0ff1e56",
+      "note": "website_url is validated to only allow http/https URLs"
     }
   ],
   "updated": "2026-02-07",

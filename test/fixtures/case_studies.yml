@@ -1,7 +1,16 @@
 one:
   client_name: Acme Corp
   slug: acme-corp
+  industry: FinTech
+  challenge_summary: Legacy payment system needed modernization
+  published: true
+  featured: true
+  position: 1
 
 two:
   client_name: Globex Inc
   slug: globex-inc
+  industry: HealthTech
+  challenge_summary: Scaling issues with growing user base
+  published: false
+  position: 2
