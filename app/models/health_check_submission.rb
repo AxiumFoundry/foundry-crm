@@ -3,8 +3,8 @@ class HealthCheckSubmission < ApplicationRecord
   validates :contact_name, presence: true
   validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
 
-  scope :pending, -> { where(status: 'pending') }
-  scope :scheduled, -> { where(status: 'scheduled') }
+  scope :pending, -> { where(status: "pending") }
+  scope :scheduled, -> { where(status: "scheduled") }
 
   after_create :send_confirmation_email
   after_create :notify_admin

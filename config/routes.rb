@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root "pages#home"
 
-  resources :case_studies, only: [:index, :show]
-  resources :health_checks, only: [:new, :create]
+  resources :case_studies, only: [ :index, :show ]
+  resources :health_checks, only: [ :new, :create ]
 
   # Capability pages
   get "capabilities/ship-faster", to: "capabilities#ship_faster", as: :ship_faster

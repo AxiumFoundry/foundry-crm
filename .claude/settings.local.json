@@ -17,7 +17,12 @@
       "Bash(bin/rails db:seed:*)",
       "Bash(bin/rails runner:*)",
       "Bash(pkill:*)",
-      "Bash(bin/rails:*)"
+      "Bash(bin/rails:*)",
+      "Bash(docker volume ls:*)",
+      "Bash(docker volume rm:*)",
+      "Bash(docker ps:*)",
+      "Bash(docker exec:*)",
+      "Bash(git checkout:*)"
     ],
     "deny": [],
     "ask": []
