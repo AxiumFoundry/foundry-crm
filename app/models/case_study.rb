@@ -8,6 +8,7 @@ class CaseStudy < ApplicationRecord
 
   validates :client_name, presence: true
   validates :challenge_summary, presence: true, length: { maximum: 200 }
+  validates :website_url, format: { with: /\Ahttps?:\/\/\S+\z/, message: "must be a valid http:// or https:// URL" }, allow_blank: true
 
   def metrics_display
     metrics&.map { |k, v| "#{k}: #{v}" }&.join(", ")

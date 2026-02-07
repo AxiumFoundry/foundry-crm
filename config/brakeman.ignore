@@ -1,0 +1,14 @@
+{
+  "ignored_warnings": [
+    {
+      "fingerprint": "10093a572539eff39eb775e8d58a77fb009bfb9aad971991266ea8d17c72120f",
+      "note": "website_url is validated to only allow http/https URLs"
+    },
+    {
+      "fingerprint": "6b967b7268172ea91c638eea7f9f3ceed5ad5e6f2f5a9da97816922e6d2f29c7",
+      "note": "website_url is validated to only allow http/https URLs"
+    }
+  ],
+  "updated": "2026-02-07",
+  "brakeman_version": "8.0.2"
+}
