@@ -83,11 +83,41 @@ See [app/controllers/CLAUDE.md](app/controllers/CLAUDE.md) for patterns.
 
 ## Git Workflow
 
+### Pre-commit Hook
+
+```bash
+# One-time setup
+git config core.hooksPath .githooks
+```
+
+**Automatic checks on commit:**
+- RuboCop (when Ruby/YAML files changed, lints all files for consistency)
+- Full test suite (`bin/rails test --fail-fast`)
+- System tests (`bin/rails test:system --fail-fast`)
+
+**What triggers checks:**
+- Code files: `.rb`, `.rake`, `.erb`, `.js`, `.jsx`, `.ts`, `.tsx`, `.gemspec`
+- Config files: `.yml`, `.yaml`
+
+Skips all checks for documentation-only commits (*.md, *.txt, etc).
+
+**Smart environment detection:**
+- Runs directly when committing from inside devcontainer
+- Uses `docker exec` when committing from host machine
+
+If checks fail:
+```bash
+bundle exec rubocop -A  # Auto-fix RuboCop violations
+rails test              # Fix failing tests
+```
+
+### Workflow
+
 ```bash
 git checkout -b feature/name
 # make changes
 git add .
-git commit -m "Add feature: description"
+git commit -m "Add feature: description"  # Runs pre-commit checks automatically
 git push origin feature/name
 ```
 
