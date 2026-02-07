@@ -38,7 +38,9 @@
 
     <!-- Bottom Bar -->
     <div class="pt-8 border-t border-gray-700 flex flex-col sm:flex-row justify-between items-center gap-4">
-      <p class="text-xs text-gray-500 uppercase tracking-wider">&copy; <%= Time.current.year %> Axium Foundry. All rights reserved.</p>
+      <p class="text-xs text-gray-500 uppercase tracking-wider"
+         data-controller="secret-login"
+         data-action="click->secret-login#handleClick">&copy; <%= Time.current.year %> Axium Foundry. All rights reserved.</p>
       <p class="text-xs text-gray-500 uppercase tracking-wider">Built with Rails 8 & Hotwire</p>
     </div>
   </div>

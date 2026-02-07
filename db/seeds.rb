@@ -107,4 +107,9 @@ technologies.each do |tech|
   end
 end
 
+User.find_or_create_by!(email: "admin@axiumfoundry.com") do |user|
+  user.password = "changeme123"
+  user.password_confirmation = "changeme123"
+end
+
 puts "Seed data created successfully!"

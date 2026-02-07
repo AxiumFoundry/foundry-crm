@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root "pages#home"
 
+  resource :session, only: [ :new, :create, :destroy ]
+  get "login", to: "sessions#new", as: :login
+
   resources :case_studies, only: [ :index, :show ]
   resources :health_checks, only: [ :new, :create ]
 
