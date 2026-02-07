@@ -1,0 +1,21 @@
+<div id="chat-form" class="border-t border-gray-700 p-3 shrink-0">
+  <%= form_with url: chat_messages_path, method: :post, data: { turbo_stream: true, action: "submit->chat-widget#submitMessage" } do |f| %>
+    <div class="flex gap-2">
+      <%= f.text_field :content,
+          data: { chat_widget_target: "input" },
+          placeholder: "Type your message...",
+          autocomplete: "off",
+          class: "flex-1 bg-navy border border-gray-700 rounded px-3 py-2 text-cream text-sm placeholder-gray-500 focus:border-accent focus:outline-none transition-base" %>
+      <%= f.submit "Send",
+          class: "bg-accent hover:bg-primary-dark text-cream text-sm font-semibold px-4 py-2 rounded transition-base cursor-pointer" %>
+    </div>
+  <% end %>
+  <% if show_human_request %>
+    <div class="mt-2 text-center">
+      <%= button_to "Talk to a human",
+          chat_human_requests_path,
+          class: "text-xs text-gray-500 hover:text-accent underline transition-base",
+          data: { turbo_stream: true } %>
+    </div>
+  <% end %>
+</div>

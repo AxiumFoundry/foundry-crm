@@ -22,6 +22,7 @@ if [ -n "$BWS_ACCESS_TOKEN" ] && command -v bws >/dev/null 2>&1; then
   echo '[ -n "$AXIUM_FOUNDRY_RAILS_MASTER_KEY" ] && export RAILS_MASTER_KEY="$AXIUM_FOUNDRY_RAILS_MASTER_KEY"' >> "$BWS_ENV_FILE"
   echo '[ -n "$AXIUM_FOUNDRY_HONEYBADGER_API_KEY" ] && export HONEYBADGER_API_KEY="$AXIUM_FOUNDRY_HONEYBADGER_API_KEY"' >> "$BWS_ENV_FILE"
   echo '[ -n "$AXIUM_FOUNDRY_BREVO_SMTP_KEY" ] && export BREVO_SMTP_KEY="$AXIUM_FOUNDRY_BREVO_SMTP_KEY"' >> "$BWS_ENV_FILE"
+  echo '[ -n "$AXIUM_FOUNDRY_OPENAI_API_KEY" ] && export OPENAI_API_KEY="$AXIUM_FOUNDRY_OPENAI_API_KEY"' >> "$BWS_ENV_FILE"
 
   # Copy to the standard location
   cp "$BWS_ENV_FILE" /tmp/bws-env.sh

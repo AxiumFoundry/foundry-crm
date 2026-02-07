@@ -1,0 +1,25 @@
+<% if @new_conversation %>
+  <%= turbo_stream.update "chat-stream" do %>
+    <%= turbo_stream_from @conversation %>
+  <% end %>
+<% end %>
+
+<%= turbo_stream.append "messages" do %>
+  <%= render "chat_messages/message", message: @message %>
+<% end %>
+
+<%= turbo_stream.append "messages" do %>
+  <div id="chat-loading" class="max-w-[85%]">
+    <div class="bg-navy-lighter rounded-lg rounded-tl-none px-3 py-2">
+      <div class="flex items-center gap-1">
+        <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0ms"></div>
+        <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 150ms"></div>
+        <div class="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 300ms"></div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<%= turbo_stream.replace "chat-form" do %>
+  <%= render "chat_messages/form", show_human_request: true %>
+<% end %>

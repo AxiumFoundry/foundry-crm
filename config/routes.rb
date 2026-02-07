@@ -6,7 +6,12 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :case_studies
+    resources :chat_conversations, only: [ :index, :show ]
+    resources :knowledge_documents, except: [ :show ]
   end
+
+  resources :chat_messages, only: [ :create ]
+  resources :chat_human_requests, only: [ :create ]
 
   resources :case_studies, only: [ :index, :show ]
   resources :health_checks, only: [ :new, :create ]

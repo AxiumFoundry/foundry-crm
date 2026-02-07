@@ -1,0 +1,27 @@
+<h2>Daily Chat Digest - <%= Date.current.strftime("%B %d, %Y") %></h2>
+
+<p><strong><%= @conversations.count %></strong> conversations, <strong><%= @total_messages %></strong> total messages in the last 24 hours.</p>
+
+<hr>
+
+<% @conversations.each do |conversation| %>
+  <h3>Conversation at <%= conversation.created_at.strftime("%l:%M %p") %></h3>
+  <p>
+    Messages: <%= conversation.chat_messages.count %> |
+    Status: <%= conversation.status %>
+    <%= " | Human requested" if conversation.wants_human? %>
+  </p>
+
+  <% conversation.chat_messages.ordered.limit(6).each do |message| %>
+    <p>
+      <strong><%= message.role == "user" ? "Visitor" : "AI" %>:</strong>
+      <%= truncate(message.content, length: 200) %>
+    </p>
+  <% end %>
+
+  <% if conversation.chat_messages.count > 6 %>
+    <p><em>... and <%= conversation.chat_messages.count - 6 %> more messages</em></p>
+  <% end %>
+
+  <hr>
+<% end %>

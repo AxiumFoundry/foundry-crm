@@ -1,0 +1,12 @@
+<h2>A chat visitor has requested to talk to a human</h2>
+
+<p>Conversation started: <%= @conversation.created_at.strftime("%B %d, %Y at %l:%M %p") %></p>
+
+<h3>Conversation Transcript</h3>
+
+<% @messages.each do |message| %>
+  <p>
+    <strong><%= message.role == "user" ? "Visitor" : "AI Assistant" %>:</strong>
+    <%= message.content %>
+  </p>
+<% end %>

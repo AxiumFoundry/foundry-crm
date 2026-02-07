@@ -1,0 +1,17 @@
+active_conversation:
+  session_id: "test-session-123"
+  status: "active"
+  last_activity_at: <%= Time.current.to_fs(:db) %>
+  wants_human: false
+
+inactive_conversation:
+  session_id: "test-session-456"
+  status: "inactive"
+  last_activity_at: <%= 2.hours.ago.to_fs(:db) %>
+  wants_human: false
+
+human_requested:
+  session_id: "test-session-789"
+  status: "active"
+  last_activity_at: <%= Time.current.to_fs(:db) %>
+  wants_human: true
