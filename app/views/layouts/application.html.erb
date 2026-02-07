@@ -44,13 +44,17 @@
   </head>
 
   <body class="h-full bg-navy text-cream">
+    <% if logged_in? %>
+      <%= render "layouts/admin_bar" %>
+    <% end %>
+
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MSMPJB9T"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
     <!-- Navigation - Swiss Minimal -->
-    <nav class="fixed w-full top-0 z-50 navbar-solid" data-controller="navbar">
+    <nav class="fixed w-full <%= logged_in? ? 'top-8' : 'top-0' %> z-50 navbar-solid" data-controller="navbar">
       <div class="container mx-auto max-w-7xl px-8 lg:px-16">
         <div class="flex justify-between items-center" style="height: 5rem;">
           <!-- Logo -->
@@ -93,7 +97,7 @@
     </nav>
 
     <!-- Flash Messages -->
-    <div class="fixed top-20 right-4 z-40 space-y-2 max-w-md">
+    <div class="fixed <%= logged_in? ? 'top-28' : 'top-20' %> right-4 z-40 space-y-2 max-w-md">
       <% if notice.present? %>
         <div class="bg-dark-card border-l-4 border-accent p-4 rounded-lg shadow-lg">
           <p class="text-accent font-medium"><%= notice %></p>
@@ -108,7 +112,7 @@
     </div>
 
     <!-- Main Content -->
-    <main class="pt-16">
+    <main class="<%= logged_in? ? 'pt-24' : 'pt-16' %>">
       <%= yield %>
     </main>
 

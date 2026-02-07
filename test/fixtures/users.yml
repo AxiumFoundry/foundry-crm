@@ -1,0 +1,3 @@
+admin:
+  email: admin@axiumfoundry.com
+  password_digest: <%= BCrypt::Password.create("password123") %>
