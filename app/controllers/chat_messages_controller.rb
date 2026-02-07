@@ -2,8 +2,8 @@ class ChatMessagesController < ApplicationController
   def create
     return head :unprocessable_entity if params[:content].blank?
 
-    @new_conversation = session[:chat_conversation_id].blank?
     @conversation = find_or_create_conversation
+    @new_conversation = session[:chat_conversation_id] != @conversation.id
     session[:chat_conversation_id] = @conversation.id
     @message = @conversation.chat_messages.create!(role: "user", content: params[:content])
     @conversation.touch_activity
