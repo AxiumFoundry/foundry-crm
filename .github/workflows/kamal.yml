@@ -52,6 +52,14 @@ jobs:
       - name: Install Kamal
         run: gem install kamal --no-document
 
+      - name: Install Bitwarden Secrets Manager CLI
+        run: |
+          BWS_VERSION="1.0.0"
+          BWS_ZIP="bws-x86_64-unknown-linux-gnu-${BWS_VERSION}.zip"
+          curl -sLO "https://github.com/bitwarden/sdk/releases/download/bws-v${BWS_VERSION}/${BWS_ZIP}"
+          unzip "${BWS_ZIP}"
+          sudo install -m 0755 bws /usr/local/bin/bws
+
       - name: Run Kamal command
         env:
           BWS_ACCESS_TOKEN: ${{ secrets.BWS_ACCESS_TOKEN }}
