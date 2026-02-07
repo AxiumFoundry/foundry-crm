@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_02_07_172750) do
+ActiveRecord::Schema[8.1].define(version: 2026_02_08_000004) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+  enable_extension "vector"
 
   create_table "case_studies", force: :cascade do |t|
     t.text "challenge_details"
@@ -35,6 +36,27 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_07_172750) do
     t.index ["featured"], name: "index_case_studies_on_featured"
     t.index ["published"], name: "index_case_studies_on_published"
     t.index ["slug"], name: "index_case_studies_on_slug", unique: true
+  end
+
+  create_table "chat_conversations", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "last_activity_at", null: false
+    t.string "session_id", null: false
+    t.string "status", default: "active", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "wants_human", default: false
+    t.index ["last_activity_at"], name: "index_chat_conversations_on_last_activity_at"
+    t.index ["session_id"], name: "index_chat_conversations_on_session_id"
+    t.index ["status"], name: "index_chat_conversations_on_status"
+  end
+
+  create_table "chat_messages", force: :cascade do |t|
+    t.bigint "chat_conversation_id", null: false
+    t.text "content", null: false
+    t.datetime "created_at", null: false
+    t.string "role", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chat_conversation_id"], name: "index_chat_messages_on_chat_conversation_id"
   end
 
   create_table "credentials", force: :cascade do |t|
@@ -71,6 +93,16 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_07_172750) do
     t.index ["status"], name: "index_health_check_submissions_on_status"
   end
 
+  create_table "knowledge_documents", force: :cascade do |t|
+    t.boolean "active", default: true
+    t.text "content", null: false
+    t.datetime "created_at", null: false
+    t.vector "embedding", limit: 1536
+    t.string "title", null: false
+    t.datetime "updated_at", null: false
+    t.index ["active"], name: "index_knowledge_documents_on_active"
+  end
+
   create_table "technologies", force: :cascade do |t|
     t.string "category"
     t.datetime "created_at", null: false
@@ -90,4 +122,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_07_172750) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
+
+  add_foreign_key "chat_messages", "chat_conversations"
 end

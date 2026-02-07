@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   # Changes to the importmap will invalidate the etag for HTML responses
   stale_when_importmap_changes
 
-  helper_method :current_user, :logged_in?
+  helper_method :current_user, :logged_in?, :current_chat_conversation
 
   private
 
@@ -15,6 +15,12 @@ class ApplicationController < ActionController::Base
 
   def logged_in?
     !!current_user
+  end
+
+  def current_chat_conversation
+    return unless session[:chat_conversation_id]
+
+    @current_chat_conversation ||= ChatConversation.find_by(id: session[:chat_conversation_id])
   end
 
   def require_authentication

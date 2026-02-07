@@ -1,0 +1,9 @@
+user_message:
+  chat_conversation: active_conversation
+  role: "user"
+  content: "What services does Axium Foundry offer?"
+
+assistant_message:
+  chat_conversation: active_conversation
+  role: "assistant"
+  content: "Axium Foundry offers technical consultancy services including fractional CTO, full-stack engineering, and AI integration."

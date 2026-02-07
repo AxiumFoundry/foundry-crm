@@ -117,5 +117,9 @@
     </main>
 
     <%= render "layouts/footer" %>
+
+    <% unless logged_in? %>
+      <%= render "shared/chat_widget" %>
+    <% end %>
   </body>
 </html>

@@ -1,0 +1,13 @@
+<div data-role="<%= message.role %>">
+  <% if message.role == "user" %>
+    <div class="flex justify-end">
+      <div class="max-w-[85%] bg-accent rounded-lg rounded-tr-none px-3 py-2">
+        <div class="text-cream text-sm"><%= message.content %></div>
+      </div>
+    </div>
+  <% else %>
+    <div class="max-w-[85%] bg-navy-lighter rounded-lg rounded-tl-none px-3 py-2">
+      <div class="text-cream text-sm [&>p]:mb-2 [&>p:last-child]:mb-0"><%= simple_format(message.content) %></div>
+    </div>
+  <% end %>
+</div>

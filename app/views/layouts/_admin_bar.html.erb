@@ -3,6 +3,8 @@
     <div class="flex items-center gap-4">
       <span class="text-xs font-semibold text-navy uppercase tracking-wider">Admin</span>
       <%= link_to "Case Studies", admin_case_studies_path, class: "text-xs font-semibold text-navy/70 hover:text-navy uppercase tracking-wider transition-base" %>
+      <%= link_to "Conversations", admin_chat_conversations_path, class: "text-xs font-semibold text-navy/70 hover:text-navy uppercase tracking-wider transition-base" %>
+      <%= link_to "Knowledge Base", admin_knowledge_documents_path, class: "text-xs font-semibold text-navy/70 hover:text-navy uppercase tracking-wider transition-base" %>
     </div>
     <%= button_to "Logout", session_path, method: :delete,
         class: "text-xs font-semibold text-navy hover:text-navy/70 uppercase tracking-wider transition-base" %>
