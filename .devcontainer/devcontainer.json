@@ -15,12 +15,9 @@
     "BWS_ACCESS_TOKEN": "${localEnv:BWS_ACCESS_TOKEN}",
     "HONEYBADGER_PERSONAL_AUTH_TOKEN": "${localEnv:HONEYBADGER_PERSONAL_AUTH_TOKEN}",
     "SELENIUM_HOST": "selenium",
-    "DB_HOST": "postgres",
+    "DB_HOST": "postgres"
   },
   "forwardPorts": [3000, 5432, 11434],
-  "mounts": [
-    "type=bind,source=/run/host-services/ssh-auth.sock,target=/ssh-agent"
-  ],
   "customizations": {
     "vscode": {
       "extensions": [

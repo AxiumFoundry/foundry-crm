@@ -7,13 +7,15 @@ services:
       dockerfile: .devcontainer/Dockerfile
 
     volumes:
-    - ../../axium-foundry-landing:/workspaces/axium-foundry-landing:cached
+    - ../..:/workspaces:cached
+    - ~/.gitconfig:/home/vscode/.gitconfig:ro
+    - ~/.ssh:/home/vscode/.ssh:ro
 
     # Overrides default command so things don't shut down after the process ends.
     command: sleep infinity
 
     # Uncomment the next line to use a non-root user for all processes.
-    # user: vscode
+    user: vscode
 
     # Use "forwardPorts" in **devcontainer.json** to forward an app port locally.
     # (Adding the "ports" property to this file will not forward from a Codespace.)
