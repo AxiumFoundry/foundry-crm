@@ -31,5 +31,5 @@
       ]
     }
   },
-  "postCreateCommand": ".devcontainer/setup-bws-env.sh && bin/setup --skip-server"
+  "postCreateCommand": ".devcontainer/setup-bws-env.sh; bin/setup --skip-server"
 }
