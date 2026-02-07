@@ -70,10 +70,10 @@
 
         <!-- Metrics -->
         <% if @case_study.metrics %>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-8" data-controller="metric-counter">
             <% @case_study.metrics.each do |key, value| %>
               <div class="metric-card">
-                <div class="metric-value"><%= value %></div>
+                <div class="metric-value" data-metric-counter-target="value"><%= value %></div>
                 <div class="metric-label"><%= key %></div>
               </div>
             <% end %>
@@ -85,7 +85,7 @@
       <% if @case_study.testimonial_quote %>
         <div class="border-t border-gray-700 pt-16 mt-16">
           <div class="flex items-start gap-8">
-            <div class="w-2 bg-accent h-32 shrink-0"></div>
+            <div class="w-2 bg-accent h-32 shrink-0" data-controller="parallax" data-parallax-speed-value="0.15"></div>
             <blockquote class="flex-1 min-w-0">
               <p class="text-2xl md:text-3xl text-gray-300 mb-8 font-light leading-relaxed">
                 "<%= @case_study.testimonial_quote %>"
