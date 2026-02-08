@@ -4,7 +4,7 @@ class ChatMailer < ApplicationMailer
     @messages = conversation.chat_messages.ordered
 
     mail(
-      to: "hello@axiumfoundry.com",
+      to: "dmitry.sychev@axiumfoundry.com",
       subject: "Chat Visitor Wants to Talk to a Human"
     )
   end
