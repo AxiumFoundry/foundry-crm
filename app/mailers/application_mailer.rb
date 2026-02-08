@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "dmitry.sychev@axiumfoundry.com"
+  default from: "Axium Foundry <hello@axiumfoundry.com>"
   layout "mailer"
 end
