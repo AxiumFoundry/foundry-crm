@@ -14,8 +14,8 @@
     <div class="mt-2 text-center">
       <%= button_to "Talk to a human",
           chat_human_requests_path,
-          class: "text-xs text-gray-500 hover:text-accent underline transition-base",
-          data: { turbo_stream: true } %>
+          class: "text-xs text-gray-500 hover:text-accent underline transition-base cursor-pointer",
+          form: { data: { turbo_stream: true } } %>
     </div>
   <% end %>
 </div>
