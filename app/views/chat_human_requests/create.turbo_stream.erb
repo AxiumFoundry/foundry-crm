@@ -1,7 +1,13 @@
 <%= turbo_stream.append "messages" do %>
   <div data-role="system" class="text-center py-2">
     <div class="inline-block bg-accent/10 border border-accent/30 rounded-lg px-4 py-2">
-      <p class="text-accent text-sm font-medium">Our team has been notified and will get back to you soon!</p>
+      <p class="text-accent text-sm font-medium">Thanks, <%= @conversation.contact_name %>! We'll reach out to you at <%= @conversation.contact_email %> soon.</p>
     </div>
+  </div>
+<% end %>
+
+<%= turbo_stream.replace "human-request-section" do %>
+  <div id="human-request-section" class="mt-2 text-center">
+    <p class="text-xs text-gray-500">Our team has been notified</p>
   </div>
 <% end %>

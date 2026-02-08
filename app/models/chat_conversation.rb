@@ -16,8 +16,8 @@ class ChatConversation < ApplicationRecord
     ChatMailer.conversation_transcript(self).deliver_later
   end
 
-  def request_human!
-    update!(wants_human: true)
+  def request_human!(contact_name:, contact_email:)
+    update!(wants_human: true, contact_name: contact_name, contact_email: contact_email)
     ChatMailer.human_contact_requested(self).deliver_later
   end
 end

@@ -11,11 +11,38 @@
     </div>
   <% end %>
   <% if show_human_request %>
-    <div class="mt-2 text-center">
-      <%= button_to "Talk to a human",
-          chat_human_requests_path,
-          class: "text-xs text-gray-500 hover:text-accent underline transition-base cursor-pointer",
-          form: { data: { turbo_stream: true } } %>
+    <div id="human-request-section" class="mt-2" data-controller="human-request-form">
+      <div class="text-center" data-human-request-form-target="toggle">
+        <button type="button" data-action="click->human-request-form#show"
+          class="text-xs text-gray-500 hover:text-accent underline transition-base cursor-pointer">
+          Talk to a human
+        </button>
+      </div>
+      <div class="hidden" data-human-request-form-target="form">
+        <%= form_with url: chat_human_requests_path, method: :post, data: { turbo_stream: true } do |f| %>
+          <p class="text-xs text-gray-400 mb-2 text-center">Leave your info and we'll get back to you:</p>
+          <div class="space-y-2">
+            <%= f.text_field :contact_name,
+                placeholder: "Your name",
+                required: true,
+                autocomplete: "name",
+                class: "w-full bg-navy border border-gray-700 rounded px-3 py-1.5 text-cream text-xs placeholder-gray-500 focus:border-accent focus:outline-none transition-base" %>
+            <%= f.email_field :contact_email,
+                placeholder: "Your email",
+                required: true,
+                autocomplete: "email",
+                class: "w-full bg-navy border border-gray-700 rounded px-3 py-1.5 text-cream text-xs placeholder-gray-500 focus:border-accent focus:outline-none transition-base" %>
+            <div class="flex gap-2">
+              <%= f.submit "Send",
+                  class: "flex-1 bg-accent hover:bg-primary-dark text-cream text-xs font-semibold px-3 py-1.5 rounded transition-base cursor-pointer" %>
+              <button type="button" data-action="click->human-request-form#hide"
+                class="text-xs text-gray-500 hover:text-gray-300 px-3 py-1.5 transition-base cursor-pointer">
+                Cancel
+              </button>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
   <% end %>
 </div>
