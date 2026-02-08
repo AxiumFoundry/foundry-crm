@@ -14,6 +14,6 @@ class GenerateAiResponseJob < ApplicationJob
     )
 
     Rails.logger.error("GenerateAiResponseJob failed for conversation #{conversation_id}: #{e.message}")
-    Honeybadger.notify(e) if defined?(Honeybadger)
+    Honeybadger.notify(e)
   end
 end

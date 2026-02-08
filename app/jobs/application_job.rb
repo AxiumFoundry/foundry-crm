@@ -1,7 +1,9 @@
 class ApplicationJob < ActiveJob::Base
-  # Automatically retry jobs that encountered a deadlock
-  # retry_on ActiveRecord::Deadlocked
-
-  # Most jobs are safe to ignore if the underlying records are no longer available
-  # discard_on ActiveJob::DeserializationError
+  before_perform do |job|
+    Honeybadger.context(
+      job_name: job.class.name,
+      job_id: job.job_id,
+      arguments: job.arguments
+    )
+  end
 end
