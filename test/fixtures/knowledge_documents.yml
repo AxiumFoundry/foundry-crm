@@ -1,6 +1,6 @@
 services_doc:
   title: "Axium Foundry Services"
-  content: "Axium Foundry provides technical consultancy for NYC startups including fractional CTO services, full-stack engineering, and AI integration."
+  content: "Axium Foundry provides technical consultancy for startups including fractional CTO services, full-stack engineering, and AI integration."
   active: true
 
 inactive_doc:
