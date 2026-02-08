@@ -25,6 +25,8 @@
     <meta name="description" content="Expert technical consultancy for ambitious NYC startups. Ship faster without hiring senior developers. Fractional CTO services, technical leadership, and engineering excellence.">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="honeybadger-api-key" content="<%= ENV['HONEYBADGER_API_KEY'] %>">
+    <meta name="honeybadger-revision" content="<%= ENV.fetch('GIT_REVISION') { `git rev-parse HEAD 2>/dev/null`.strip } %>">
 
     <%= yield :head %>
 
@@ -43,7 +45,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="h-full bg-navy text-cream">
+  <body class="h-full bg-navy text-cream" data-env="<%= Rails.env %>">
     <% if logged_in? %>
       <%= render "layouts/admin_bar" %>
     <% end %>
