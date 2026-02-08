@@ -42,9 +42,12 @@ class ChatConversationTest < ActiveSupport::TestCase
     assert_equal "inactive", conversation.reload.status
   end
 
-  test "request_human! sets flag" do
+  test "request_human! sets flag and contact info" do
     conversation = chat_conversations(:active_conversation)
-    conversation.request_human!
-    assert conversation.reload.wants_human?
+    conversation.request_human!(contact_name: "Jane Doe", contact_email: "jane@example.com")
+    conversation.reload
+    assert conversation.wants_human?
+    assert_equal "Jane Doe", conversation.contact_name
+    assert_equal "jane@example.com", conversation.contact_email
   end
 end

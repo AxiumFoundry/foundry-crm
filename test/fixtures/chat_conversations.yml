@@ -15,3 +15,5 @@ human_requested:
   status: "active"
   last_activity_at: <%= Time.current.to_fs(:db) %>
   wants_human: true
+  contact_name: "John Contact"
+  contact_email: "john@example.com"

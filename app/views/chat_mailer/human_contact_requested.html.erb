@@ -1,5 +1,9 @@
 <h2>A chat visitor has requested to talk to a human</h2>
 
+<h3>Contact Information</h3>
+<p><strong>Name:</strong> <%= @conversation.contact_name %></p>
+<p><strong>Email:</strong> <%= @conversation.contact_email %></p>
+
 <p>Conversation started: <%= @conversation.created_at.strftime("%B %d, %Y at %l:%M %p") %></p>
 
 <h3>Conversation Transcript</h3>
