@@ -59,6 +59,34 @@ namespace :case_studies do
       puts "RideMentor case study created!"
     end
 
+    # Atlas case study
+    if CaseStudy.exists?(client_name: "Atlas")
+      puts "Atlas case study already exists, skipping..."
+    else
+      puts "Creating Atlas case study..."
+      CaseStudy.create!(
+        client_name: "Atlas",
+        industry: "Aviation Operations",
+        challenge_summary: "A private aviation company needed a complete operations management platform to handle the full lifecycle of charter flights, from quoting through post-flight reporting",
+        challenge_details: "The client operated a growing private aviation charter business but was managing flight operations across disconnected spreadsheets, email threads, and paper-based workflows. They needed a unified platform to handle the entire trip lifecycle—quotes, contracts, invoices, itineraries, crew assignments, and post-flight reports—while supporting multiple aircraft, FBOs, and a growing team of agents. The system also needed a full CRM for managing client relationships, financial reporting for tracking revenue and margins, and the ability to generate professional PDF documents for every stage of the booking process.",
+        solution: "Designed and built a comprehensive operations management platform using Rails 8 with Hotwire and Tailwind CSS. The system manages 30+ interconnected models covering trips, aircraft, airports, FBOs, crew, companies, and contacts. Built a complete document generation pipeline using Prawn to produce professional PDFs for quotes, contracts, invoices, itineraries, booking forms, and post-flight reports. Integrated Mapbox for static maps and Selenium for automated map screenshots in itineraries. Implemented role-based access control with Devise and Pundit, full-text search with PG Search and Ransack, bulk CSV imports for data migration, and a finance hub with revenue, cost, and margin analytics. Shipped with dark/light theme support and deployed via Kamal.",
+        results: "Delivered a production-grade SaaS platform that replaced fragmented workflows with a single source of truth for all charter operations. The platform handles the complete trip lifecycle from initial quote through post-flight reporting, generates professional PDF documents on demand, and provides real-time financial visibility across all operations. The system supports multi-agent collaboration with role-based permissions, enabling the team to manage flights, clients, and finances from one unified interface.",
+        metrics: {
+          "Core models" => "30+",
+          "RESTful controllers" => "60+",
+          "PDF document types" => "7",
+          "Test coverage" => "Comprehensive"
+        },
+        testimonial_quote: "Atlas transformed how we run our charter operations. What used to take hours of back-and-forth across spreadsheets and email now happens in a single platform—from the first quote to the final invoice.",
+        testimonial_author: "Client",
+        testimonial_role: "Director of Operations",
+        featured: false,
+        published: true,
+        position: 3
+      )
+      puts "Atlas case study created!"
+    end
+
     puts "Case studies backfill complete!"
   end
 end
