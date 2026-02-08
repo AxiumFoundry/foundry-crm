@@ -17,10 +17,38 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v6
 
+      - name: Setup BWS CLI
+        uses: ./.github/actions/setup-bws
+
+      - name: Fetch secrets from BWS
+        id: bws_secrets
+        env:
+          BWS_ACCESS_TOKEN: ${{ secrets.BWS_ACCESS_TOKEN }}
+        run: |
+          BWS_JSON=$(bws secret list --output json)
+
+          SSH_KEY=$(echo "$BWS_JSON" | jq -r '.[] | select(.key == "SSH_PRIVATE_KEY_HETZNER") | .value')
+          if [ -z "$SSH_KEY" ]; then
+            echo "::error::SSH_PRIVATE_KEY_HETZNER not found in BWS"
+            exit 1
+          fi
+          echo "::add-mask::$SSH_KEY"
+          echo "private_key<<EOF_SSH_KEY" >> $GITHUB_OUTPUT
+          echo "$SSH_KEY" >> $GITHUB_OUTPUT
+          echo "EOF_SSH_KEY" >> $GITHUB_OUTPUT
+
+          REGISTRY_PASSWORD=$(echo "$BWS_JSON" | jq -r '.[] | select(.key == "KAMAL_REGISTRY_PASSWORD") | .value')
+          if [ -z "$REGISTRY_PASSWORD" ]; then
+            echo "::error::KAMAL_REGISTRY_PASSWORD not found in BWS"
+            exit 1
+          fi
+          echo "::add-mask::$REGISTRY_PASSWORD"
+          echo "registry_password=$REGISTRY_PASSWORD" >> $GITHUB_OUTPUT
+
       - name: Set up SSH
         uses: webfactory/ssh-agent@v0.9.1
         with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          ssh-private-key: ${{ steps.bws_secrets.outputs.private_key }}
 
       - name: Read server IP from deploy config
         id: deploy_ip
@@ -52,18 +80,10 @@ jobs:
       - name: Install Kamal
         run: gem install kamal --no-document
 
-      - name: Install Bitwarden Secrets Manager CLI
-        run: |
-          BWS_VERSION="1.0.0"
-          BWS_ZIP="bws-x86_64-unknown-linux-gnu-${BWS_VERSION}.zip"
-          curl -sLO "https://github.com/bitwarden/sdk/releases/download/bws-v${BWS_VERSION}/${BWS_ZIP}"
-          unzip "${BWS_ZIP}"
-          sudo install -m 0755 bws /usr/local/bin/bws
-
       - name: Run Kamal command
         env:
           BWS_ACCESS_TOKEN: ${{ secrets.BWS_ACCESS_TOKEN }}
-          KAMAL_REGISTRY_PASSWORD: ${{ secrets.KAMAL_REGISTRY_PASSWORD }}
+          KAMAL_REGISTRY_PASSWORD: ${{ steps.bws_secrets.outputs.registry_password }}
         run: |
           echo "Running: kamal ${{ inputs.command }}"
           kamal ${{ inputs.command }}
