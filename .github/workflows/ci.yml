@@ -5,13 +5,19 @@ on:
   push:
     branches: [ main ]
 
+concurrency:
+  group: ci-${{ github.ref_name }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
-  scan_ruby:
+  scan:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
@@ -20,21 +26,9 @@ jobs:
 
       - name: Scan for common Rails security vulnerabilities using static analysis
         run: bin/brakeman --no-pager
-      
+
       - name: Scan for known security vulnerabilities in gems used
         run: bin/bundler-audit
-      
-  scan_js:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v6
-
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true
 
       - name: Scan for security vulnerabilities in JavaScript dependencies
         run: bin/importmap audit
@@ -46,6 +40,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
@@ -78,18 +74,14 @@ jobs:
           - 5432:5432
         options: --health-cmd="pg_isready" --health-interval=10s --health-timeout=5s --health-retries=3
 
-      # redis:
-      #   image: valkey/valkey:8
-      #   ports:
-      #     - 6379:6379
-      #   options: --health-cmd "redis-cli ping" --health-interval 10s --health-timeout 5s --health-retries 5
-
     steps:
       - name: Install packages
         run: sudo apt-get update && sudo apt-get install --no-install-recommends -y libpq-dev
 
       - name: Checkout code
         uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
@@ -100,8 +92,6 @@ jobs:
         env:
           RAILS_ENV: test
           DATABASE_URL: postgres://postgres:postgres@localhost:5432
-          # RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
-          # REDIS_URL: redis://localhost:6379/0
         run: bin/rails db:test:prepare test
 
   system-test:
@@ -117,18 +107,14 @@ jobs:
           - 5432:5432
         options: --health-cmd="pg_isready" --health-interval=10s --health-timeout=5s --health-retries=3
 
-      # redis:
-      #   image: valkey/valkey:8
-      #   ports:
-      #     - 6379:6379
-      #   options: --health-cmd "redis-cli ping" --health-interval 10s --health-timeout 5s --health-retries 5
-
     steps:
       - name: Install packages
         run: sudo apt-get update && sudo apt-get install --no-install-recommends -y libpq-dev
 
       - name: Checkout code
         uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
@@ -139,8 +125,6 @@ jobs:
         env:
           RAILS_ENV: test
           DATABASE_URL: postgres://postgres:postgres@localhost:5432
-          # RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
-          # REDIS_URL: redis://localhost:6379/0
         run: bin/rails db:test:prepare test:system
 
       - name: Keep screenshots from failed system tests
@@ -151,87 +135,162 @@ jobs:
           path: ${{ github.workspace }}/tmp/screenshots
           if-no-files-found: ignore
 
-  deploy:
+  autofix_lint:
     runs-on: ubuntu-latest
-    needs: [scan_ruby, scan_js, lint, test, system-test]
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-
-    env:
-      DOCKER_BUILDKIT: 1
+    needs: [lint]
+    if: always() && needs.lint.result == 'failure' && github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+    concurrency:
+      group: autofix-${{ github.event.pull_request.number }}
+      cancel-in-progress: true
+    permissions:
+      contents: write
+      pull-requests: read
 
     steps:
-      - name: Checkout code
+      - name: Checkout PR branch
         uses: actions/checkout@v6
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
         with:
-          driver: docker-container
-
-      - name: Login to Docker Hub
-        uses: docker/login-action@v3
-        with:
-          username: dsychev
-          password: ${{ secrets.KAMAL_REGISTRY_PASSWORD }}
-
-      - name: Build and push Docker image
-        uses: docker/build-push-action@v6
-        with:
-          context: .
-          push: true
-          tags: |
-            dsychev/axium_foundry:latest
-            dsychev/axium_foundry:${{ github.sha }}
-          cache-from: type=gha,scope=axium_foundry-production
-          cache-to: type=gha,mode=max,scope=axium_foundry-production
-          build-args: |
-            RAILS_ENV=production
-
-      - name: Set up SSH
-        uses: webfactory/ssh-agent@v0.9.1
-        with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-      - name: Read server IP from deploy config
-        id: deploy_ip
-        run: |
-          IP=$(grep -Eo '([0-9]{1,3}\.){3}[0-9]{1,3}' config/deploy.yml | head -n 1 || true)
-          if [ -z "$IP" ]; then
-            echo "::error::Failed to extract server IP from config/deploy.yml. Ensure the file exists and contains a valid IP address."
-            exit 1
-          fi
-          echo "ip=$IP" >> "$GITHUB_OUTPUT"
-
-      - name: Add server to known hosts
-        run: |
-          IP="${{ steps.deploy_ip.outputs.ip }}"
-          if [ -z "$IP" ]; then
-            echo "::error::Server IP is empty; cannot add to known_hosts."
-            exit 1
-          fi
-          if ! ssh-keyscan -T 10 "$IP" >> ~/.ssh/known_hosts 2>/dev/null; then
-            echo "::error::Failed to fetch SSH host key for $IP (ssh-keyscan failed or timed out)."
-            exit 1
-          fi
+          ref: ${{ github.head_ref }}
+          fetch-depth: 1
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: .ruby-version
+          bundler-cache: true
 
-      - name: Install Kamal
-        run: gem install kamal --no-document
-
-      - name: Install Bitwarden Secrets Manager CLI
+      - name: Verify RuboCop fails
+        id: verify
         run: |
-          BWS_VERSION="1.0.0"
-          BWS_ZIP="bws-x86_64-unknown-linux-gnu-${BWS_VERSION}.zip"
-          curl -sLO "https://github.com/bitwarden/sdk/releases/download/bws-v${BWS_VERSION}/${BWS_ZIP}"
-          unzip "${BWS_ZIP}"
-          sudo install -m 0755 bws /usr/local/bin/bws
+          if bundle exec rubocop --format simple > /dev/null 2>&1; then
+            echo "rubocop_failed=false" >> $GITHUB_OUTPUT
+          else
+            echo "rubocop_failed=true" >> $GITHUB_OUTPUT
+          fi
 
-      - name: Deploy
+      - name: Set up Node.js
+        if: steps.verify.outputs.rubocop_failed == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+
+      - name: Install Claude Code
+        if: steps.verify.outputs.rubocop_failed == 'true'
+        run: npm install -g @anthropic-ai/claude-code@latest
+
+      - name: Auto-fix RuboCop violations
+        if: steps.verify.outputs.rubocop_failed == 'true'
+        timeout-minutes: 15
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          claude -p "Run 'bundle exec rubocop -a' to auto-correct what it can. Then run 'bundle exec rubocop' to check for remaining violations. For any remaining offenses, read the failing files and fix them manually. Do not add explanatory comments. Only add comments for non-obvious design decisions if absolutely necessary. Run 'bundle exec rubocop' again to confirm all violations are resolved." \
+            --allowedTools "Edit,Read,Bash(bundle exec rubocop*),Glob,Grep"
+
+      - name: Verify RuboCop passes after auto-fix
+        if: steps.verify.outputs.rubocop_failed == 'true'
+        run: bundle exec rubocop --format simple
+
+      - name: Commit and push fixes
+        if: steps.verify.outputs.rubocop_failed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet && git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git add -A
+            git commit -m "Auto-fix RuboCop violations
+
+          Co-Authored-By: Claude Code <noreply@anthropic.com>"
+            git push
+          fi
+
+  notify_checks_failed:
+    runs-on: ubuntu-latest
+    needs: [scan, lint, test, system-test]
+    if: failure() && github.event_name == 'push'
+
+    steps:
+      - name: Determine failed jobs
+        id: failed_jobs
+        run: |
+          FAILED=""
+          if [[ "${{ needs.scan.result }}" == "failure" ]]; then
+            FAILED="$FAILED\n- Security scan (Brakeman / bundler-audit / importmap audit)"
+          fi
+          if [[ "${{ needs.lint.result }}" == "failure" ]]; then
+            FAILED="$FAILED\n- RuboCop linting"
+          fi
+          if [[ "${{ needs.test.result }}" == "failure" ]]; then
+            FAILED="$FAILED\n- Test suite"
+          fi
+          if [[ "${{ needs.system-test.result }}" == "failure" ]]; then
+            FAILED="$FAILED\n- System tests"
+          fi
+          echo "jobs<<EOF" >> $GITHUB_OUTPUT
+          echo -e "$FAILED" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Checkout code
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+          sparse-checkout: .github/actions
+
+      - name: Setup BWS CLI
+        uses: ./.github/actions/setup-bws
+
+      - name: Fetch secrets from BWS
+        id: secrets
         env:
           BWS_ACCESS_TOKEN: ${{ secrets.BWS_ACCESS_TOKEN }}
-          KAMAL_REGISTRY_PASSWORD: ${{ secrets.KAMAL_REGISTRY_PASSWORD }}
-        run: kamal deploy
+        run: |
+          BWS_JSON=$(bws secret list --output json)
+          BWS_PREFIX=$(echo "${{ github.event.repository.name }}" | sed 's/-landing$//' | tr '-' '_' | tr '[:lower:]' '[:upper:]')
+
+          BREVO_SMTP_USERNAME=$(echo "$BWS_JSON" | jq -r '.[] | select(.key == "BREVO_SMTP_USERNAME") | .value')
+          if [ -z "$BREVO_SMTP_USERNAME" ]; then
+            echo "::error::BREVO_SMTP_USERNAME not found in BWS"
+            exit 1
+          fi
+          echo "brevo_smtp_username=$BREVO_SMTP_USERNAME" >> $GITHUB_OUTPUT
+
+          DEPLOY_NOTIFICATION_EMAIL=$(echo "$BWS_JSON" | jq -r '.[] | select(.key == "DEPLOY_NOTIFICATION_EMAIL") | .value')
+          if [ -z "$DEPLOY_NOTIFICATION_EMAIL" ]; then
+            echo "::error::DEPLOY_NOTIFICATION_EMAIL not found in BWS"
+            exit 1
+          fi
+          echo "deploy_notification_email=$DEPLOY_NOTIFICATION_EMAIL" >> $GITHUB_OUTPUT
+
+          BREVO_SMTP_KEY=$(echo "$BWS_JSON" | jq -r ".[] | select(.key == \"${BWS_PREFIX}_BREVO_SMTP_KEY\") | .value")
+          if [ -z "$BREVO_SMTP_KEY" ]; then
+            echo "::error::${BWS_PREFIX}_BREVO_SMTP_KEY not found in BWS"
+            exit 1
+          fi
+          echo "::add-mask::$BREVO_SMTP_KEY"
+          echo "brevo_smtp_key=$BREVO_SMTP_KEY" >> $GITHUB_OUTPUT
+
+      - name: Send failure notification
+        uses: dawidd6/action-send-mail@v9
+        continue-on-error: true
+        with:
+          server_address: smtp-relay.brevo.com
+          server_port: 587
+          username: ${{ steps.secrets.outputs.brevo_smtp_username }}
+          password: ${{ steps.secrets.outputs.brevo_smtp_key }}
+          subject: "[${{ github.event.repository.name }}] CI checks failed on ${{ github.ref_name }}"
+          to: ${{ steps.secrets.outputs.deploy_notification_email }}
+          from: Axium Foundry Deployments <notifications@axiumfoundry.com>
+          body: |
+            CI checks FAILED for ${{ github.event.repository.name }}
+
+            Branch: ${{ github.ref_name }}
+            Commit: ${{ github.sha }}
+            Author: ${{ github.actor }}
+            Message: ${{ github.event.head_commit.message }}
+
+            Failed checks:${{ steps.failed_jobs.outputs.jobs }}
+
+            View details: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+            Deployment has been skipped.
