@@ -5,7 +5,7 @@ class ChatMailerTest < ActionMailer::TestCase
     conversation = chat_conversations(:human_requested)
     email = ChatMailer.human_contact_requested(conversation)
 
-    assert_equal [ "hello@axiumfoundry.com" ], email.to
+    assert_equal [ "dmitry.sychev@axiumfoundry.com" ], email.to
     assert_equal "Chat Visitor Wants to Talk to a Human", email.subject
     assert_match "requested to talk to a human", email.body.encoded
     assert_match "John Contact", email.body.encoded
