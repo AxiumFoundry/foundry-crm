@@ -4,7 +4,7 @@ class HealthCheckMailer < ApplicationMailer
 
     mail(
       to: @submission.email,
-      subject: "Thank you for requesting a NYC Startup Health Check"
+      subject: "Thank you for requesting a Startup Health Check"
     )
   end
 end
