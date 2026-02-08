@@ -22,6 +22,7 @@ export default class extends Controller {
   openWidget() {
     this.windowTarget.classList.remove("scale-0", "opacity-0", "pointer-events-none")
     this.windowTarget.classList.add("scale-100", "opacity-100")
+    this.toggleTarget.classList.remove("animate-bounce")
     this.scrollToBottom()
     if (this.hasInputTarget) this.inputTarget.focus()
   }
@@ -29,6 +30,7 @@ export default class extends Controller {
   closeWidget() {
     this.windowTarget.classList.add("scale-0", "opacity-0", "pointer-events-none")
     this.windowTarget.classList.remove("scale-100", "opacity-100")
+    this.toggleTarget.classList.add("animate-bounce")
   }
 
   isOpen() {
