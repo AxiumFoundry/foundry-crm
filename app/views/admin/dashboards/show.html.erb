@@ -1,0 +1,86 @@
+<% content_for :page_title, "Dashboard" %>
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+  <div class="border border-gray-700 rounded-lg p-6">
+    <div class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Active Projects</div>
+    <div class="text-3xl font-bold text-white"><%= @active_projects_count %></div>
+  </div>
+  <div class="border border-gray-700 rounded-lg p-6">
+    <div class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Outstanding Invoices</div>
+    <div class="text-3xl font-bold text-white"><%= number_to_currency(@outstanding_total) %></div>
+  </div>
+  <div class="border border-gray-700 rounded-lg p-6">
+    <div class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Revenue This Month</div>
+    <div class="text-3xl font-bold text-white"><%= number_to_currency(@revenue_this_month) %></div>
+  </div>
+  <div class="border border-gray-700 rounded-lg p-6">
+    <div class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">New Leads</div>
+    <div class="text-3xl font-bold text-white"><%= @new_leads_count %></div>
+  </div>
+</div>
+
+<div class="grid md:grid-cols-3 gap-6">
+  <div class="border border-gray-700 rounded-lg p-6">
+    <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-4">Overdue Invoices</h3>
+    <% if @overdue_invoices.any? %>
+      <div class="space-y-3">
+        <% @overdue_invoices.each do |invoice| %>
+          <div class="flex justify-between items-center">
+            <div>
+              <%= link_to invoice.number, admin_invoice_path(invoice), class: "text-sm text-white hover:text-accent transition-base" %>
+              <div class="text-xs text-gray-500"><%= invoice.contact.full_name %></div>
+            </div>
+            <div class="text-right">
+              <div class="text-sm font-semibold text-red-400"><%= number_to_currency(invoice.total) %></div>
+              <div class="text-xs text-gray-500">Due <%= invoice.due_date.strftime("%b %d") %></div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <p class="text-sm text-gray-500">No overdue invoices.</p>
+    <% end %>
+  </div>
+
+  <div class="border border-gray-700 rounded-lg p-6">
+    <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-4">Upcoming Milestones</h3>
+    <% if @upcoming_milestones.any? %>
+      <div class="space-y-3">
+        <% @upcoming_milestones.each do |milestone| %>
+          <div class="flex justify-between items-center">
+            <div>
+              <div class="text-sm text-white"><%= milestone.name %></div>
+              <div class="text-xs text-gray-500">
+                <%= link_to milestone.project.name, admin_project_path(milestone.project), class: "hover:text-accent transition-base" %>
+              </div>
+            </div>
+            <div class="text-xs text-gray-400"><%= milestone.due_date.strftime("%b %d") %></div>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <p class="text-sm text-gray-500">No upcoming milestones.</p>
+    <% end %>
+  </div>
+
+  <div class="border border-gray-700 rounded-lg p-6">
+    <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-4">Recent Leads</h3>
+    <% if @recent_leads.any? %>
+      <div class="space-y-3">
+        <% @recent_leads.each do |contact| %>
+          <div class="flex justify-between items-center">
+            <div>
+              <%= link_to contact.full_name, admin_contact_path(contact), class: "text-sm text-white hover:text-accent transition-base" %>
+              <% if contact.company_name.present? %>
+                <div class="text-xs text-gray-500"><%= contact.company_name %></div>
+              <% end %>
+            </div>
+            <div class="text-xs text-gray-400"><%= contact.created_at.strftime("%b %d") %></div>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <p class="text-sm text-gray-500">No recent leads.</p>
+    <% end %>
+  </div>
+</div>

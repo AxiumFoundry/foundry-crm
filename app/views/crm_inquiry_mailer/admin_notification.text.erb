@@ -1,0 +1,10 @@
+New CRM Inquiry
+
+Company: <%= @inquiry.company_name %>
+Contact: <%= @inquiry.contact_name %>
+Email: <%= @inquiry.email %>
+<% if @inquiry.phone.present? %>Phone: <%= @inquiry.phone %><% end %>
+<% if @inquiry.message.present? %>
+Message:
+<%= @inquiry.message %>
+<% end %>

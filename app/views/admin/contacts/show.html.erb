@@ -1,0 +1,100 @@
+<% content_for :page_title, @contact.full_name %>
+
+<div class="mb-6">
+  <%= link_to admin_contacts_path, class: "inline-flex items-center text-sm text-gray-400 hover:text-white transition-base" do %>
+    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+    </svg>
+    Contacts
+  <% end %>
+</div>
+
+<div class="flex flex-col sm:flex-row justify-between items-start gap-4 mb-8">
+  <div>
+    <h2 class="text-2xl font-bold text-white mb-2"><%= @contact.full_name %></h2>
+    <div class="flex items-center gap-3">
+      <span class="inline-block px-2 py-1 text-xs font-semibold rounded
+        <%= case @contact.stage
+            when 'lead' then 'bg-blue-500/20 text-blue-400'
+            when 'prospect' then 'bg-yellow-500/20 text-yellow-400'
+            when 'client' then 'bg-green-500/20 text-green-400'
+            when 'inactive' then 'bg-gray-500/20 text-gray-400'
+            end %>">
+        <%= @contact.stage.capitalize %>
+      </span>
+      <% if @contact.source.present? %>
+        <span class="text-sm text-gray-500">via <%= @contact.source.humanize %></span>
+      <% end %>
+    </div>
+  </div>
+  <div class="flex gap-3">
+    <%= link_to "Edit", edit_admin_contact_path(@contact), class: "btn-primary text-sm py-2 px-4" %>
+    <%= button_to "Delete", admin_contact_path(@contact), method: :delete,
+        class: "btn-secondary text-sm py-2 px-4 text-red-400 border-red-400/30 hover:border-red-400",
+        data: { turbo_confirm: "Delete #{@contact.full_name}?" } %>
+  </div>
+</div>
+
+<div class="grid md:grid-cols-2 gap-8">
+  <div class="border border-gray-700 rounded-lg p-6 space-y-4">
+    <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Contact Info</h3>
+    <% if @contact.email.present? %>
+      <div>
+        <div class="text-xs text-gray-500 mb-1">Email</div>
+        <div class="text-white"><%= @contact.email %></div>
+      </div>
+    <% end %>
+    <% if @contact.phone.present? %>
+      <div>
+        <div class="text-xs text-gray-500 mb-1">Phone</div>
+        <div class="text-white"><%= @contact.phone %></div>
+      </div>
+    <% end %>
+    <% if @contact.company_name.present? %>
+      <div>
+        <div class="text-xs text-gray-500 mb-1">Company</div>
+        <div class="text-white"><%= @contact.company_name %></div>
+      </div>
+    <% end %>
+    <% if @contact.title.present? %>
+      <div>
+        <div class="text-xs text-gray-500 mb-1">Title</div>
+        <div class="text-white"><%= @contact.title %></div>
+      </div>
+    <% end %>
+    <% if @contact.website_url.present? %>
+      <div>
+        <div class="text-xs text-gray-500 mb-1">Website</div>
+        <div><%= link_to @contact.website_url, @contact.website_url, target: "_blank", class: "text-accent hover:text-primary-dark transition-base" %></div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="border border-gray-700 rounded-lg p-6 space-y-4">
+    <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Activity</h3>
+    <div>
+      <div class="text-xs text-gray-500 mb-1">Created</div>
+      <div class="text-white"><%= @contact.created_at.strftime("%B %d, %Y") %></div>
+    </div>
+    <% if @contact.last_contacted_at.present? %>
+      <div>
+        <div class="text-xs text-gray-500 mb-1">Last Contacted</div>
+        <div class="text-white"><%= @contact.last_contacted_at.strftime("%B %d, %Y") %></div>
+      </div>
+    <% end %>
+
+    <% if @contact.projects.any? %>
+      <div>
+        <div class="text-xs text-gray-500 mb-1">Projects</div>
+        <div class="text-white"><%= @contact.projects.count %></div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<% if @contact.notes.present? %>
+  <div class="mt-8 border border-gray-700 rounded-lg p-6">
+    <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-4">Notes</h3>
+    <div class="text-gray-300 leading-relaxed"><%= simple_format(@contact.notes) %></div>
+  </div>
+<% end %>

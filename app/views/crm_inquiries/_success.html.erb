@@ -1,0 +1,34 @@
+<div class="text-center py-12 animate-fade-in">
+  <div class="mb-8 flex justify-center">
+    <div class="w-20 h-20 bg-gradient-primary rounded-full flex items-center justify-center animate-scale">
+      <svg class="w-10 h-10 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+      </svg>
+    </div>
+  </div>
+
+  <h3 class="text-3xl font-black text-white mb-4">
+    Thank you, <span class="gradient-text"><%= inquiry.contact_name %></span>!
+  </h3>
+
+  <p class="text-lg text-gray-300 mb-6 max-w-md mx-auto leading-relaxed">
+    We've received your inquiry about Foundry CRM managed hosting. I'll review it and reach out within 24 hours to get you set up.
+  </p>
+
+  <div class="glass rounded-2xl p-6 mb-8 max-w-md mx-auto">
+    <div class="flex items-center justify-center mb-3">
+      <svg class="w-5 h-5 text-green-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+      </svg>
+      <span class="text-sm font-bold text-gray-400 uppercase tracking-wide">Check Your Email</span>
+    </div>
+    <p class="text-gray-300">
+      Confirmation sent to<br>
+      <span class="font-bold text-green-400"><%= inquiry.email %></span>
+    </p>
+  </div>
+
+  <%= link_to "Close", root_path,
+      data: { turbo_frame: "_top" },
+      class: "inline-block px-8 py-4 bg-gradient-primary text-gray-900 font-black rounded-xl hover:shadow-2xl hover:shadow-green-500/50 transition-all btn-glow" %>
+</div>

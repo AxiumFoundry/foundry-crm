@@ -1,0 +1,50 @@
+<div id="chat-form" class="border-t border-gray-700 p-3 shrink-0" data-controller="human-request-form">
+  <div data-human-request-form-target="chatForm">
+    <%= form_with url: chat_messages_path, method: :post, data: { turbo_stream: true, action: "submit->chat-widget#submitMessage" } do |f| %>
+      <div class="flex gap-2">
+        <%= f.text_field :content,
+            data: { chat_widget_target: "input" },
+            placeholder: "Type your message...",
+            autocomplete: "off",
+            class: "flex-1 bg-navy border border-gray-700 rounded px-3 py-2 text-cream text-sm placeholder-gray-500 focus:border-accent focus:outline-none transition-base" %>
+        <%= f.submit "Send",
+            class: "bg-accent hover:bg-primary-dark text-cream text-sm font-semibold px-4 py-2 rounded transition-base cursor-pointer" %>
+      </div>
+    <% end %>
+    <% if show_human_request %>
+      <div class="mt-2 text-center">
+        <button type="button" data-action="click->human-request-form#show"
+          class="text-xs text-gray-500 hover:text-accent underline transition-base cursor-pointer">
+          Talk to a human
+        </button>
+      </div>
+    <% end %>
+  </div>
+  <% if show_human_request %>
+    <div id="human-request-section" class="hidden" data-human-request-form-target="form">
+      <%= form_with url: chat_human_requests_path, method: :post, data: { turbo_stream: true } do |f| %>
+        <p class="text-xs text-gray-400 mb-2 text-center">Leave your info and we'll get back to you:</p>
+        <div class="space-y-2">
+          <%= f.text_field :contact_name,
+              placeholder: "Your name",
+              required: true,
+              autocomplete: "name",
+              class: "w-full bg-navy border border-gray-700 rounded px-3 py-1.5 text-cream text-xs placeholder-gray-500 focus:border-accent focus:outline-none transition-base" %>
+          <%= f.email_field :contact_email,
+              placeholder: "Your email",
+              required: true,
+              autocomplete: "email",
+              class: "w-full bg-navy border border-gray-700 rounded px-3 py-1.5 text-cream text-xs placeholder-gray-500 focus:border-accent focus:outline-none transition-base" %>
+          <div class="flex gap-2">
+            <%= f.submit "Send",
+                class: "flex-1 bg-accent hover:bg-primary-dark text-cream text-xs font-semibold px-3 py-1.5 rounded transition-base cursor-pointer" %>
+            <button type="button" data-action="click->human-request-form#hide"
+              class="text-xs text-gray-500 hover:text-gray-300 px-3 py-1.5 transition-base cursor-pointer">
+              Cancel
+            </button>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,6 @@
+default:
+  business_name: "Foundry CRM"
+  timezone: "America/New_York"
+  default_currency: "USD"
+  invoice_prefix: "INV"
+  invoice_next_number: 1001

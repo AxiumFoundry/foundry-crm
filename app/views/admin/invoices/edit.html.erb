@@ -1,0 +1,5 @@
+<% content_for :page_title, "Edit: #{@invoice.number}" %>
+
+<div class="max-w-4xl">
+  <%= render "form", url: admin_invoice_path(@invoice) %>
+</div>

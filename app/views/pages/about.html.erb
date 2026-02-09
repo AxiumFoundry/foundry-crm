@@ -1,0 +1,158 @@
+<!-- Hero Section -->
+<section class="relative min-h-[60vh] flex items-center bg-dark overflow-hidden">
+  <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+    <div class="max-w-4xl reveal-hidden" data-controller="scroll-reveal" data-scroll-reveal-root-value="true" data-scroll-reveal-threshold-value="0.1">
+      <%= link_to root_path, class: "inline-flex items-center text-accent hover:text-primary-dark font-semibold mb-8 transition-base group" do %>
+        <svg class="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-base" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        <%= site_text("about_back_link") %>
+      <% end %>
+
+      <h1 class="text-display mb-6">
+        <%= site_text("about_heading") %><br>
+        <%= site_text("about_heading_accent") %>
+      </h1>
+
+      <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl leading-relaxed">
+        <%= site_text("about_description") %>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- My Story Section -->
+<section class="section-spacing-md bg-dark-lighter">
+  <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="flex items-start">
+      <div class="section-divider flex-shrink-0 hidden md:block"></div>
+      <div class="flex-1 reveal-hidden" data-controller="scroll-reveal" data-scroll-reveal-root-value="true">
+        <h2 class="text-section mb-8"><%= site_text("about_story_heading") %></h2>
+
+        <div class="space-y-6 text-lg text-gray-300 leading-relaxed">
+          <p><%= site_text("about_story_p1") %></p>
+          <p><%= site_text("about_story_p2") %></p>
+          <p class="text-xl font-semibold text-white"><%= site_text("about_story_highlight") %></p>
+          <p><%= site_text("about_story_p3") %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How I Work Section -->
+<section class="section-spacing-md bg-dark">
+  <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="flex items-start">
+      <div class="section-divider flex-shrink-0 hidden md:block"></div>
+      <div class="flex-1">
+        <h2 class="text-section mb-8"><%= site_text("about_process_heading") %></h2>
+
+        <div class="space-y-8" data-controller="scroll-reveal" data-scroll-reveal-stagger-value="120">
+          <% (1..5).each do |i| %>
+            <div class="card-clean reveal-hidden" data-scroll-reveal-target="item">
+              <div class="flex items-start">
+                <div class="flex-shrink-0 w-12 h-12 bg-accent rounded-lg flex items-center justify-center mr-6">
+                  <span class="text-2xl font-bold text-dark"><%= i %></span>
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-2xl font-bold text-white mb-3"><%= site_text("about_process_#{i}_title") %></h3>
+                  <p class="text-gray-300 leading-relaxed"><%= site_text("about_process_#{i}_description") %></p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- My Philosophy Section -->
+<section class="section-spacing-md bg-dark-lighter">
+  <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="flex items-start">
+      <div class="section-divider flex-shrink-0 hidden md:block"></div>
+      <div class="flex-1">
+        <h2 class="text-section mb-8"><%= site_text("about_beliefs_heading") %></h2>
+
+        <div class="grid md:grid-cols-2 gap-8" data-controller="scroll-reveal" data-scroll-reveal-stagger-value="100">
+          <% (1..6).each do |i| %>
+            <div class="card-clean reveal-hidden" data-scroll-reveal-target="item">
+              <h3 class="text-xl font-bold text-white mb-3"><%= site_text("about_belief_#{i}_title") %></h3>
+              <p class="text-gray-300 leading-relaxed"><%= site_text("about_belief_#{i}_description") %></p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Technology Choices Section -->
+<section class="section-spacing-md bg-dark">
+  <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="flex items-start">
+      <div class="section-divider flex-shrink-0 hidden md:block"></div>
+      <div class="flex-1">
+        <h2 class="text-section mb-8"><%= site_text("about_tech_heading") %></h2>
+
+        <div class="space-y-6 text-lg text-gray-300 leading-relaxed mb-8">
+          <p><%= site_text("about_tech_rails") %></p>
+          <p><%= site_text("about_tech_hotwire") %></p>
+          <p><%= site_text("about_tech_turbo_native") %></p>
+          <p class="text-xl font-semibold text-white"><%= site_text("about_tech_highlight") %></p>
+        </div>
+
+        <div class="card-clean bg-dark-lighter">
+          <h3 class="text-xl font-bold text-white mb-3"><%= site_text("about_tech_alt_heading") %></h3>
+          <p class="text-gray-300 leading-relaxed"><%= site_text("about_tech_alt_description") %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Who This Is For Section -->
+<section class="section-spacing-md bg-dark-lighter">
+  <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="flex items-start">
+      <div class="section-divider flex-shrink-0 hidden md:block"></div>
+      <div class="flex-1">
+        <h2 class="text-section mb-8"><%= site_text("about_clients_heading") %></h2>
+
+        <div class="space-y-8" data-controller="scroll-reveal" data-scroll-reveal-stagger-value="120">
+          <% (1..4).each do |i| %>
+            <div class="card-clean reveal-hidden" data-scroll-reveal-target="item">
+              <h3 class="text-xl font-bold text-white mb-3"><%= site_text("about_client_#{i}_title") %></h3>
+              <p class="text-gray-300 leading-relaxed"><%= site_text("about_client_#{i}_description") %></p>
+            </div>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section-spacing-lg bg-dark">
+  <div class="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center reveal-hidden" data-controller="scroll-reveal" data-scroll-reveal-root-value="true">
+    <h2 class="text-hero mb-6">
+      <%= site_text("about_cta_heading") %>
+    </h2>
+    <p class="text-xl mb-8 max-w-2xl mx-auto">
+      <%= site_text("about_cta_description") %>
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <%= link_to site_text("about_cta_button"), new_health_check_path,
+          class: "btn-primary inline-flex items-center justify-center text-xl px-12 py-5",
+          data: { turbo_frame: "modal" } %>
+      <%= link_to site_text("about_cta_secondary"), case_studies_path,
+          class: "px-10 py-5 border-2 border-gray-700 text-white font-semibold rounded-lg hover:border-accent transition-base text-xl inline-flex items-center justify-center" %>
+    </div>
+  </div>
+</section>
+
+<!-- Modal Frame -->
+<%= turbo_frame_tag "modal" %>

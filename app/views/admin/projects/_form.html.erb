@@ -1,0 +1,83 @@
+<%= form_with model: @project, url: url, class: "space-y-6" do |f| %>
+  <% if @project.errors.any? %>
+    <div class="bg-red-500/10 border border-red-500/30 p-4 rounded-lg">
+      <ul class="list-disc list-inside text-red-300 text-sm space-y-1">
+        <% @project.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label :contact_id, "Client", class: "block text-xs font-semibold text-gray-300 mb-2 uppercase tracking-wider" %>
+    <%= f.collection_select :contact_id, Contact.order(:first_name), :id, :full_name,
+        { prompt: "Select client" },
+        class: "w-full px-4 py-3 bg-navy border border-gray-700 text-white focus:border-primary focus:outline-none rounded transition-base" %>
+  </div>
+
+  <div>
+    <%= f.label :name, class: "block text-xs font-semibold text-gray-300 mb-2 uppercase tracking-wider" %>
+    <%= f.text_field :name, required: true,
+        class: "w-full px-4 py-3 bg-transparent border border-gray-700 text-white placeholder-gray-500 focus:border-primary focus:outline-none rounded transition-base",
+        placeholder: "Project name" %>
+  </div>
+
+  <div>
+    <%= f.label :description, class: "block text-xs font-semibold text-gray-300 mb-2 uppercase tracking-wider" %>
+    <%= f.text_area :description, rows: 4,
+        class: "w-full px-4 py-3 bg-transparent border border-gray-700 text-white placeholder-gray-500 focus:border-primary focus:outline-none rounded transition-base resize-none",
+        placeholder: "Project description..." %>
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-6">
+    <div>
+      <%= f.label :status, class: "block text-xs font-semibold text-gray-300 mb-2 uppercase tracking-wider" %>
+      <%= f.select :status, Project::STATUSES.map { |s| [s.capitalize, s] },
+          {}, class: "w-full px-4 py-3 bg-navy border border-gray-700 text-white focus:border-primary focus:outline-none rounded transition-base" %>
+    </div>
+    <div>
+      <%= f.label :rate_type, class: "block text-xs font-semibold text-gray-300 mb-2 uppercase tracking-wider" %>
+      <%= f.select :rate_type, [["Hourly", "hourly"], ["Fixed", "fixed"], ["Monthly", "monthly"]],
+          { include_blank: "Select type" },
+          class: "w-full px-4 py-3 bg-navy border border-gray-700 text-white focus:border-primary focus:outline-none rounded transition-base" %>
+    </div>
+    <div>
+      <%= f.label :rate_amount, class: "block text-xs font-semibold text-gray-300 mb-2 uppercase tracking-wider" %>
+      <%= f.number_field :rate_amount, step: 0.01, min: 0,
+          class: "w-full px-4 py-3 bg-transparent border border-gray-700 text-white placeholder-gray-500 focus:border-primary focus:outline-none rounded transition-base",
+          placeholder: "0.00" %>
+    </div>
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-6">
+    <div>
+      <%= f.label :budget, class: "block text-xs font-semibold text-gray-300 mb-2 uppercase tracking-wider" %>
+      <%= f.number_field :budget, step: 0.01, min: 0,
+          class: "w-full px-4 py-3 bg-transparent border border-gray-700 text-white placeholder-gray-500 focus:border-primary focus:outline-none rounded transition-base",
+          placeholder: "0.00" %>
+    </div>
+    <div>
+      <%= f.label :start_date, class: "block text-xs font-semibold text-gray-300 mb-2 uppercase tracking-wider" %>
+      <%= f.date_field :start_date,
+          class: "w-full px-4 py-3 bg-transparent border border-gray-700 text-white focus:border-primary focus:outline-none rounded transition-base" %>
+    </div>
+    <div>
+      <%= f.label :end_date, class: "block text-xs font-semibold text-gray-300 mb-2 uppercase tracking-wider" %>
+      <%= f.date_field :end_date,
+          class: "w-full px-4 py-3 bg-transparent border border-gray-700 text-white focus:border-primary focus:outline-none rounded transition-base" %>
+    </div>
+  </div>
+
+  <div>
+    <%= f.label :notes, class: "block text-xs font-semibold text-gray-300 mb-2 uppercase tracking-wider" %>
+    <%= f.text_area :notes, rows: 3,
+        class: "w-full px-4 py-3 bg-transparent border border-gray-700 text-white placeholder-gray-500 focus:border-primary focus:outline-none rounded transition-base resize-none",
+        placeholder: "Internal notes..." %>
+  </div>
+
+  <div class="flex gap-4 pt-4">
+    <%= f.submit class: "btn-primary text-base py-3 px-6 cursor-pointer" %>
+    <%= link_to "Cancel", admin_projects_path, class: "btn-secondary text-base py-3 px-6" %>
+  </div>
+<% end %>

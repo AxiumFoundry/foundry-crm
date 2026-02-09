@@ -1,0 +1,9 @@
+services_doc:
+  title: "Our Services"
+  content: "We provide technical consultancy including fractional CTO services, full-stack engineering, and AI integration."
+  active: true
+
+inactive_doc:
+  title: "Old Document"
+  content: "This document is no longer active."
+  active: false

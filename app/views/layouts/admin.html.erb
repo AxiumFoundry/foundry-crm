@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+  <head>
+    <title><%= content_for(:title) || "Admin - Foundry CRM" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+
+    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body class="min-h-full bg-navy text-cream" data-controller="admin-sidebar">
+    <div class="flex min-h-screen">
+      <!-- Mobile overlay -->
+      <div data-admin-sidebar-target="overlay" class="hidden fixed inset-0 bg-black/50 z-40 lg:hidden" data-action="click->admin-sidebar#close"></div>
+
+      <%= render "layouts/admin/sidebar" %>
+
+      <div class="flex-1 lg:ml-64 min-h-screen bg-navy">
+        <header class="sticky top-0 z-30 bg-navy/95 backdrop-blur border-b border-gray-700/50 px-4 sm:px-8 py-4">
+          <div class="flex justify-between items-center">
+            <div class="flex items-center gap-4">
+              <button type="button" class="lg:hidden text-gray-400 hover:text-white transition-base" data-action="click->admin-sidebar#toggle">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+              </button>
+              <h1 class="text-lg font-semibold text-white"><%= yield :page_title %></h1>
+            </div>
+            <div class="flex items-center gap-4">
+              <%= link_to "View Site", root_path, target: "_blank", class: "hidden sm:inline text-sm text-gray-400 hover:text-white transition-base" %>
+              <%= button_to "Logout", session_path, method: :delete,
+                  class: "text-sm text-gray-400 hover:text-white transition-base" %>
+            </div>
+          </div>
+        </header>
+
+        <% if notice.present? %>
+          <div class="mx-4 sm:mx-8 mt-4 bg-green-500/10 border border-green-500/30 p-4 rounded-lg">
+            <p class="text-green-400 font-medium text-sm"><%= notice %></p>
+          </div>
+        <% end %>
+
+        <% if alert.present? %>
+          <div class="mx-4 sm:mx-8 mt-4 bg-red-500/10 border border-red-500/30 p-4 rounded-lg">
+            <p class="text-red-400 font-medium text-sm"><%= alert %></p>
+          </div>
+        <% end %>
+
+        <main class="p-4 sm:p-8">
+          <%= yield %>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

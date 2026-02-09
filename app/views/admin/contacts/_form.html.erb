@@ -1,0 +1,88 @@
+<%= form_with model: @contact, url: url, class: "space-y-6" do |f| %>
+  <% if @contact.errors.any? %>
+    <div class="bg-red-500/10 border border-red-500/30 p-4 rounded-lg">
+      <ul class="list-disc list-inside text-red-300 text-sm space-y-1">
+        <% @contact.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="grid md:grid-cols-2 gap-6">
+    <div>
+      <%= f.label :first_name, class: "block text-xs font-semibold text-gray-300 mb-2 uppercase tracking-wider" %>
+      <%= f.text_field :first_name, required: true,
+          class: "w-full px-4 py-3 bg-transparent border border-gray-700 text-white placeholder-gray-500 focus:border-primary focus:outline-none rounded transition-base",
+          placeholder: "First name" %>
+    </div>
+    <div>
+      <%= f.label :last_name, class: "block text-xs font-semibold text-gray-300 mb-2 uppercase tracking-wider" %>
+      <%= f.text_field :last_name,
+          class: "w-full px-4 py-3 bg-transparent border border-gray-700 text-white placeholder-gray-500 focus:border-primary focus:outline-none rounded transition-base",
+          placeholder: "Last name" %>
+    </div>
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-6">
+    <div>
+      <%= f.label :email, class: "block text-xs font-semibold text-gray-300 mb-2 uppercase tracking-wider" %>
+      <%= f.email_field :email,
+          class: "w-full px-4 py-3 bg-transparent border border-gray-700 text-white placeholder-gray-500 focus:border-primary focus:outline-none rounded transition-base",
+          placeholder: "email@example.com" %>
+    </div>
+    <div>
+      <%= f.label :phone, class: "block text-xs font-semibold text-gray-300 mb-2 uppercase tracking-wider" %>
+      <%= f.telephone_field :phone,
+          class: "w-full px-4 py-3 bg-transparent border border-gray-700 text-white placeholder-gray-500 focus:border-primary focus:outline-none rounded transition-base",
+          placeholder: "Phone number" %>
+    </div>
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-6">
+    <div>
+      <%= f.label :company_name, class: "block text-xs font-semibold text-gray-300 mb-2 uppercase tracking-wider" %>
+      <%= f.text_field :company_name,
+          class: "w-full px-4 py-3 bg-transparent border border-gray-700 text-white placeholder-gray-500 focus:border-primary focus:outline-none rounded transition-base",
+          placeholder: "Company" %>
+    </div>
+    <div>
+      <%= f.label :title, class: "block text-xs font-semibold text-gray-300 mb-2 uppercase tracking-wider" %>
+      <%= f.text_field :title,
+          class: "w-full px-4 py-3 bg-transparent border border-gray-700 text-white placeholder-gray-500 focus:border-primary focus:outline-none rounded transition-base",
+          placeholder: "Job title" %>
+    </div>
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-6">
+    <div>
+      <%= f.label :stage, class: "block text-xs font-semibold text-gray-300 mb-2 uppercase tracking-wider" %>
+      <%= f.select :stage, Contact::STAGES.map { |s| [s.capitalize, s] },
+          {}, class: "w-full px-4 py-3 bg-navy border border-gray-700 text-white focus:border-primary focus:outline-none rounded transition-base" %>
+    </div>
+    <div>
+      <%= f.label :source, class: "block text-xs font-semibold text-gray-300 mb-2 uppercase tracking-wider" %>
+      <%= f.select :source, Contact::SOURCES.map { |s| [s.humanize, s] },
+          { include_blank: "Select source" },
+          class: "w-full px-4 py-3 bg-navy border border-gray-700 text-white focus:border-primary focus:outline-none rounded transition-base" %>
+    </div>
+    <div>
+      <%= f.label :website_url, class: "block text-xs font-semibold text-gray-300 mb-2 uppercase tracking-wider" %>
+      <%= f.url_field :website_url,
+          class: "w-full px-4 py-3 bg-transparent border border-gray-700 text-white placeholder-gray-500 focus:border-primary focus:outline-none rounded transition-base",
+          placeholder: "https://example.com" %>
+    </div>
+  </div>
+
+  <div>
+    <%= f.label :notes, class: "block text-xs font-semibold text-gray-300 mb-2 uppercase tracking-wider" %>
+    <%= f.text_area :notes, rows: 4,
+        class: "w-full px-4 py-3 bg-transparent border border-gray-700 text-white placeholder-gray-500 focus:border-primary focus:outline-none rounded transition-base resize-none",
+        placeholder: "Notes about this contact..." %>
+  </div>
+
+  <div class="flex gap-4 pt-4">
+    <%= f.submit class: "btn-primary text-base py-3 px-6 cursor-pointer" %>
+    <%= link_to "Cancel", admin_contacts_path, class: "btn-secondary text-base py-3 px-6" %>
+  </div>
+<% end %>

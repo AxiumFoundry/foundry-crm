@@ -1,0 +1,159 @@
+<!-- Hero Section -->
+<section class="relative min-h-[60vh] flex items-center bg-dark overflow-hidden">
+  <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+    <div class="max-w-4xl">
+      <%= link_to root_path, class: "inline-flex items-center text-accent hover:text-primary-dark font-semibold mb-8 transition-base group" do %>
+        <svg class="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-base" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Back to Home
+      <% end %>
+
+      <h1 class="text-display mb-6">
+        Foundry CRM
+      </h1>
+
+      <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl leading-relaxed">
+        The CRM powering this site, built for solo consultants and small agencies. Contact management, project tracking, invoicing, and an AI-powered chat widget, all in one Rails app. Open source and ready to deploy.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4">
+        <%= link_to "View on GitHub", "https://github.com/AxiumFoundry/foundry-crm",
+            class: "btn-primary inline-flex items-center justify-center",
+            target: "_blank", rel: "noopener noreferrer" %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section class="section-spacing-md bg-dark-lighter">
+  <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="flex items-start mb-12">
+      <div class="section-divider flex-shrink-0 hidden md:block"></div>
+      <div class="flex-1">
+        <h2 class="text-section mb-6">Everything You Need</h2>
+        <p class="text-xl text-gray-300 mb-8">
+          Built from real consulting workflow. Every feature exists because I needed it myself.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="card-clean">
+        <div class="border-l-4 border-primary pl-8 mb-4"></div>
+        <h3 class="text-2xl font-bold text-white mb-3">Contact & Lead Management</h3>
+        <p class="text-gray-300 leading-relaxed mb-4">
+          Track contacts through pipeline stages from lead to active client. Log notes, record sources, and see full history at a glance. Health check form submissions create contacts automatically.
+        </p>
+        <p class="text-xs uppercase tracking-wider text-gray-500 font-semibold">
+          Stages · Sources · Notes · Health Check Integration
+        </p>
+      </div>
+
+      <div class="card-clean">
+        <div class="border-l-4 border-primary pl-8 mb-4"></div>
+        <h3 class="text-2xl font-bold text-white mb-3">Project & Milestone Tracking</h3>
+        <p class="text-gray-300 leading-relaxed mb-4">
+          Organize work into projects with status workflows, milestones, and deliverables. Track completion percentage and keep everything tied to the right contact.
+        </p>
+        <p class="text-xs uppercase tracking-wider text-gray-500 font-semibold">
+          Statuses · Milestones · Deliverables · Completion Tracking
+        </p>
+      </div>
+
+      <div class="card-clean">
+        <div class="border-l-4 border-primary pl-8 mb-4"></div>
+        <h3 class="text-2xl font-bold text-white mb-3">Invoicing & Estimates</h3>
+        <p class="text-gray-300 leading-relaxed mb-4">
+          Create invoices with line items, tax calculations, and automatic totals. Generate professional PDFs. Track status from draft through sent, paid, and overdue.
+        </p>
+        <p class="text-xs uppercase tracking-wider text-gray-500 font-semibold">
+          Line Items · Tax · PDF Generation · Status Workflow
+        </p>
+      </div>
+
+      <div class="card-clean">
+        <div class="border-l-4 border-primary pl-8 mb-4"></div>
+        <h3 class="text-2xl font-bold text-white mb-3">AI-Powered Chat Widget</h3>
+        <p class="text-gray-300 leading-relaxed mb-4">
+          An OpenAI-backed chat widget that lives on your site. It answers visitor questions using your uploaded knowledge base and captures leads when visitors want to talk to a human.
+        </p>
+        <p class="text-xs uppercase tracking-wider text-gray-500 font-semibold">
+          OpenAI Integration · Knowledge Base · Lead Capture
+        </p>
+      </div>
+
+      <div class="card-clean">
+        <div class="border-l-4 border-primary pl-8 mb-4"></div>
+        <h3 class="text-2xl font-bold text-white mb-3">Time Tracking</h3>
+        <p class="text-gray-300 leading-relaxed mb-4">
+          Log hours per project with descriptions and dates. Track billable time to keep invoicing accurate and give clients transparency into where time is spent.
+        </p>
+        <p class="text-xs uppercase tracking-wider text-gray-500 font-semibold">
+          Per-Project · Billable Hours · Date Tracking
+        </p>
+      </div>
+
+      <div class="card-clean">
+        <div class="border-l-4 border-primary pl-8 mb-4"></div>
+        <h3 class="text-2xl font-bold text-white mb-3">Admin Dashboard</h3>
+        <p class="text-gray-300 leading-relaxed mb-4">
+          See your business at a glance. Key metrics, overdue invoices, upcoming milestones, and recent activity. Everything you need to stay on top of client work.
+        </p>
+        <p class="text-xs uppercase tracking-wider text-gray-500 font-semibold">
+          Metrics · Overdue Alerts · Upcoming Milestones
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Tech Stack Section -->
+<section class="section-spacing-md bg-dark">
+  <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="flex items-start mb-12">
+      <div class="section-divider flex-shrink-0 hidden md:block"></div>
+      <div class="flex-1">
+        <h2 class="text-section mb-6">Built With</h2>
+        <p class="text-xl text-gray-300 mb-8">
+          Modern, proven technologies. No exotic dependencies. Any Rails developer can maintain it.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <div>
+        <h3 class="font-bold text-white mb-4">Backend</h3>
+        <ul class="space-y-2 text-gray-400">
+          <li>Rails 8</li>
+          <li>PostgreSQL</li>
+          <li>Solid Queue</li>
+          <li>Solid Cache</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-bold text-white mb-4">Frontend</h3>
+        <ul class="space-y-2 text-gray-400">
+          <li>Hotwire (Turbo + Stimulus)</li>
+          <li>Tailwind CSS 4</li>
+          <li>Propshaft</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-bold text-white mb-4">Deployment</h3>
+        <ul class="space-y-2 text-gray-400">
+          <li>Kamal 2</li>
+          <li>Docker</li>
+          <li>Hetzner (managed tier)</li>
+          <li>Cloudflare DNS</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal Frame -->
+<%= turbo_frame_tag "modal" %>

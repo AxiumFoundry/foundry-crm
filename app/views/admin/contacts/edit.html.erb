@@ -1,0 +1,5 @@
+<% content_for :page_title, "Edit: #{@contact.full_name}" %>
+
+<div class="max-w-3xl">
+  <%= render "form", url: admin_contact_path(@contact) %>
+</div>

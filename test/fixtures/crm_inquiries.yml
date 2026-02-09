@@ -1,0 +1,9 @@
+one:
+  company_name: Acme Corp
+  contact_name: John Doe
+  email: john@acme.com
+
+two:
+  company_name: Globex Inc
+  contact_name: Jane Smith
+  email: jane@globex.com

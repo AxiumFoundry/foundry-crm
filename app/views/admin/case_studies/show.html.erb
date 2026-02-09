@@ -1,0 +1,111 @@
+<% content_for :page_title, @case_study.client_name %>
+
+<div class="mb-6">
+  <%= link_to admin_case_studies_path, class: "inline-flex items-center text-sm text-gray-400 hover:text-white transition-base" do %>
+    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+    </svg>
+    Case Studies
+  <% end %>
+</div>
+
+<div class="flex flex-col sm:flex-row justify-between items-start gap-4 mb-8">
+  <div>
+    <h2 class="text-2xl font-bold text-white mb-2"><%= @case_study.client_name %></h2>
+    <div class="flex flex-wrap items-center gap-3">
+      <% if @case_study.published? %>
+        <span class="inline-block px-2 py-1 text-xs font-semibold rounded bg-green-500/20 text-green-400">Published</span>
+      <% else %>
+        <span class="inline-block px-2 py-1 text-xs font-semibold rounded bg-gray-500/20 text-gray-400">Draft</span>
+      <% end %>
+      <% if @case_study.featured? %>
+        <span class="inline-block px-2 py-1 text-xs font-semibold rounded bg-accent/20 text-accent">Featured</span>
+      <% end %>
+      <% if @case_study.industry.present? %>
+        <span class="badge"><%= @case_study.industry %></span>
+      <% end %>
+    </div>
+  </div>
+  <div class="flex gap-3">
+    <%= link_to "Edit", edit_admin_case_study_path(@case_study), class: "btn-primary text-sm" %>
+    <%= button_to "Delete", admin_case_study_path(@case_study), method: :delete,
+        class: "btn-secondary text-sm text-red-400 border-red-400/30 hover:border-red-400",
+        data: { turbo_confirm: "Are you sure you want to delete \"#{@case_study.client_name}\"?" } %>
+  </div>
+</div>
+
+<div class="space-y-6">
+  <% if @case_study.website_url.present? %>
+    <div class="border border-gray-700 rounded-lg p-6">
+      <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Website</h3>
+      <%= link_to @case_study.website_url, @case_study.website_url, target: "_blank", rel: "noopener noreferrer",
+          class: "text-accent hover:text-primary-dark transition-base break-all" %>
+    </div>
+  <% end %>
+
+  <% if @case_study.challenge_summary.present? %>
+    <div class="border border-gray-700 rounded-lg p-6">
+      <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Challenge Summary</h3>
+      <p class="text-gray-300 leading-relaxed"><%= @case_study.challenge_summary %></p>
+    </div>
+  <% end %>
+
+  <% if @case_study.challenge_details.present? %>
+    <div class="border border-gray-700 rounded-lg p-6">
+      <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Challenge Details</h3>
+      <div class="text-gray-300 leading-relaxed"><%= simple_format(@case_study.challenge_details) %></div>
+    </div>
+  <% end %>
+
+  <% if @case_study.solution.present? %>
+    <div class="border border-gray-700 rounded-lg p-6">
+      <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Solution</h3>
+      <div class="text-gray-300 leading-relaxed"><%= simple_format(@case_study.solution) %></div>
+    </div>
+  <% end %>
+
+  <% if @case_study.results.present? %>
+    <div class="border border-gray-700 rounded-lg p-6">
+      <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Results</h3>
+      <div class="text-gray-300 leading-relaxed"><%= simple_format(@case_study.results) %></div>
+    </div>
+  <% end %>
+
+  <% if @case_study.metrics.present? %>
+    <div class="border border-gray-700 rounded-lg p-6">
+      <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-4">Metrics</h3>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <% @case_study.metrics.each do |key, value| %>
+          <div class="border border-gray-700 p-4 text-center">
+            <div class="text-xl font-bold text-white"><%= value %></div>
+            <div class="text-xs text-gray-400 uppercase tracking-wider mt-1"><%= key %></div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+  <% if @case_study.testimonial_quote.present? %>
+    <div class="border border-gray-700 rounded-lg p-6">
+      <h3 class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-4">Testimonial</h3>
+      <blockquote class="border-l-2 border-accent pl-6">
+        <p class="text-lg text-gray-300 font-light mb-4">"<%= @case_study.testimonial_quote %>"</p>
+        <% if @case_study.testimonial_author.present? %>
+          <cite class="not-italic">
+            <span class="text-white font-semibold"><%= @case_study.testimonial_author %></span>
+            <% if @case_study.testimonial_role.present? %>
+              <span class="text-gray-400"> &mdash; <%= @case_study.testimonial_role %></span>
+            <% end %>
+          </cite>
+        <% end %>
+      </blockquote>
+    </div>
+  <% end %>
+
+  <div class="border border-gray-700 rounded-lg p-6">
+    <div class="grid grid-cols-2 gap-4 text-sm text-gray-500">
+      <div>Position: <%= @case_study.position || "Not set" %></div>
+      <div>Slug: <%= @case_study.slug %></div>
+    </div>
+  </div>
+</div>

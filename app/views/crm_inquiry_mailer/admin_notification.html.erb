@@ -1,0 +1,12 @@
+<h2>New CRM Inquiry</h2>
+
+<p><strong>Company:</strong> <%= @inquiry.company_name %></p>
+<p><strong>Contact:</strong> <%= @inquiry.contact_name %></p>
+<p><strong>Email:</strong> <%= @inquiry.email %></p>
+<% if @inquiry.phone.present? %>
+  <p><strong>Phone:</strong> <%= @inquiry.phone %></p>
+<% end %>
+<% if @inquiry.message.present? %>
+  <p><strong>Message:</strong></p>
+  <p><%= @inquiry.message %></p>
+<% end %>

@@ -1,0 +1,373 @@
+@import "tailwindcss";
+
+/* Modern Studio Design System */
+:root {
+  /* Modern Studio Palette */
+  --color-navy: #0f1419;           /* Deep navy - main background */
+  --color-navy-light: #1a2028;     /* Lighter navy for surfaces */
+  --color-navy-lighter: #252d38;   /* Even lighter for elevated surfaces */
+  --color-cream: #fafaf8;          /* Warm off-white */
+  --color-cream-dark: #e8e8e4;     /* Slightly darker cream */
+  --color-rust: #c45a3c;           /* Subtle rust/terracotta accent */
+  --color-rust-dark: #a84830;      /* Darker rust for hover */
+  --color-rust-light: #d4775d;     /* Lighter rust */
+
+  /* Grays */
+  --color-gray-900: #1a1a1a;
+  --color-gray-800: #2d2d2d;
+  --color-gray-700: #3a4250;       /* Adjusted for navy theme */
+  --color-gray-500: #8a8f98;       /* Adjusted for navy theme */
+  --color-gray-300: #b8bcc4;       /* Adjusted for navy theme */
+  --color-gray-100: #e5e5e5;
+  --color-white: #ffffff;
+
+  /* Semantic Tokens */
+  --color-background: var(--color-navy);
+  --color-surface: var(--color-navy-light);
+  --color-border: var(--color-navy-lighter);
+  --color-text-primary: var(--color-cream);
+  --color-text-secondary: var(--color-gray-300);
+  --color-primary: var(--color-rust);
+  --color-primary-dark: var(--color-rust-dark);
+  --color-primary-light: var(--color-rust-light);
+  --color-accent: var(--color-primary);
+
+  /* Typography Scale - Mathematical Progression */
+  --text-display: 6rem;           /* 96px - Hero headlines */
+  --text-h1: 4.5rem;              /* 72px - Page titles */
+  --text-h2: 3rem;                /* 48px - Section headings */
+  --text-h3: 2rem;                /* 32px - Subsection headings */
+  --text-h4: 1.5rem;              /* 24px - Card titles */
+  --text-body-lg: 1.25rem;        /* 20px - Lead paragraphs */
+  --text-body: 1rem;              /* 16px - Default text */
+  --text-sm: 0.875rem;            /* 14px - Metadata, labels */
+  --text-xs: 0.75rem;             /* 12px - Tiny labels */
+
+  /* Spacing Scale - Powers of 2 */
+  --space-1: 0.25rem;    /* 4px */
+  --space-2: 0.5rem;     /* 8px */
+  --space-3: 0.75rem;    /* 12px */
+  --space-4: 1rem;       /* 16px */
+  --space-6: 1.5rem;     /* 24px */
+  --space-8: 2rem;       /* 32px */
+  --space-12: 3rem;      /* 48px */
+  --space-16: 4rem;      /* 64px */
+  --space-24: 6rem;      /* 96px */
+  --space-32: 8rem;      /* 128px */
+  --space-48: 12rem;     /* 192px */
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  :root {
+    --text-display: 3.5rem;       /* 56px */
+    --text-h1: 3rem;              /* 48px */
+    --text-h2: 2rem;              /* 32px */
+    --text-h3: 1.5rem;            /* 24px */
+  }
+}
+
+/* Modern Studio Typography - Inter Font */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text-primary);
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Minimal Transitions */
+.transition-base {
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Navigation - Ultra Minimal */
+.navbar-solid {
+  background-color: var(--color-background);
+  border-bottom: 1px solid var(--color-border);
+  height: 5rem;
+}
+
+/* Buttons - Modern Studio Style */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-cream);
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 1rem 2.5rem;
+  border-radius: 2px;
+  border: 2px solid var(--color-primary);
+  transition: all 200ms;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-cream);
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 1rem 2.5rem;
+  border-radius: 2px;
+  border: 2px solid var(--color-cream-dark);
+  transition: all 200ms;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-cream);
+  color: var(--color-navy);
+  border-color: var(--color-cream);
+}
+
+/* Cards - Minimal Border Only */
+.card-clean {
+  background-color: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: 0;
+  padding: var(--space-6);
+  transition: border-color 200ms;
+}
+
+@media (min-width: 640px) {
+  .card-clean {
+    padding: var(--space-12);
+  }
+}
+
+.card-clean:hover {
+  border-color: var(--color-primary);
+}
+
+/* Section Divider - Rust Accent Line */
+.section-divider {
+  width: 4px;
+  height: 100%;
+  background-color: var(--color-primary);
+  margin-right: 1.5rem;
+}
+
+/* Typography Classes */
+.text-display {
+  font-size: var(--text-display);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--color-text-primary);
+}
+
+.text-hero {
+  font-size: var(--text-h1);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--color-text-primary);
+}
+
+.text-section {
+  font-size: var(--text-h2);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+}
+
+/* Clean Backgrounds */
+.bg-black {
+  background-color: var(--color-background);
+}
+
+.bg-navy {
+  background-color: var(--color-navy);
+}
+
+.bg-dark {
+  background-color: var(--color-background);
+}
+
+.bg-dark-lighter {
+  background-color: var(--color-surface);
+}
+
+.bg-dark-card {
+  background-color: var(--color-surface);
+}
+
+.bg-primary {
+  background-color: var(--color-primary);
+}
+
+/* Accent Color Utilities */
+.text-accent {
+  color: var(--color-primary);
+}
+
+.border-accent {
+  border-color: var(--color-primary);
+}
+
+.bg-accent {
+  background-color: var(--color-primary);
+}
+
+.border-primary {
+  border-color: var(--color-primary);
+}
+
+.text-cream {
+  color: var(--color-cream);
+}
+
+/* Badge - Outlined Style */
+.badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: 2px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  transition: all 200ms;
+}
+
+.badge:hover {
+  border-color: var(--color-primary);
+}
+
+.badge-accent {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-cream);
+  font-weight: 600;
+}
+
+/* Metric Display - Minimal */
+.metric-card {
+  background-color: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: 0;
+  padding: var(--space-4);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80px;
+}
+
+@media (min-width: 640px) {
+  .metric-card {
+    padding: var(--space-8);
+    min-height: 120px;
+  }
+}
+
+.metric-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.metric-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.4;
+}
+
+/* Scroll Reveal */
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(24px);
+  will-change: opacity, transform;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 600ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Parallax Elements */
+.parallax-element {
+  will-change: transform;
+}
+
+/* Scroll Behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Selection - Rust Accent */
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-cream);
+}
+
+::-moz-selection {
+  background-color: var(--color-primary);
+  color: var(--color-cream);
+}
+
+/* Link Styles */
+a {
+  transition: color 200ms;
+}
+
+/* Section Spacing - Generous Whitespace */
+.section-spacing-lg {
+  padding-top: var(--space-48);
+  padding-bottom: var(--space-48);
+}
+
+.section-spacing-md {
+  padding-top: var(--space-32);
+  padding-bottom: var(--space-32);
+}
+
+@media (max-width: 768px) {
+  .section-spacing-lg {
+    padding-top: var(--space-24);
+    padding-bottom: var(--space-24);
+  }
+
+  .section-spacing-md {
+    padding-top: var(--space-16);
+    padding-bottom: var(--space-16);
+  }
+}

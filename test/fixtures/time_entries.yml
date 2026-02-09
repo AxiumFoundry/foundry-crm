@@ -1,0 +1,13 @@
+design_session:
+  project: website_redesign
+  description: "Homepage design mockups"
+  duration_minutes: 120
+  date: <%= Date.current.to_fs(:db) %>
+  billable: true
+
+meeting:
+  project: website_redesign
+  description: "Client meeting"
+  duration_minutes: 60
+  date: <%= Date.current.to_fs(:db) %>
+  billable: false
