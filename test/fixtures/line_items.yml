@@ -1,0 +1,15 @@
+design_work:
+  invoice: draft_invoice
+  description: "Website design"
+  quantity: 1
+  unit_price_cents: 300000
+  total_cents: 300000
+  position: 1
+
+development_work:
+  invoice: draft_invoice
+  description: "Frontend development"
+  quantity: 20
+  unit_price_cents: 10000
+  total_cents: 200000
+  position: 2

@@ -1,0 +1,147 @@
+<%= turbo_frame_tag "modal" do %>
+  <div class="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4" data-controller="modal" data-action="click->modal#close">
+    <div class="bg-navy border border-gray-700 max-w-3xl w-full max-h-[90vh] overflow-y-auto" data-action="click->modal#stopPropagation">
+      <div class="p-4 sm:p-8 md:p-12">
+        <!-- Header -->
+        <div class="flex justify-between items-start mb-12">
+          <div>
+            <div class="border-l-4 border-primary pl-6 mb-6"></div>
+            <h2 class="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
+              <%= simple_format(site_text("health_check_heading"), {}, wrapper_tag: nil) %>
+            </h2>
+            <p class="text-gray-300 text-lg font-light">
+              <%= site_text("health_check_description") %>
+            </p>
+          </div>
+          <%= link_to root_path, class: "text-gray-400 hover:text-white transition-base ml-4", data: { turbo_frame: "_top" } do %>
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          <% end %>
+        </div>
+
+        <%= turbo_frame_tag "health_check_form" do %>
+          <%= form_with model: @submission, url: health_checks_path, data: { controller: "form" }, class: "space-y-6" do |f| %>
+            <!-- Grid Layout for Inputs -->
+            <div class="grid md:grid-cols-2 gap-6">
+              <!-- Company Name -->
+              <div class="md:col-span-2">
+                <%= f.label :company_name, class: "block text-xs font-semibold text-gray-300 mb-3 uppercase tracking-wider" do %>
+                  Company Name
+                <% end %>
+                <%= f.text_field :company_name, required: true,
+                    class: "w-full px-4 py-3 bg-transparent border border-gray-700 text-white placeholder-gray-500 focus:border-primary focus:outline-none transition-base",
+                    placeholder: "Your Company" %>
+              </div>
+
+              <!-- Contact Name -->
+              <div>
+                <%= f.label :contact_name, "Your Name", class: "block text-xs font-semibold text-gray-300 mb-3 uppercase tracking-wider" do %>
+                  Your Name
+                <% end %>
+                <%= f.text_field :contact_name, required: true,
+                    class: "w-full px-4 py-3 bg-transparent border border-gray-700 text-white placeholder-gray-500 focus:border-primary focus:outline-none transition-base",
+                    placeholder: "John Doe" %>
+              </div>
+
+              <!-- Email -->
+              <div>
+                <%= f.label :email, class: "block text-xs font-semibold text-gray-300 mb-3 uppercase tracking-wider" do %>
+                  Email
+                <% end %>
+                <%= f.email_field :email, required: true,
+                    class: "w-full px-4 py-3 bg-transparent border border-gray-700 text-white placeholder-gray-500 focus:border-primary focus:outline-none transition-base",
+                    placeholder: "john@company.com" %>
+              </div>
+
+              <!-- Phone -->
+              <div>
+                <%= f.label :phone, "Phone (Optional)", class: "block text-xs font-semibold text-gray-300 mb-3 uppercase tracking-wider" do %>
+                  Phone (Optional)
+                <% end %>
+                <%= f.telephone_field :phone,
+                    class: "w-full px-4 py-3 bg-transparent border border-gray-700 text-white placeholder-gray-500 focus:border-primary focus:outline-none transition-base",
+                    placeholder: "(555) 123-4567" %>
+              </div>
+
+              <!-- Company Stage -->
+              <div>
+                <%= f.label :company_stage, class: "block text-xs font-semibold text-gray-300 mb-3 uppercase tracking-wider" do %>
+                  Company Stage
+                <% end %>
+                <%= f.select :company_stage,
+                    options_for_select([
+                      ["Just starting / Pre-seed", "pre_seed"],
+                      ["Seed stage", "seed"],
+                      ["Series A", "series_a"],
+                      ["Series B+", "series_b_plus"],
+                      ["Established company (not venture-backed)", "established"],
+                      ["Enterprise / Large organization", "enterprise"]
+                    ]),
+                    { prompt: "Select stage" },
+                    class: "w-full px-4 py-3 bg-transparent border border-gray-700 text-white focus:border-primary focus:outline-none transition-base" %>
+              </div>
+            </div>
+
+            <!-- Team Size -->
+            <div>
+              <%= f.label :team_size, "Current Engineering Team Size", class: "block text-xs font-semibold text-gray-300 mb-3 uppercase tracking-wider" do %>
+                Current Engineering Team Size
+              <% end %>
+              <%= f.number_field :team_size, min: 0,
+                  class: "w-full px-4 py-3 bg-transparent border border-gray-700 text-white placeholder-gray-500 focus:border-primary focus:outline-none transition-base",
+                  placeholder: "e.g., 3" %>
+            </div>
+
+            <!-- Tech Stack -->
+            <div>
+              <%= f.label :tech_stack, "Current Tech Stack", class: "block text-xs font-semibold text-gray-300 mb-3 uppercase tracking-wider" do %>
+                Current Tech Stack
+              <% end %>
+              <%= f.text_area :tech_stack, rows: 3,
+                  placeholder: "e.g., React, Node.js, PostgreSQL, AWS",
+                  class: "w-full px-4 py-3 bg-transparent border border-gray-700 text-white placeholder-gray-500 focus:border-primary focus:outline-none transition-base resize-none" %>
+            </div>
+
+            <!-- Main Challenges -->
+            <div>
+              <%= f.label :main_challenges, "Main Technical Challenges", class: "block text-xs font-semibold text-gray-300 mb-3 uppercase tracking-wider" do %>
+                Main Technical Challenges
+              <% end %>
+              <%= f.text_area :main_challenges, rows: 4,
+                  placeholder: "What technical challenges are you facing? Be specific.",
+                  class: "w-full px-4 py-3 bg-transparent border border-gray-700 text-white placeholder-gray-500 focus:border-primary focus:outline-none transition-base resize-none" %>
+            </div>
+
+            <!-- Urgency -->
+            <div>
+              <%= f.label :urgency, "Timeline", class: "block text-xs font-semibold text-gray-300 mb-3 uppercase tracking-wider" do %>
+                Timeline
+              <% end %>
+              <%= f.select :urgency,
+                  options_for_select([
+                    ["Need help immediately", "immediate"],
+                    ["This quarter", "this_quarter"],
+                    ["Just exploring options", "exploratory"]
+                  ]),
+                  { prompt: "When do you need help?" },
+                  class: "w-full px-4 py-3 bg-transparent border border-gray-700 text-white focus:border-primary focus:outline-none transition-base" %>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="pt-6">
+              <%= f.button type: "submit", data: { form_target: "submit" }, class: "w-full btn-primary text-base py-4" do %>
+                <%= site_text("health_check_submit") %>
+              <% end %>
+            </div>
+
+            <!-- Privacy Note -->
+            <p class="text-xs text-gray-400 text-center mt-6 font-light leading-relaxed">
+              <%= site_text("health_check_privacy") %>
+            </p>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

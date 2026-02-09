@@ -1,0 +1,5 @@
+<% content_for :page_title, "New #{@invoice.kind.capitalize}" %>
+
+<div class="max-w-4xl">
+  <%= render "form", url: admin_invoices_path %>
+</div>

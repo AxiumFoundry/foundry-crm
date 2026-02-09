@@ -1,0 +1,7 @@
+<%= turbo_stream.remove "chat-loading" %>
+<%= turbo_stream.append "messages" do %>
+  <%= render "chat_messages/message", message: message %>
+<% end %>
+<%= turbo_stream.replace "chat-form" do %>
+  <%= render "chat_messages/form", show_human_request: true %>
+<% end %>

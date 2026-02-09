@@ -1,0 +1,351 @@
+<!-- Hero Section -->
+<section class="relative min-h-[60vh] flex items-center bg-dark overflow-hidden">
+  <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+    <div class="max-w-4xl">
+      <%= link_to root_path, class: "inline-flex items-center text-accent hover:text-primary-dark font-semibold mb-8 transition-base group" do %>
+        <svg class="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-base" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Back to Home
+      <% end %>
+
+      <h1 class="text-display mb-6">
+        Deploy & Scale
+      </h1>
+
+      <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl leading-relaxed">
+        Launch anywhere, scale confidently. I handle deployment, monitoring, and infrastructure, without vendor lock-in.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4">
+        <%= link_to "Get Free Health Check", new_health_check_path,
+            class: "btn-primary inline-flex items-center justify-center",
+            data: { turbo_frame: "modal" } %>
+        <%= link_to "View Case Studies →", case_studies_path,
+            class: "px-8 py-4 border-2 border-gray-700 text-white font-semibold rounded-lg hover:border-accent transition-base inline-flex items-center justify-center" %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- The Challenge Section -->
+<section class="section-spacing-md bg-dark-lighter">
+  <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="flex items-start mb-8">
+      <div class="section-divider flex-shrink-0 hidden md:block"></div>
+      <div class="flex-1">
+        <h2 class="text-section mb-6">The Challenge</h2>
+        <p class="text-xl text-gray-200 leading-relaxed mb-6">
+          Your app is ready to launch, but deployment feels like a black box. Heroku is expensive. AWS is overwhelming. You need something that works today and scales tomorrow, without locking you into a single vendor.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-6 mt-8">
+          <div class="card-clean">
+            <h3 class="font-bold text-white mb-2">Vendor Lock-In</h3>
+            <p class="text-gray-400">Platforms like Heroku make deployment easy but cost 3-5x more and trap you in their ecosystem.</p>
+          </div>
+          <div class="card-clean">
+            <h3 class="font-bold text-white mb-2">AWS Complexity</h3>
+            <p class="text-gray-400">Elastic Beanstalk, ECS, EKS, RDS, S3, CloudFront... Where do you even start?</p>
+          </div>
+          <div class="card-clean">
+            <h3 class="font-bold text-white mb-2">No Visibility</h3>
+            <p class="text-gray-400">Your app is deployed, but you don't know if it's slow, throwing errors, or about to crash.</p>
+          </div>
+          <div class="card-clean">
+            <h3 class="font-bold text-white mb-2">Can't Scale</h3>
+            <p class="text-gray-400">Traffic spikes break your app. You're not sure if it's the database, app servers, or something else.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- My Approach Section -->
+<section class="section-spacing-md bg-dark">
+  <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="flex items-start mb-12">
+      <div class="section-divider flex-shrink-0 hidden md:block"></div>
+      <div class="flex-1">
+        <h2 class="text-section mb-6">My Deployment & Infrastructure Approach</h2>
+        <p class="text-xl text-gray-300 mb-8">
+          I use modern deployment tools (Kamal, Docker) to launch your app on any cloud provider. You own your infrastructure, control your costs, and can move anytime.
+        </p>
+      </div>
+    </div>
+
+    <div class="space-y-8">
+      <!-- Step 1 -->
+      <div class="card-clean">
+        <div class="flex items-start">
+          <div class="flex-shrink-0 w-12 h-12 bg-accent rounded-lg flex items-center justify-center mr-6">
+            <span class="text-2xl font-bold text-dark">1</span>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold text-white mb-3">Infrastructure Design</h3>
+            <p class="text-gray-300 leading-relaxed mb-4">
+              I design infrastructure that matches your needs and budget. Starting small? A single server is fine. Need to scale? I'll set up load balancing, database replicas, and caching from the start.
+            </p>
+            <div class="mt-4 text-sm text-gray-400">
+              <strong>I consider:</strong>
+              <ul class="list-disc list-inside mt-2 space-y-1">
+                <li>Current traffic and growth projections</li>
+                <li>Budget constraints</li>
+                <li>Compliance requirements (HIPAA, SOC 2, etc.)</li>
+                <li>Geographic distribution of users</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="card-clean">
+        <div class="flex items-start">
+          <div class="flex-shrink-0 w-12 h-12 bg-accent rounded-lg flex items-center justify-center mr-6">
+            <span class="text-2xl font-bold text-dark">2</span>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold text-white mb-3">Containerization & Deployment Setup</h3>
+            <p class="text-gray-300 leading-relaxed mb-4">
+              I containerize your app with Docker and set up Kamal for deployment. This means you can deploy to any Linux server: AWS, DigitalOcean, Hetzner, your own data center. No vendor lock-in.
+            </p>
+            <p class="text-sm text-accent mt-4">Result: Deploy anywhere with a single command, zero downtime deployments</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="card-clean">
+        <div class="flex items-start">
+          <div class="flex-shrink-0 w-12 h-12 bg-accent rounded-lg flex items-center justify-center mr-6">
+            <span class="text-2xl font-bold text-dark">3</span>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold text-white mb-3">Monitoring & Alerting</h3>
+            <p class="text-gray-300 leading-relaxed mb-4">
+              I set up comprehensive monitoring so you know exactly what's happening. Error tracking (Honeybadger), performance monitoring (Scout APM), uptime monitoring, and database metrics. Get alerts before users complain.
+            </p>
+            <p class="text-sm text-accent mt-4">You'll know: errors per minute, response times, database load, memory usage</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="card-clean">
+        <div class="flex items-start">
+          <div class="flex-shrink-0 w-12 h-12 bg-accent rounded-lg flex items-center justify-center mr-6">
+            <span class="text-2xl font-bold text-dark">4</span>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold text-white mb-3">Database & Backups</h3>
+            <p class="text-gray-300 leading-relaxed mb-4">
+              Managed PostgreSQL with automated backups and point-in-time recovery. I test restores regularly. Backups you can't restore are worthless.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="card-clean">
+        <div class="flex items-start">
+          <div class="flex-shrink-0 w-12 h-12 bg-accent rounded-lg flex items-center justify-center mr-6">
+            <span class="text-2xl font-bold text-dark">5</span>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold text-white mb-3">CI/CD Pipeline</h3>
+            <p class="text-gray-300 leading-relaxed mb-4">
+              Automated deployments from GitHub. Push to main, tests run automatically, deployment happens if tests pass. No manual steps. No SSH-ing into servers.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What You Get Section -->
+<section class="section-spacing-md bg-dark-lighter">
+  <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="flex items-start mb-8">
+      <div class="section-divider flex-shrink-0 hidden md:block"></div>
+      <div class="flex-1">
+        <h2 class="text-section mb-8">What You Get</h2>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="flex items-start">
+            <svg class="w-6 h-6 text-accent mt-1 mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <div>
+              <h3 class="font-bold text-white mb-2">Deploy Anywhere</h3>
+              <p class="text-gray-400">Works on any Linux server. Switch providers whenever it makes sense.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start">
+            <svg class="w-6 h-6 text-accent mt-1 mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <div>
+              <h3 class="font-bold text-white mb-2">One-Command Deployments</h3>
+              <p class="text-gray-400">Deploy with `kamal deploy`. Zero downtime. Automatic rollbacks if issues.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start">
+            <svg class="w-6 h-6 text-accent mt-1 mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <div>
+              <h3 class="font-bold text-white mb-2">Cost Control</h3>
+              <p class="text-gray-400">40-60% cheaper than Heroku. You see exactly what you're paying for.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start">
+            <svg class="w-6 h-6 text-accent mt-1 mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <div>
+              <h3 class="font-bold text-white mb-2">Comprehensive Monitoring</h3>
+              <p class="text-gray-400">Know when things break before users do. Error tracking, uptime, performance.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start">
+            <svg class="w-6 h-6 text-accent mt-1 mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <div>
+              <h3 class="font-bold text-white mb-2">Automated Backups</h3>
+              <p class="text-gray-400">Daily database backups with tested restore procedures. Sleep well.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start">
+            <svg class="w-6 h-6 text-accent mt-1 mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <div>
+              <h3 class="font-bold text-white mb-2">SSL & Security</h3>
+              <p class="text-gray-400">Automatic SSL certificates, security headers, firewall configuration.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Technologies Section -->
+<section class="section-spacing-md bg-dark">
+  <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="flex items-start">
+      <div class="section-divider flex-shrink-0 hidden md:block"></div>
+      <div class="flex-1">
+        <h2 class="text-section mb-8">Technologies & Infrastructure</h2>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="font-bold text-white mb-4">Deployment</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>Kamal (modern, zero downtime)</li>
+              <li>Docker containers</li>
+              <li>GitHub Actions CI/CD</li>
+              <li>Automated rollbacks</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-bold text-white mb-4">Cloud Providers</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>AWS (if you prefer)</li>
+              <li>Hetzner (cost-effective)</li>
+              <li>DigitalOcean</li>
+              <li>Any Linux server</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-bold text-white mb-4">Monitoring & Logs</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>Honeybadger (error tracking)</li>
+              <li>Scout APM (performance)</li>
+              <li>Uptime monitoring</li>
+              <li>Centralized logging</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="section-spacing-md bg-dark-lighter">
+  <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="flex items-start">
+      <div class="section-divider flex-shrink-0 hidden md:block"></div>
+      <div class="flex-1">
+        <h2 class="text-section mb-8">Common Questions</h2>
+
+        <div class="space-y-6">
+          <div class="card-clean">
+            <h3 class="text-xl font-bold text-white mb-3">Why not just use Heroku?</h3>
+            <p class="text-gray-300 leading-relaxed">
+              Heroku is great for getting started quickly. But it gets expensive fast ($200-500/month for a small app becomes $2-5K/month as you grow), and you're locked in. Modern deployment tools like Kamal give you the same ease of use at 40-60% lower cost, with the freedom to move anytime.
+            </p>
+          </div>
+
+          <div class="card-clean">
+            <h3 class="text-xl font-bold text-white mb-3">Is this overkill for an MVP?</h3>
+            <p class="text-gray-300 leading-relaxed">
+              No. I scale the infrastructure to your needs. For an MVP with low traffic, a single $40/month server works great. As you grow, I add load balancers, database replicas, and caching. You pay for what you need, when you need it.
+            </p>
+          </div>
+
+          <div class="card-clean">
+            <h3 class="text-xl font-bold text-white mb-3">What if we want to manage infrastructure ourselves later?</h3>
+            <p class="text-gray-300 leading-relaxed">
+              Perfect. Everything I set up uses standard tools (Docker, Kamal, PostgreSQL). I document everything. Your team can take over anytime, or you can keep me on retainer for ongoing support.
+            </p>
+          </div>
+
+          <div class="card-clean">
+            <h3 class="text-xl font-bold text-white mb-3">Do you offer ongoing infrastructure support?</h3>
+            <p class="text-gray-300 leading-relaxed">
+              Yes. Many clients keep me on a monthly retainer for monitoring, security updates, performance optimization, and scaling as they grow. I'm available when you need me, but you're never locked in.
+            </p>
+          </div>
+
+          <div class="card-clean">
+            <h3 class="text-xl font-bold text-white mb-3">Can you migrate us from Heroku to something cheaper?</h3>
+            <p class="text-gray-300 leading-relaxed">
+              Absolutely. I've migrated dozens of apps from Heroku to modern deployment setups. Typical migration takes 1-2 weeks with zero downtime. Clients usually save 40-60% on hosting costs immediately.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section-spacing-lg bg-dark">
+  <div class="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-hero mb-6">
+      Ready to Deploy With Confidence?
+    </h2>
+    <p class="text-xl mb-8 max-w-2xl mx-auto">
+      Get a free infrastructure assessment. I'll review your current setup and show you how to reduce costs and increase reliability.
+    </p>
+    <%= link_to "Get Your Free Health Check →", new_health_check_path,
+        class: "btn-primary inline-flex items-center justify-center text-xl px-12 py-5",
+        data: { turbo_frame: "modal" } %>
+  </div>
+</section>
+
+<!-- Modal Frame -->
+<%= turbo_frame_tag "modal" %>

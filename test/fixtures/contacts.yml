@@ -1,0 +1,22 @@
+john:
+  first_name: "John"
+  last_name: "Doe"
+  email: "john@acme.com"
+  company_name: "Acme Corp"
+  stage: "lead"
+  source: "health_check"
+
+jane:
+  first_name: "Jane"
+  last_name: "Smith"
+  email: "jane@globex.com"
+  company_name: "Globex Inc"
+  stage: "client"
+  source: "referral"
+
+inactive_contact:
+  first_name: "Bob"
+  last_name: "Wilson"
+  email: "bob@example.com"
+  stage: "inactive"
+  source: "manual"

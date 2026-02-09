@@ -1,0 +1,69 @@
+<% content_for :page_title, "Time Entries" %>
+
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
+  <div class="flex flex-wrap gap-2">
+    <%= link_to "All", admin_time_entries_path, class: "px-3 py-1 text-sm rounded #{'bg-white/10 text-white' unless params[:project_id].present?} #{'text-gray-400 hover:text-white' if params[:project_id].present?} transition-base" %>
+    <% if params[:project_id].present? %>
+      <span class="px-3 py-1 text-sm text-white bg-white/10 rounded">
+        <%= Project.find(params[:project_id]).name %>
+      </span>
+    <% end %>
+  </div>
+  <%= link_to "Log Time", new_admin_time_entry_path(project_id: params[:project_id]), class: "btn-primary text-sm py-2 px-4" %>
+</div>
+
+<% if @time_entries.any? %>
+  <div class="overflow-x-auto">
+    <table class="w-full">
+      <thead>
+        <tr class="border-b border-gray-700 text-xs font-semibold text-gray-400 uppercase tracking-wider">
+          <th class="text-left py-4 pr-4">Date</th>
+          <th class="text-left py-4 pr-4">Project</th>
+          <th class="text-left py-4 pr-4">Description</th>
+          <th class="text-right py-4 pr-4">Duration</th>
+          <th class="text-left py-4 pr-4">Billable</th>
+          <th class="text-right py-4">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @time_entries.each do |entry| %>
+          <tr class="border-b border-gray-800 hover:bg-white/5 transition-base">
+            <td class="py-4 pr-4 text-white"><%= entry.date.strftime("%b %d, %Y") %></td>
+            <td class="py-4 pr-4">
+              <%= link_to entry.project.name, admin_project_path(entry.project), class: "text-accent hover:text-primary-dark transition-base" %>
+            </td>
+            <td class="py-4 pr-4 text-gray-300"><%= entry.description %></td>
+            <td class="py-4 pr-4 text-right text-white"><%= "#{entry.hours}h" %></td>
+            <td class="py-4 pr-4">
+              <% if entry.billable? %>
+                <span class="text-green-400 text-sm">Yes</span>
+              <% else %>
+                <span class="text-gray-500 text-sm">No</span>
+              <% end %>
+            </td>
+            <td class="py-4 text-right">
+              <div class="flex justify-end items-center gap-4">
+                <%= link_to "Edit", edit_admin_time_entry_path(entry), class: "text-sm text-accent hover:text-primary-dark transition-base" %>
+                <%= button_to "Delete", admin_time_entry_path(entry), method: :delete,
+                    class: "text-sm text-red-400 hover:text-red-300 transition-base",
+                    data: { turbo_confirm: "Delete this time entry?" } %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <%= render "admin/shared/pagination", pagy: @pagy %>
+
+  <div class="mt-6 border-t border-gray-700 pt-4 text-right">
+    <span class="text-gray-400 text-sm">Total: </span>
+    <span class="text-white font-semibold"><%= @total_hours %>h</span>
+  </div>
+<% else %>
+  <div class="text-center py-16 border border-gray-700 rounded-lg">
+    <p class="text-gray-400 text-lg mb-6">No time entries yet.</p>
+    <%= link_to "Log your first entry", new_admin_time_entry_path, class: "btn-primary" %>
+  </div>
+<% end %>

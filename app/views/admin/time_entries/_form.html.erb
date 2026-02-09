@@ -1,0 +1,48 @@
+<%= form_with model: @time_entry, url: url, class: "space-y-6" do |f| %>
+  <% if @time_entry.errors.any? %>
+    <div class="bg-red-500/10 border border-red-500/30 p-4 rounded-lg">
+      <ul class="list-disc list-inside text-red-300 text-sm space-y-1">
+        <% @time_entry.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="grid md:grid-cols-3 gap-6">
+    <div>
+      <%= f.label :project_id, "Project", class: "block text-xs font-semibold text-gray-300 mb-2 uppercase tracking-wider" %>
+      <%= f.collection_select :project_id, Project.includes(:contact).order(:name), :id, :name,
+          { prompt: "Select project" },
+          class: "w-full px-4 py-3 bg-navy border border-gray-700 text-white focus:border-primary focus:outline-none rounded transition-base" %>
+    </div>
+    <div>
+      <%= f.label :date, class: "block text-xs font-semibold text-gray-300 mb-2 uppercase tracking-wider" %>
+      <%= f.date_field :date, required: true,
+          class: "w-full px-4 py-3 bg-transparent border border-gray-700 text-white focus:border-primary focus:outline-none rounded transition-base" %>
+    </div>
+    <div>
+      <%= f.label :duration_minutes, "Duration (minutes)", class: "block text-xs font-semibold text-gray-300 mb-2 uppercase tracking-wider" %>
+      <%= f.number_field :duration_minutes, min: 1, required: true,
+          class: "w-full px-4 py-3 bg-transparent border border-gray-700 text-white placeholder-gray-500 focus:border-primary focus:outline-none rounded transition-base",
+          placeholder: "60" %>
+    </div>
+  </div>
+
+  <div>
+    <%= f.label :description, class: "block text-xs font-semibold text-gray-300 mb-2 uppercase tracking-wider" %>
+    <%= f.text_field :description, required: true,
+        class: "w-full px-4 py-3 bg-transparent border border-gray-700 text-white placeholder-gray-500 focus:border-primary focus:outline-none rounded transition-base",
+        placeholder: "What did you work on?" %>
+  </div>
+
+  <div class="flex items-center gap-3">
+    <%= f.check_box :billable, class: "w-5 h-5 accent-primary" %>
+    <%= f.label :billable, "Billable", class: "text-sm font-semibold text-gray-300 uppercase tracking-wider" %>
+  </div>
+
+  <div class="flex gap-4 pt-4">
+    <%= f.submit class: "btn-primary text-base py-3 px-6 cursor-pointer" %>
+    <%= link_to "Cancel", admin_time_entries_path, class: "btn-secondary text-base py-3 px-6" %>
+  </div>
+<% end %>

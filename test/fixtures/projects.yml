@@ -1,0 +1,15 @@
+website_redesign:
+  contact: jane
+  name: "Website Redesign"
+  slug: "website-redesign"
+  status: "active"
+  budget: 15000.00
+  rate_type: "hourly"
+  rate_amount: 150.00
+  start_date: <%= Date.current.to_fs(:db) %>
+
+proposed_project:
+  contact: john
+  name: "API Integration"
+  slug: "api-integration"
+  status: "proposed"

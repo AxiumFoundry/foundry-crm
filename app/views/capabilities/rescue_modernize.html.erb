@@ -1,0 +1,462 @@
+<!-- Hero Section -->
+<section class="relative min-h-[60vh] flex items-center bg-dark overflow-hidden">
+  <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+    <div class="max-w-4xl">
+      <%= link_to root_path, class: "inline-flex items-center text-accent hover:text-primary-dark font-semibold mb-8 transition-base group" do %>
+        <svg class="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-base" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Back to Home
+      <% end %>
+
+      <h1 class="text-display mb-6">
+        Rescue & Modernize
+      </h1>
+
+      <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl leading-relaxed">
+        Stop fighting your Rails app. Make it fast, secure, and maintainable again.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4">
+        <%= link_to "Get Free Health Check", new_health_check_path,
+            class: "btn-primary inline-flex items-center justify-center",
+            data: { turbo_frame: "modal" } %>
+        <%= link_to "View Case Studies →", case_studies_path,
+            class: "px-8 py-4 border-2 border-gray-700 text-white font-semibold rounded-lg hover:border-accent transition-base inline-flex items-center justify-center" %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- The Challenge Section -->
+<section class="section-spacing-md bg-dark-lighter">
+  <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="flex items-start mb-8">
+      <div class="section-divider flex-shrink-0 hidden md:block"></div>
+      <div class="flex-1">
+        <h2 class="text-section mb-6">The Challenge</h2>
+        <p class="text-xl text-gray-200 leading-relaxed mb-6">
+          Your Rails application used to be your competitive advantage. Now it's holding you back. Pages load slowly. Every deploy breaks something. Hosting costs keep climbing. Your original developer is long gone, and the new team is afraid to touch anything.
+        </p>
+
+        <p class="text-lg text-gray-300 leading-relaxed mb-8">
+          Sound familiar? You're not alone. Most startups I work with have inherited technical debt or outgrown their initial MVP architecture.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="card-clean">
+            <h3 class="font-bold text-white mb-2">Outdated Rails Version</h3>
+            <p class="text-gray-400">Running Rails 5.x or older. Security vulnerabilities piling up. Can't use modern gems.</p>
+          </div>
+          <div class="card-clean">
+            <h3 class="font-bold text-white mb-2">Slow & Getting Slower</h3>
+            <p class="text-gray-400">Page loads taking 3-5 seconds. Database queries timing out. Users complaining.</p>
+          </div>
+          <div class="card-clean">
+            <h3 class="font-bold text-white mb-2">Expensive Hosting</h3>
+            <p class="text-gray-400">Spending $2-5K/month on Heroku for infrastructure that should cost $200-500.</p>
+          </div>
+          <div class="card-clean">
+            <h3 class="font-bold text-white mb-2">Brittle Codebase</h3>
+            <p class="text-gray-400">Every change breaks something else. No tests. Deployment takes hours. Fear of shipping.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- My Approach Section -->
+<section class="section-spacing-md bg-dark">
+  <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="flex items-start mb-12">
+      <div class="section-divider flex-shrink-0 hidden md:block"></div>
+      <div class="flex-1">
+        <h2 class="text-section mb-6">My Rescue & Modernization Process</h2>
+        <p class="text-xl text-gray-300 mb-8">
+          I don't rewrite from scratch. I incrementally modernize your app with zero downtime, focusing on quick wins first.
+        </p>
+      </div>
+    </div>
+
+    <div class="space-y-8">
+      <!-- Step 1 -->
+      <div class="card-clean">
+        <div class="flex items-start">
+          <div class="flex-shrink-0 w-12 h-12 bg-accent rounded-lg flex items-center justify-center mr-6">
+            <span class="text-2xl font-bold text-dark">1</span>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold text-white mb-3">Technical Health Check (Free)</h3>
+            <p class="text-gray-300 leading-relaxed mb-4">
+              I audit your Rails app to identify the biggest problems and opportunities. What's slow? What's vulnerable? What's costing you money? I prioritize fixes by impact and risk.
+            </p>
+            <div class="mt-4 text-sm text-gray-400">
+              <strong>I identify:</strong>
+              <ul class="list-disc list-inside mt-2 space-y-1">
+                <li>Current Rails version and upgrade path</li>
+                <li>Performance bottlenecks (N+1 queries, missing indexes, slow endpoints)</li>
+                <li>Security vulnerabilities and outdated dependencies</li>
+                <li>Hosting cost optimization opportunities</li>
+                <li>Technical debt prioritization</li>
+              </ul>
+            </div>
+            <p class="text-sm text-accent mt-4">Deliverable: Written report with prioritized recommendations</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="card-clean">
+        <div class="flex items-start">
+          <div class="flex-shrink-0 w-12 h-12 bg-accent rounded-lg flex items-center justify-center mr-6">
+            <span class="text-2xl font-bold text-dark">2</span>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold text-white mb-3">Quick Wins Sprint (1-2 weeks)</h3>
+            <p class="text-gray-300 leading-relaxed mb-4">
+              Before major work, I implement high-impact, low-risk improvements. Fix the slowest endpoints. Add missing database indexes. Optimize N+1 queries. Set up proper monitoring.
+            </p>
+            <p class="text-sm text-accent mt-4">Typical Results: 2-5x performance improvement, immediate user experience gains</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="card-clean">
+        <div class="flex items-start">
+          <div class="flex-shrink-0 w-12 h-12 bg-accent rounded-lg flex items-center justify-center mr-6">
+            <span class="text-2xl font-bold text-dark">3</span>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold text-white mb-3">Incremental Modernization (3-8 weeks)</h3>
+            <p class="text-gray-300 leading-relaxed mb-4">
+              Phased Rails version upgrades with zero downtime. I add comprehensive test coverage (if missing), upgrade incrementally (e.g., 5.2 → 6.0 → 6.1 → 7.0 → 7.1), update dependencies, and modernize code patterns.
+            </p>
+            <p class="text-sm text-accent mt-4">Deliverable: Modern Rails 7+ application, comprehensive test suite, documentation</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="card-clean">
+        <div class="flex items-start">
+          <div class="flex-shrink-0 w-12 h-12 bg-accent rounded-lg flex items-center justify-center mr-6">
+            <span class="text-2xl font-bold text-dark">4</span>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold text-white mb-3">Performance & Cost Optimization (1-2 weeks)</h3>
+            <p class="text-gray-300 leading-relaxed mb-4">
+              Make your app fast and affordable. Database query optimization, caching strategy implementation, background job optimization, and hosting migration (I often reduce costs 40-60%).
+            </p>
+            <p class="text-sm text-accent mt-4">Deliverable: Faster app, lower hosting bills, monitoring dashboards</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="card-clean">
+        <div class="flex items-start">
+          <div class="flex-shrink-0 w-12 h-12 bg-accent rounded-lg flex items-center justify-center mr-6">
+            <span class="text-2xl font-bold text-dark">5</span>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold text-white mb-3">Knowledge Transfer</h3>
+            <p class="text-gray-300 leading-relaxed mb-4">
+              I don't want you dependent on me. Documentation of all changes, recorded walkthrough of new setup, training for your team (if you have one), and optional ongoing support.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What You Get Section -->
+<section class="section-spacing-md bg-dark-lighter">
+  <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="flex items-start mb-8">
+      <div class="section-divider flex-shrink-0 hidden md:block"></div>
+      <div class="flex-1">
+        <h2 class="text-section mb-8">What You Get</h2>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="flex items-start">
+            <svg class="w-6 h-6 text-accent mt-1 mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <div>
+              <h3 class="font-bold text-white mb-2">Modern Rails 7+</h3>
+              <p class="text-gray-400">Latest framework with 5+ years of security support ahead</p>
+            </div>
+          </div>
+
+          <div class="flex items-start">
+            <svg class="w-6 h-6 text-accent mt-1 mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <div>
+              <h3 class="font-bold text-white mb-2">3-5x Performance Improvement</h3>
+              <p class="text-gray-400">Average measured improvement across client apps</p>
+            </div>
+          </div>
+
+          <div class="flex items-start">
+            <svg class="w-6 h-6 text-accent mt-1 mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <div>
+              <h3 class="font-bold text-white mb-2">40-60% Hosting Cost Reduction</h3>
+              <p class="text-gray-400">Modern deployment strategies dramatically cut cloud spend</p>
+            </div>
+          </div>
+
+          <div class="flex items-start">
+            <svg class="w-6 h-6 text-accent mt-1 mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <div>
+              <h3 class="font-bold text-white mb-2">Comprehensive Test Coverage</h3>
+              <p class="text-gray-400">Confidence to ship without breaking things</p>
+            </div>
+          </div>
+
+          <div class="flex items-start">
+            <svg class="w-6 h-6 text-accent mt-1 mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <div>
+              <h3 class="font-bold text-white mb-2">Zero Downtime</h3>
+              <p class="text-gray-400">Incremental upgrades keep your app running throughout</p>
+            </div>
+          </div>
+
+          <div class="flex items-start">
+            <svg class="w-6 h-6 text-accent mt-1 mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <div>
+              <h3 class="font-bold text-white mb-2">Full Documentation</h3>
+              <p class="text-gray-400">Everything documented so your team can take over confidently</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Recent Results Section -->
+<section class="section-spacing-md bg-dark">
+  <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="flex items-start mb-8">
+      <div class="section-divider flex-shrink-0 hidden md:block"></div>
+      <div class="flex-1">
+        <h2 class="text-section mb-8">Recent Results</h2>
+
+        <div class="space-y-6">
+          <!-- Result 1 -->
+          <div class="card-clean">
+            <div class="flex items-start gap-4 mb-4">
+              <span class="badge">SaaS / FinTech</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-3">FinTech SaaS Platform</h3>
+            <p class="text-gray-300 mb-4">
+              Rails 5.2 running on expensive Heroku infrastructure. Pages loading in 3+ seconds. Hosting costs out of control.
+            </p>
+            <div class="bg-dark p-4 rounded-lg mb-4">
+              <p class="text-gray-300 mb-2"><strong class="text-white">What I did:</strong></p>
+              <ul class="list-disc list-inside text-gray-400 space-y-1">
+                <li>Upgraded Rails 5.2 → 7.1 (4-week phased approach)</li>
+                <li>Migrated from Heroku to modern Kamal deployment</li>
+                <li>Optimized 15 slowest database queries</li>
+                <li>Added comprehensive test coverage</li>
+              </ul>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div class="metric-card">
+                <div class="metric-value">4 weeks</div>
+                <div class="metric-label">Engagement time</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-value">65%</div>
+                <div class="metric-label">Hosting cost reduction</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-value">4x</div>
+                <div class="metric-label">Faster page loads</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-value">0</div>
+                <div class="metric-label">Downtime</div>
+              </div>
+            </div>
+            <blockquote class="border-l-4 border-accent pl-4 mt-6 italic text-gray-300">
+              "My app feels brand new. We can actually ship features now without fear."
+              <cite class="block mt-2 not-italic text-sm text-gray-400">— CTO</cite>
+            </blockquote>
+          </div>
+
+          <!-- Result 2 -->
+          <div class="card-clean">
+            <div class="flex items-start gap-4 mb-4">
+              <span class="badge">B2B Marketplace</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-3">B2B Marketplace</h3>
+            <p class="text-gray-300 mb-4">
+              Performance rescue needed. Homepage taking 3.2 seconds to load. Background jobs backing up for hours.
+            </p>
+            <div class="bg-dark p-4 rounded-lg mb-4">
+              <p class="text-gray-300 mb-2"><strong class="text-white">What I did:</strong></p>
+              <ul class="list-disc list-inside text-gray-400 space-y-1">
+                <li>Fixed 23 N+1 query problems</li>
+                <li>Added strategic database indexes</li>
+                <li>Implemented fragment caching</li>
+                <li>Optimized background job processing</li>
+                <li>Upgraded Rails 6.1 → 7.1</li>
+              </ul>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div class="metric-card">
+                <div class="metric-value">3 weeks</div>
+                <div class="metric-label">Engagement time</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-value">0.6s</div>
+                <div class="metric-label">Homepage load (from 3.2s)</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-value">8 min</div>
+                <div class="metric-label">Job processing (from 2hrs)</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-value">5x</div>
+                <div class="metric-label">Overall speedup</div>
+              </div>
+            </div>
+            <blockquote class="border-l-4 border-accent pl-4 mt-6 italic text-gray-300">
+              "They found bottlenecks my previous team missed for months."
+              <cite class="block mt-2 not-italic text-sm text-gray-400">— Founder</cite>
+            </blockquote>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <%= link_to "View All Case Studies →", case_studies_path,
+              class: "text-lg font-semibold text-accent hover:text-primary-dark transition-base" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Technologies Section -->
+<section class="section-spacing-md bg-dark-lighter">
+  <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="flex items-start">
+      <div class="section-divider flex-shrink-0 hidden md:block"></div>
+      <div class="flex-1">
+        <h2 class="text-section mb-8">Technologies & Tools I Use</h2>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="font-bold text-white mb-4">Rails Ecosystem</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>Rails 7+ (latest stable)</li>
+              <li>Hotwire (Turbo + Stimulus)</li>
+              <li>Modern deployment (Kamal, Docker)</li>
+              <li>Background jobs (Sidekiq, GoodJob)</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-bold text-white mb-4">Performance Tools</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>Bullet (N+1 detection)</li>
+              <li>rack-mini-profiler</li>
+              <li>Redis caching</li>
+              <li>Scout APM / Honeybadger</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-bold text-white mb-4">Testing & CI/CD</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>RSpec or Minitest</li>
+              <li>System tests (Capybara)</li>
+              <li>GitHub Actions</li>
+              <li>Automated deployments</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="section-spacing-md bg-dark">
+  <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="flex items-start">
+      <div class="section-divider flex-shrink-0 hidden md:block"></div>
+      <div class="flex-1">
+        <h2 class="text-section mb-8">Common Questions</h2>
+
+        <div class="space-y-6">
+          <div class="card-clean">
+            <h3 class="text-xl font-bold text-white mb-3">How long does a Rails upgrade typically take?</h3>
+            <p class="text-gray-300 leading-relaxed">
+              Depends on your current version and app size. Rails 6.x → 7.1: 1-2 weeks. Rails 5.x → 7.1: 3-4 weeks. Rails 4.x or older → 7.1: 6-8 weeks. I always start with a free health check to give you an accurate estimate.
+            </p>
+          </div>
+
+          <div class="card-clean">
+            <h3 class="text-xl font-bold text-white mb-3">Will there be downtime?</h3>
+            <p class="text-gray-300 leading-relaxed">
+              No. I do incremental upgrades with comprehensive testing at each step. Your app stays live throughout the process. I deploy during low-traffic windows and monitor closely.
+            </p>
+          </div>
+
+          <div class="card-clean">
+            <h3 class="text-xl font-bold text-white mb-3">What if we don't have any tests?</h3>
+            <p class="text-gray-300 leading-relaxed">
+              Common situation. I add test coverage as part of the upgrade process, focusing on critical paths first. This actually makes the upgrade safer and gives you confidence for future changes.
+            </p>
+          </div>
+
+          <div class="card-clean">
+            <h3 class="text-xl font-bold text-white mb-3">Can we keep using Heroku?</h3>
+            <p class="text-gray-300 leading-relaxed">
+              Absolutely. I'm platform-agnostic. That said, I often save clients 40-60% by moving to modern deployment strategies (Kamal + any cloud provider). I'll recommend what's actually best for your situation, not what's easiest for me.
+            </p>
+          </div>
+
+          <div class="card-clean">
+            <h3 class="text-xl font-bold text-white mb-3">What happens after the upgrade?</h3>
+            <p class="text-gray-300 leading-relaxed">
+              You own all the code and have full documentation. I offer optional ongoing support retainers if you want me available for questions or continued development, but there's zero obligation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section-spacing-lg bg-dark-lighter">
+  <div class="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-hero mb-6">
+      Ready to Modernize Your Rails App?
+    </h2>
+    <p class="text-xl mb-8 max-w-2xl mx-auto">
+      Get a free technical health check. I'll identify quick wins and give you a clear upgrade roadmap. No obligation.
+    </p>
+    <%= link_to "Get Your Free Health Check →", new_health_check_path,
+        class: "btn-primary inline-flex items-center justify-center text-xl px-12 py-5",
+        data: { turbo_frame: "modal" } %>
+  </div>
+</section>
+
+<!-- Modal Frame -->
+<%= turbo_frame_tag "modal" %>

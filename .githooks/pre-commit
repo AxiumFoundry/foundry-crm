@@ -1,0 +1,81 @@
+#!/bin/bash
+
+# Helper function to run commands (in container or via docker exec)
+run_in_container() {
+  if [ -f "/.dockerenv" ] || [ -n "$DEVCONTAINER" ]; then
+    # Already in container, run directly
+    bash -ic "$1"
+  else
+    # On host, exec into container
+    docker exec -u vscode -w /workspaces/foundry-crm foundry_crm-rails-app-1 bash -ic "$1"
+  fi
+}
+
+# Get list of staged files
+STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM || true)
+
+# Check if there are any staged files at all
+if [ -z "$STAGED_FILES" ]; then
+  echo "⚠️  No staged files found"
+  exit 0
+fi
+
+# Check if code files are being committed (not just docs/config)
+# Include .erb (Ruby templates), .yml/.yaml (config that could break app)
+CODE_FILES=$(echo "$STAGED_FILES" | grep -E '\.(rb|rake|erb|js|jsx|ts|tsx|gemspec|yml|yaml)$' || true)
+
+if [ -z "$CODE_FILES" ]; then
+  echo "ℹ️  No code files changed (documentation only), skipping pre-commit checks"
+  exit 0
+fi
+
+echo "=================================================="
+echo "Pre-commit checks (code changes detected)"
+echo "=================================================="
+
+# 1. RuboCop (runs on all files for consistency with full test suite)
+RUBOCOP_FILES=$(echo "$STAGED_FILES" | grep -E '\.(rb|rake|erb|gemspec|yml|yaml)$' || true)
+if [ -n "$RUBOCOP_FILES" ]; then
+  echo ""
+  echo "1️⃣  Running RuboCop on all files..."
+
+  run_in_container "bundle exec rubocop" || {
+    echo ""
+    echo "❌ RuboCop found violations. Please fix them before committing."
+    echo "Run: bundle exec rubocop -A"
+    exit 1
+  }
+
+  echo "✅ RuboCop passed"
+else
+  echo ""
+  echo "1️⃣  Skipping RuboCop (no Ruby/YAML files changed)"
+fi
+
+# 2. Run full test suite for any code changes
+echo ""
+echo "2️⃣  Running test suite..."
+run_in_container "bin/rails test --fail-fast" || {
+  echo ""
+  echo "❌ Tests failed. Please fix them before committing."
+  exit 1
+}
+
+echo "✅ Tests passed"
+
+# 3. Run system tests
+echo ""
+echo "3️⃣  Running system tests..."
+run_in_container "bin/rails test:system --fail-fast" || {
+  echo ""
+  echo "❌ System tests failed. Please fix them before committing."
+  exit 1
+}
+
+echo "✅ System tests passed"
+
+echo ""
+echo "=================================================="
+echo "✅ All pre-commit checks passed!"
+echo "=================================================="
+exit 0

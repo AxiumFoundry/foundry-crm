@@ -1,0 +1,522 @@
+<!-- Hero Section -->
+<section class="relative min-h-[60vh] flex items-center bg-dark overflow-hidden">
+  <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+    <div class="max-w-4xl">
+      <%= link_to root_path, class: "inline-flex items-center text-accent hover:text-primary-dark font-semibold mb-8 transition-base group" do %>
+        <svg class="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-base" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Back to Home
+      <% end %>
+
+      <h1 class="text-display mb-6">
+        White Label AI Agents
+      </h1>
+
+      <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl leading-relaxed">
+        Custom AI agents that work for your business, branded as yours. Fully integrated as native features of your product.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4">
+        <%= link_to "Get Free Consultation", new_health_check_path,
+            class: "btn-primary inline-flex items-center justify-center",
+            data: { turbo_frame: "modal" } %>
+        <%= link_to "View Case Studies →", case_studies_path,
+            class: "px-8 py-4 border-2 border-gray-700 text-white font-semibold rounded-lg hover:border-accent transition-base inline-flex items-center justify-center" %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- The Challenge Section -->
+<section class="section-spacing-md bg-dark-lighter">
+  <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="flex items-start mb-8">
+      <div class="section-divider flex-shrink-0 hidden md:block"></div>
+      <div class="flex-1">
+        <h2 class="text-section mb-6">The Challenge</h2>
+        <p class="text-xl text-gray-200 leading-relaxed mb-6">
+          You want to add AI capabilities to your product, but building AI features in-house means months of R&D, managing LLM APIs, handling edge cases, and constant maintenance. Off-the-shelf AI tools don't understand your business and show competitor branding.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-6 mt-8">
+          <div class="card-clean">
+            <h3 class="font-bold text-white mb-2">Generic AI Tools Fall Short</h3>
+            <p class="text-gray-400">ChatGPT plugins and generic AI assistants don't know your business logic, data, or workflows.</p>
+          </div>
+          <div class="card-clean">
+            <h3 class="font-bold text-white mb-2">Building In-House Takes Forever</h3>
+            <p class="text-gray-400">Prompt engineering, LLM selection, error handling, rate limits, cost optimization. It's a full-time job.</p>
+          </div>
+          <div class="card-clean">
+            <h3 class="font-bold text-white mb-2">Branding Matters</h3>
+            <p class="text-gray-400">"Powered by OpenAI" on your product makes you look like a reseller, not a platform.</p>
+          </div>
+          <div class="card-clean">
+            <h3 class="font-bold text-white mb-2">Integration Complexity</h3>
+            <p class="text-gray-400">AI agents need to access your database, call your APIs, and integrate with existing workflows.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What I Build Section -->
+<section class="section-spacing-md bg-dark">
+  <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="flex items-start mb-12">
+      <div class="section-divider flex-shrink-0 hidden md:block"></div>
+      <div class="flex-1">
+        <h2 class="text-section mb-6">What I Build</h2>
+        <p class="text-xl text-gray-300 mb-8">
+          Custom AI agents that integrate directly into your Rails application. Built specifically for your use case.
+        </p>
+      </div>
+    </div>
+
+    <div class="space-y-8">
+      <!-- Customer Support Agents -->
+      <div class="card-clean">
+        <div class="flex items-start">
+          <svg class="w-12 h-12 text-accent mt-1 mr-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
+          </svg>
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold text-white mb-3">Customer Support Agents</h3>
+            <p class="text-gray-300 leading-relaxed mb-4">
+              AI agents that answer customer questions using your product documentation, help articles, and historical support tickets. Handle tier 1 support 24/7, escalate complex issues to humans, learn from each interaction.
+            </p>
+            <div class="grid md:grid-cols-2 gap-4 text-sm text-gray-400">
+              <div class="flex items-start">
+                <svg class="w-4 h-4 text-accent mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Trained on your documentation</span>
+              </div>
+              <div class="flex items-start">
+                <svg class="w-4 h-4 text-accent mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Escalates when needed</span>
+              </div>
+              <div class="flex items-start">
+                <svg class="w-4 h-4 text-accent mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Integrated with your ticketing system</span>
+              </div>
+              <div class="flex items-start">
+                <svg class="w-4 h-4 text-accent mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Your branding, your tone of voice</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Data Analysis Agents -->
+      <div class="card-clean">
+        <div class="flex items-start">
+          <svg class="w-12 h-12 text-accent mt-1 mr-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+          </svg>
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold text-white mb-3">Data Analysis & Reporting Agents</h3>
+            <p class="text-gray-300 leading-relaxed mb-4">
+              Let users query their data in plain English. "Show me my top customers this quarter" or "What's my churn rate by plan type?" The agent writes SQL, fetches data, and returns formatted results.
+            </p>
+            <div class="grid md:grid-cols-2 gap-4 text-sm text-gray-400">
+              <div class="flex items-start">
+                <svg class="w-4 h-4 text-accent mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Natural language to SQL</span>
+              </div>
+              <div class="flex items-start">
+                <svg class="w-4 h-4 text-accent mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Safe query execution (read-only)</span>
+              </div>
+              <div class="flex items-start">
+                <svg class="w-4 h-4 text-accent mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Formatted charts and tables</span>
+              </div>
+              <div class="flex items-start">
+                <svg class="w-4 h-4 text-accent mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Respects user permissions</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content Generation Agents -->
+      <div class="card-clean">
+        <div class="flex items-start">
+          <svg class="w-12 h-12 text-accent mt-1 mr-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+          </svg>
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold text-white mb-3">Content Generation Agents</h3>
+            <p class="text-gray-300 leading-relaxed mb-4">
+              Generate product descriptions, marketing copy, email templates, or any text content specific to your industry. Uses your brand voice and style guidelines.
+            </p>
+            <div class="grid md:grid-cols-2 gap-4 text-sm text-gray-400">
+              <div class="flex items-start">
+                <svg class="w-4 h-4 text-accent mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Trained on your brand voice</span>
+              </div>
+              <div class="flex items-start">
+                <svg class="w-4 h-4 text-accent mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Industry-specific knowledge</span>
+              </div>
+              <div class="flex items-start">
+                <svg class="w-4 h-4 text-accent mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Review and edit before publishing</span>
+              </div>
+              <div class="flex items-start">
+                <svg class="w-4 h-4 text-accent mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Bulk generation for catalogs</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Workflow Automation Agents -->
+      <div class="card-clean">
+        <div class="flex items-start">
+          <svg class="w-12 h-12 text-accent mt-1 mr-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+          </svg>
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold text-white mb-3">Workflow Automation Agents</h3>
+            <p class="text-gray-300 leading-relaxed mb-4">
+              Agents that perform multi-step workflows. Process invoices, qualify leads, triage support tickets, update records across systems. They make decisions based on your business rules.
+            </p>
+            <div class="grid md:grid-cols-2 gap-4 text-sm text-gray-400">
+              <div class="flex items-start">
+                <svg class="w-4 h-4 text-accent mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Multi-step workflows</span>
+              </div>
+              <div class="flex items-start">
+                <svg class="w-4 h-4 text-accent mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Business logic enforcement</span>
+              </div>
+              <div class="flex items-start">
+                <svg class="w-4 h-4 text-accent mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Integrates with your APIs</span>
+              </div>
+              <div class="flex items-start">
+                <svg class="w-4 h-4 text-accent mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Human in the loop when needed</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How We Build Them Section -->
+<section class="section-spacing-md bg-dark-lighter">
+  <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="flex items-start mb-12">
+      <div class="section-divider flex-shrink-0 hidden md:block"></div>
+      <div class="flex-1">
+        <h2 class="text-section mb-6">How I Build White Label AI Agents</h2>
+        <p class="text-xl text-gray-300 mb-8">
+          I don't just wrap OpenAI's API. I build custom agents integrated directly into your Rails application.
+        </p>
+      </div>
+    </div>
+
+    <div class="space-y-8">
+      <!-- Step 1 -->
+      <div class="card-clean">
+        <div class="flex items-start">
+          <div class="flex-shrink-0 w-12 h-12 bg-accent rounded-lg flex items-center justify-center mr-6">
+            <span class="text-2xl font-bold text-dark">1</span>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold text-white mb-3">Define the Use Case</h3>
+            <p class="text-gray-300 leading-relaxed">
+              What specific problem are we solving? What actions does the agent need to perform? What data does it need access to? I start by understanding your workflow and business logic.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="card-clean">
+        <div class="flex items-start">
+          <div class="flex-shrink-0 w-12 h-12 bg-accent rounded-lg flex items-center justify-center mr-6">
+            <span class="text-2xl font-bold text-dark">2</span>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold text-white mb-3">Choose the Right LLM</h3>
+            <p class="text-gray-300 leading-relaxed mb-4">
+              Not every agent needs GPT-4. I select models based on your specific needs: speed vs accuracy, cost vs capability. Sometimes Claude is better. Sometimes GPT-3.5-turbo is fine. I optimize for your use case.
+            </p>
+            <p class="text-sm text-gray-400">I handle: OpenAI (GPT-4, GPT-3.5), Anthropic (Claude), open source models (Llama, Mistral)</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="card-clean">
+        <div class="flex items-start">
+          <div class="flex-shrink-0 w-12 h-12 bg-accent rounded-lg flex items-center justify-center mr-6">
+            <span class="text-2xl font-bold text-dark">3</span>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold text-white mb-3">Build Custom Tools & Integrations</h3>
+            <p class="text-gray-300 leading-relaxed">
+              Agents need to interact with your system. I build custom tools that let agents query your database, call your APIs, update records, send notifications. All within your existing Rails application.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="card-clean">
+        <div class="flex items-start">
+          <div class="flex-shrink-0 w-12 h-12 bg-accent rounded-lg flex items-center justify-center mr-6">
+            <span class="text-2xl font-bold text-dark">4</span>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold text-white mb-3">Prompt Engineering & Testing</h3>
+            <p class="text-gray-300 leading-relaxed">
+              The difference between a mediocre AI agent and a great one is prompt engineering. I test extensively, handle edge cases, and tune prompts until the agent behaves reliably.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="card-clean">
+        <div class="flex items-start">
+          <div class="flex-shrink-0 w-12 h-12 bg-accent rounded-lg flex items-center justify-center mr-6">
+            <span class="text-2xl font-bold text-dark">5</span>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold text-white mb-3">Deploy & Monitor</h3>
+            <p class="text-gray-300 leading-relaxed">
+              I deploy agents with proper error handling, rate limiting, cost controls, and monitoring. You see exactly what the agent is doing, how much it costs, and how well it's performing.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What You Get Section -->
+<section class="section-spacing-md bg-dark">
+  <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="flex items-start mb-8">
+      <div class="section-divider flex-shrink-0 hidden md:block"></div>
+      <div class="flex-1">
+        <h2 class="text-section mb-8">What You Get</h2>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="flex items-start">
+            <svg class="w-6 h-6 text-accent mt-1 mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <div>
+              <h3 class="font-bold text-white mb-2">Your Product, Your Brand</h3>
+              <p class="text-gray-400">Fully white labeled. No third party logos or branding visible to your users.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start">
+            <svg class="w-6 h-6 text-accent mt-1 mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <div>
+              <h3 class="font-bold text-white mb-2">Custom Built for Your Use Case</h3>
+              <p class="text-gray-400">Not a generic chatbot. Purpose-built for your specific workflow.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start">
+            <svg class="w-6 h-6 text-accent mt-1 mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <div>
+              <h3 class="font-bold text-white mb-2">Integrated Into Your Rails App</h3>
+              <p class="text-gray-400">Direct database access, API calls, permissions enforcement. Not a separate system.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start">
+            <svg class="w-6 h-6 text-accent mt-1 mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <div>
+              <h3 class="font-bold text-white mb-2">Cost Optimization</h3>
+              <p class="text-gray-400">I optimize prompts and model selection to minimize LLM costs.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start">
+            <svg class="w-6 h-6 text-accent mt-1 mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <div>
+              <h3 class="font-bold text-white mb-2">Error Handling & Safety</h3>
+              <p class="text-gray-400">Proper validation, rate limiting, fallbacks, and monitoring.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start">
+            <svg class="w-6 h-6 text-accent mt-1 mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <div>
+              <h3 class="font-bold text-white mb-2">You Own Everything</h3>
+              <p class="text-gray-400">All code, prompts, and configuration. No dependency on me to operate.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Technologies Section -->
+<section class="section-spacing-md bg-dark-lighter">
+  <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="flex items-start">
+      <div class="section-divider flex-shrink-0 hidden md:block"></div>
+      <div class="flex-1">
+        <h2 class="text-section mb-8">Technologies I Use</h2>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="font-bold text-white mb-4">LLM Providers</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>OpenAI (GPT-4, GPT-3.5)</li>
+              <li>Anthropic (Claude)</li>
+              <li>Open source (Llama, Mistral)</li>
+              <li>Custom fine-tuned models</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-bold text-white mb-4">Agent Frameworks</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>LangChain</li>
+              <li>Custom agent implementations</li>
+              <li>Function calling</li>
+              <li>RAG (Retrieval Augmented Generation)</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-bold text-white mb-4">Integration</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>Direct Rails integration</li>
+              <li>Background job processing</li>
+              <li>Real-time via Action Cable</li>
+              <li>Webhook triggers</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="section-spacing-md bg-dark">
+  <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="flex items-start">
+      <div class="section-divider flex-shrink-0 hidden md:block"></div>
+      <div class="flex-1">
+        <h2 class="text-section mb-8">Common Questions</h2>
+
+        <div class="space-y-6">
+          <div class="card-clean">
+            <h3 class="text-xl font-bold text-white mb-3">How is this different from using ChatGPT directly?</h3>
+            <p class="text-gray-300 leading-relaxed">
+              ChatGPT doesn't know your business, can't access your database, and is clearly a third-party tool. I build agents that integrate directly into your application, access your data securely, and appear as native features of your product.
+            </p>
+          </div>
+
+          <div class="card-clean">
+            <h3 class="text-xl font-bold text-white mb-3">How long does it take to build?</h3>
+            <p class="text-gray-300 leading-relaxed">
+              Most agents: 2-4 weeks from kickoff to production. Simple use cases faster, complex workflows longer. I start with a proof of concept in week 1 so you can see it working early.
+            </p>
+          </div>
+
+          <div class="card-clean">
+            <h3 class="text-xl font-bold text-white mb-3">What if the agent makes mistakes?</h3>
+            <p class="text-gray-300 leading-relaxed">
+              I build safety rails: validation, human review steps for critical actions, confidence scoring, and fallbacks. For high-stakes decisions, agents suggest actions that humans approve rather than executing automatically.
+            </p>
+          </div>
+
+          <div class="card-clean">
+            <h3 class="text-xl font-bold text-white mb-3">Do we need a Rails application?</h3>
+            <p class="text-gray-300 leading-relaxed">
+              Rails is where I specialize and can integrate most efficiently. If you have a different stack, I can build standalone agents with API integrations, but the integration will be less tight and may take longer.
+            </p>
+          </div>
+
+          <div class="card-clean">
+            <h3 class="text-xl font-bold text-white mb-3">Can we update the agent after launch?</h3>
+            <p class="text-gray-300 leading-relaxed">
+              Absolutely. You own all the code and prompts. You can update them yourself, or I can help with ongoing improvements and tuning (available on retainer).
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section-spacing-lg bg-dark-lighter">
+  <div class="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-hero mb-6">
+      Ready to Add AI to Your Product?
+    </h2>
+    <p class="text-xl mb-8 max-w-2xl mx-auto">
+      Get a free consultation. I'll discuss your use case and show you what's possible with custom AI agents.
+    </p>
+    <%= link_to "Get Your Free Consultation →", new_health_check_path,
+        class: "btn-primary inline-flex items-center justify-center text-xl px-12 py-5",
+        data: { turbo_frame: "modal" } %>
+  </div>
+</section>
+
+<!-- Modal Frame -->
+<%= turbo_frame_tag "modal" %>

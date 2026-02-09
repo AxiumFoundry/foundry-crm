@@ -1,0 +1,62 @@
+<% content_for :page_title, "Knowledge Base" %>
+
+<div class="flex justify-between items-center mb-8">
+  <div></div>
+  <%= link_to "New Document", new_admin_knowledge_document_path, class: "btn-primary text-sm py-2 px-4" %>
+</div>
+
+<% if @documents.any? %>
+  <div class="overflow-x-auto">
+    <table class="w-full">
+      <thead>
+        <tr class="border-b border-gray-700 text-xs font-semibold text-gray-400 uppercase tracking-wider">
+          <th class="text-left py-4 pr-4">Title</th>
+          <th class="text-left py-4 pr-4">Status</th>
+          <th class="text-left py-4 pr-4">Embedding</th>
+          <th class="text-left py-4 pr-4">Updated</th>
+          <th class="text-right py-4">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @documents.each do |document| %>
+          <tr class="border-b border-gray-800 hover:bg-white/5 transition-base">
+            <td class="py-4 pr-4">
+              <span class="text-white font-semibold"><%= document.title %></span>
+              <p class="text-gray-500 text-sm mt-1"><%= truncate(document.content, length: 100) %></p>
+            </td>
+            <td class="py-4 pr-4">
+              <% if document.active? %>
+                <span class="inline-block px-2 py-1 text-xs font-semibold rounded bg-green-500/20 text-green-400">Active</span>
+              <% else %>
+                <span class="inline-block px-2 py-1 text-xs font-semibold rounded bg-gray-500/20 text-gray-400">Inactive</span>
+              <% end %>
+            </td>
+            <td class="py-4 pr-4">
+              <% if document.embedding.present? %>
+                <span class="inline-block px-2 py-1 text-xs font-semibold rounded bg-blue-500/20 text-blue-400">Ready</span>
+              <% else %>
+                <span class="inline-block px-2 py-1 text-xs font-semibold rounded bg-yellow-500/20 text-yellow-400">Pending</span>
+              <% end %>
+            </td>
+            <td class="py-4 pr-4 text-gray-400"><%= time_ago_in_words(document.updated_at) %> ago</td>
+            <td class="py-4 text-right">
+              <div class="flex justify-end items-center gap-4">
+                <%= link_to "Edit", edit_admin_knowledge_document_path(document), class: "text-sm text-accent hover:text-primary-dark transition-base" %>
+                <%= button_to "Delete", admin_knowledge_document_path(document), method: :delete,
+                    class: "text-sm text-red-400 hover:text-red-300 transition-base",
+                    data: { turbo_confirm: "Are you sure you want to delete \"#{document.title}\"?" } %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <%= render "admin/shared/pagination", pagy: @pagy %>
+<% else %>
+  <div class="text-center py-16 border border-gray-700 rounded-lg">
+    <p class="text-gray-400 text-lg mb-6">No documents yet. Add knowledge base documents so the AI assistant can answer questions about your business.</p>
+    <%= link_to "Add your first document", new_admin_knowledge_document_path, class: "btn-primary" %>
+  </div>
+<% end %>

@@ -1,0 +1,47 @@
+draft_invoice:
+  contact: jane
+  project: website_redesign
+  number: "INV-1001"
+  kind: "invoice"
+  status: "draft"
+  issued_date: <%= Date.current.to_fs(:db) %>
+  due_date: <%= 30.days.from_now.to_date.to_fs(:db) %>
+  subtotal_cents: 500000
+  tax_rate: 0
+  tax_cents: 0
+  total_cents: 500000
+
+paid_invoice:
+  contact: jane
+  number: "INV-1002"
+  kind: "invoice"
+  status: "paid"
+  issued_date: <%= 1.month.ago.to_date.to_fs(:db) %>
+  due_date: <%= 1.month.ago.to_date.to_fs(:db) %>
+  paid_date: <%= 2.weeks.ago.to_date.to_fs(:db) %>
+  subtotal_cents: 300000
+  tax_rate: 0
+  tax_cents: 0
+  total_cents: 300000
+
+sent_invoice:
+  contact: john
+  number: "INV-1003"
+  kind: "invoice"
+  status: "sent"
+  issued_date: <%= Date.current.to_fs(:db) %>
+  due_date: <%= 15.days.from_now.to_date.to_fs(:db) %>
+  subtotal_cents: 200000
+  tax_rate: 0
+  tax_cents: 0
+  total_cents: 200000
+
+estimate:
+  contact: john
+  number: "INV-1004"
+  kind: "estimate"
+  status: "draft"
+  subtotal_cents: 1000000
+  tax_rate: 0
+  tax_cents: 0
+  total_cents: 1000000

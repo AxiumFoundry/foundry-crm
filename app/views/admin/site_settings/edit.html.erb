@@ -1,0 +1,198 @@
+<% content_for :page_title, "Site Settings" %>
+
+<%
+  content_tabs = {
+    "General" => {
+      "Global" => %w[site_title site_description],
+      "Navigation" => %w[nav_logo nav_work nav_about nav_cta],
+      "Footer" => %w[footer_description footer_cta footer_copyright footer_email footer_location],
+      "Chat Widget" => %w[chat_title chat_subtitle chat_welcome chat_system_prompt]
+    },
+    "Home" => {
+      "Hero" => %w[home_hero_heading home_hero_accent home_hero_description home_hero_cta home_hero_secondary_cta],
+      "Services" => %w[home_services_heading home_services_description
+        home_service_1_title home_service_1_description home_service_1_tags
+        home_service_2_title home_service_2_description home_service_2_tags
+        home_service_3_title home_service_3_description home_service_3_tags
+        home_service_4_title home_service_4_description home_service_4_tags
+        home_service_5_title home_service_5_description home_service_5_tags],
+      "Credentials" => %w[home_credentials_heading home_credentials_description],
+      "Case Study" => %w[home_case_study_heading home_case_study_description
+        home_case_study_challenge_label home_case_study_solution_label
+        home_case_study_results_label home_case_study_link],
+      "Call to Action" => %w[home_cta_heading home_cta_description home_cta_button]
+    },
+    "About" => {
+      "Hero" => %w[about_heading about_heading_accent about_description about_back_link],
+      "Story" => %w[about_story_heading about_story_p1 about_story_p2 about_story_highlight about_story_p3],
+      "Process" => %w[about_process_heading
+        about_process_1_title about_process_1_description
+        about_process_2_title about_process_2_description
+        about_process_3_title about_process_3_description
+        about_process_4_title about_process_4_description
+        about_process_5_title about_process_5_description],
+      "Beliefs" => %w[about_beliefs_heading
+        about_belief_1_title about_belief_1_description
+        about_belief_2_title about_belief_2_description
+        about_belief_3_title about_belief_3_description
+        about_belief_4_title about_belief_4_description
+        about_belief_5_title about_belief_5_description
+        about_belief_6_title about_belief_6_description],
+      "Technology" => %w[about_tech_heading about_tech_rails about_tech_hotwire
+        about_tech_turbo_native about_tech_highlight about_tech_alt_heading about_tech_alt_description],
+      "Clients" => %w[about_clients_heading
+        about_client_1_title about_client_1_description
+        about_client_2_title about_client_2_description
+        about_client_3_title about_client_3_description
+        about_client_4_title about_client_4_description],
+      "Call to Action" => %w[about_cta_heading about_cta_description about_cta_button about_cta_secondary]
+    },
+    "Health Check" => {
+      "Form" => %w[health_check_heading health_check_description health_check_submit health_check_privacy]
+    },
+    "Business" => :business_settings
+  }
+%>
+
+<div class="max-w-4xl" data-controller="tabs">
+  <%= form_with model: @site_setting, url: admin_site_setting_path, class: "space-y-6" do |f| %>
+    <% if @site_setting.errors.any? %>
+      <div class="bg-red-500/10 border border-red-500/30 p-4 rounded-lg">
+        <ul class="list-disc list-inside text-red-300 text-sm space-y-1">
+          <% @site_setting.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <!-- Tab Navigation -->
+    <div class="border-b border-gray-700 flex gap-1 overflow-x-auto">
+      <% content_tabs.each_key do |tab_name| %>
+        <button type="button"
+                data-tabs-target="btn"
+                data-action="click->tabs#select"
+                class="px-4 py-3 text-sm font-semibold uppercase tracking-wider border-b-2 whitespace-nowrap transition-base hover:text-white cursor-pointer">
+          <%= tab_name %>
+        </button>
+      <% end %>
+    </div>
+
+    <!-- Tab Panels -->
+    <% content_tabs.each do |tab_name, sections| %>
+      <div data-tabs-target="panel" class="space-y-8">
+        <% if sections == :business_settings %>
+          <fieldset class="border border-gray-700 p-6 rounded-lg space-y-6">
+            <legend class="text-xs font-semibold text-gray-300 uppercase tracking-wider px-2">Business Info</legend>
+
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <%= f.label :business_name, class: "block text-xs font-semibold text-gray-300 mb-2 uppercase tracking-wider" %>
+                <%= f.text_field :business_name, required: true,
+                    class: "w-full px-4 py-3 bg-transparent border border-gray-700 text-white placeholder-gray-500 focus:border-primary focus:outline-none rounded transition-base" %>
+              </div>
+              <div>
+                <%= f.label :tagline, class: "block text-xs font-semibold text-gray-300 mb-2 uppercase tracking-wider" %>
+                <%= f.text_field :tagline,
+                    class: "w-full px-4 py-3 bg-transparent border border-gray-700 text-white placeholder-gray-500 focus:border-primary focus:outline-none rounded transition-base" %>
+              </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <%= f.label :contact_email, class: "block text-xs font-semibold text-gray-300 mb-2 uppercase tracking-wider" %>
+                <%= f.email_field :contact_email,
+                    class: "w-full px-4 py-3 bg-transparent border border-gray-700 text-white placeholder-gray-500 focus:border-primary focus:outline-none rounded transition-base" %>
+              </div>
+              <div>
+                <%= f.label :contact_phone, class: "block text-xs font-semibold text-gray-300 mb-2 uppercase tracking-wider" %>
+                <%= f.telephone_field :contact_phone,
+                    class: "w-full px-4 py-3 bg-transparent border border-gray-700 text-white placeholder-gray-500 focus:border-primary focus:outline-none rounded transition-base" %>
+              </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <%= f.label :website_url, class: "block text-xs font-semibold text-gray-300 mb-2 uppercase tracking-wider" %>
+                <%= f.url_field :website_url,
+                    class: "w-full px-4 py-3 bg-transparent border border-gray-700 text-white placeholder-gray-500 focus:border-primary focus:outline-none rounded transition-base" %>
+              </div>
+              <div>
+                <%= f.label :logo_url, class: "block text-xs font-semibold text-gray-300 mb-2 uppercase tracking-wider" %>
+                <%= f.url_field :logo_url,
+                    class: "w-full px-4 py-3 bg-transparent border border-gray-700 text-white placeholder-gray-500 focus:border-primary focus:outline-none rounded transition-base" %>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="border border-gray-700 p-6 rounded-lg space-y-6">
+            <legend class="text-xs font-semibold text-gray-300 uppercase tracking-wider px-2">Preferences</legend>
+
+            <div class="grid md:grid-cols-3 gap-6">
+              <div>
+                <%= f.label :timezone, class: "block text-xs font-semibold text-gray-300 mb-2 uppercase tracking-wider" %>
+                <%= f.text_field :timezone,
+                    class: "w-full px-4 py-3 bg-transparent border border-gray-700 text-white placeholder-gray-500 focus:border-primary focus:outline-none rounded transition-base" %>
+              </div>
+              <div>
+                <%= f.label :default_currency, class: "block text-xs font-semibold text-gray-300 mb-2 uppercase tracking-wider" %>
+                <%= f.text_field :default_currency,
+                    class: "w-full px-4 py-3 bg-transparent border border-gray-700 text-white placeholder-gray-500 focus:border-primary focus:outline-none rounded transition-base" %>
+              </div>
+              <div>
+                <%= f.label :invoice_prefix, class: "block text-xs font-semibold text-gray-300 mb-2 uppercase tracking-wider" %>
+                <%= f.text_field :invoice_prefix,
+                    class: "w-full px-4 py-3 bg-transparent border border-gray-700 text-white placeholder-gray-500 focus:border-primary focus:outline-none rounded transition-base" %>
+              </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+              <div>
+                <%= f.label :invoice_next_number, class: "block text-xs font-semibold text-gray-300 mb-2 uppercase tracking-wider" %>
+                <%= f.number_field :invoice_next_number, min: 1,
+                    class: "w-full px-4 py-3 bg-transparent border border-gray-700 text-white placeholder-gray-500 focus:border-primary focus:outline-none rounded transition-base" %>
+              </div>
+            </div>
+          </fieldset>
+        <% else %>
+          <% sections.each do |section_name, keys| %>
+            <fieldset class="border border-gray-700 p-6 rounded-lg space-y-6">
+              <legend class="text-xs font-semibold text-gray-300 uppercase tracking-wider px-2"><%= section_name %></legend>
+
+              <% keys.each do |key| %>
+                <% default_value = SiteSetting::CONTENT_DEFAULTS[key] || "" %>
+                <% current_value = @site_setting.content&.dig(key).presence || "" %>
+                <% is_long = default_value.length > 100 %>
+                <div>
+                  <label for="site_setting_content_<%= key %>" class="block text-xs font-semibold text-gray-300 mb-2 uppercase tracking-wider">
+                    <%= key.humanize %>
+                  </label>
+                  <% if is_long %>
+                    <textarea
+                      name="site_setting[content][<%= key %>]"
+                      id="site_setting_content_<%= key %>"
+                      rows="3"
+                      placeholder="<%= default_value.truncate(200) %>"
+                      class="w-full px-4 py-3 bg-transparent border border-gray-700 text-white placeholder-gray-500 focus:border-primary focus:outline-none rounded transition-base resize-y text-sm"><%= current_value %></textarea>
+                  <% else %>
+                    <input
+                      type="text"
+                      name="site_setting[content][<%= key %>]"
+                      id="site_setting_content_<%= key %>"
+                      value="<%= current_value %>"
+                      placeholder="<%= default_value %>"
+                      class="w-full px-4 py-3 bg-transparent border border-gray-700 text-white placeholder-gray-500 focus:border-primary focus:outline-none rounded transition-base text-sm">
+                  <% end %>
+                </div>
+              <% end %>
+            </fieldset>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <div class="flex gap-4">
+      <%= f.submit "Save Settings", class: "btn-primary text-base py-3 px-6 cursor-pointer" %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,206 @@
+<!-- Hero Section - Modern Studio -->
+<section class="relative min-h-screen flex items-center bg-navy overflow-hidden">
+  <!-- Rust Accent Line -->
+  <div class="absolute left-0 md:left-16 top-1/4 w-2 h-48 bg-primary" data-controller="parallax" data-parallax-speed-value="0.3"></div>
+
+  <div class="container mx-auto max-w-7xl px-4 sm:px-8 lg:px-16 py-24 md:py-48 relative z-10">
+    <div class="max-w-5xl pl-0 md:pl-12 reveal-hidden" data-controller="scroll-reveal" data-scroll-reveal-root-value="true" data-scroll-reveal-threshold-value="0.1">
+      <h1 class="text-display mb-12 leading-none">
+        <%= site_text("home_hero_heading") %>
+        <br>
+        <span class="text-accent"><%= site_text("home_hero_accent") %></span>
+      </h1>
+
+      <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-2xl leading-relaxed font-light">
+        <%= site_text("home_hero_description") %>
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-6">
+        <%= link_to site_text("home_hero_cta"), new_health_check_path,
+            class: "btn-primary inline-flex items-center justify-center",
+            data: { turbo_frame: "modal" } %>
+        <%= link_to site_text("home_hero_secondary_cta"), case_studies_path,
+            class: "btn-secondary inline-flex items-center justify-center" %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What We Do Section - Modern Studio -->
+<section class="section-spacing-lg bg-navy">
+  <div class="container mx-auto max-w-7xl px-4 sm:px-8 lg:px-16">
+    <div class="mb-12 md:mb-24">
+      <h2 class="text-section mb-6 reveal-hidden" data-controller="scroll-reveal" data-scroll-reveal-root-value="true"><%= site_text("home_services_heading") %></h2>
+      <p class="text-lg text-gray-300 max-w-2xl font-light">
+        <%= site_text("home_services_description") %>
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 md:gap-16" data-controller="scroll-reveal" data-scroll-reveal-stagger-value="120">
+      <!-- Ship Products Faster -->
+      <%= link_to ship_faster_path, class: "card-clean hover:border-accent transition-base block group reveal-hidden", data: { scroll_reveal_target: "item" } do %>
+        <div class="border-l-4 border-primary pl-8 mb-6"></div>
+        <h3 class="text-2xl font-bold text-white mb-6"><%= site_text("home_service_1_title") %></h3>
+        <p class="text-gray-300 leading-relaxed mb-6 font-light">
+          <%= site_text("home_service_1_description") %>
+        </p>
+        <p class="text-xs uppercase tracking-wider text-gray-500 mb-4 font-semibold">
+          <%= site_text("home_service_1_tags") %>
+        </p>
+        <p class="text-accent text-sm font-semibold uppercase tracking-wider">Learn more →</p>
+      <% end %>
+
+      <!-- Rescue & Modernize -->
+      <%= link_to rescue_modernize_path, class: "card-clean hover:border-accent transition-base block group reveal-hidden", data: { scroll_reveal_target: "item" } do %>
+        <div class="border-l-4 border-primary pl-8 mb-6"></div>
+        <h3 class="text-2xl font-bold text-white mb-6"><%= site_text("home_service_2_title") %></h3>
+        <p class="text-gray-300 leading-relaxed mb-6 font-light">
+          <%= site_text("home_service_2_description") %>
+        </p>
+        <p class="text-xs uppercase tracking-wider text-gray-500 mb-4 font-semibold">
+          <%= site_text("home_service_2_tags") %>
+        </p>
+        <p class="text-accent text-sm font-semibold uppercase tracking-wider">Learn more →</p>
+      <% end %>
+
+      <!-- Deploy & Scale -->
+      <%= link_to deploy_scale_path, class: "card-clean hover:border-accent transition-base block group reveal-hidden", data: { scroll_reveal_target: "item" } do %>
+        <div class="border-l-4 border-primary pl-8 mb-6"></div>
+        <h3 class="text-2xl font-bold text-white mb-6"><%= site_text("home_service_3_title") %></h3>
+        <p class="text-gray-300 leading-relaxed mb-6 font-light">
+          <%= site_text("home_service_3_description") %>
+        </p>
+        <p class="text-xs uppercase tracking-wider text-gray-500 mb-4 font-semibold">
+          <%= site_text("home_service_3_tags") %>
+        </p>
+        <p class="text-accent text-sm font-semibold uppercase tracking-wider">Learn more →</p>
+      <% end %>
+
+      <!-- Integrate & Extend -->
+      <%= link_to integrate_extend_path, class: "card-clean hover:border-accent transition-base block group reveal-hidden", data: { scroll_reveal_target: "item" } do %>
+        <div class="border-l-4 border-primary pl-8 mb-6"></div>
+        <h3 class="text-2xl font-bold text-white mb-6"><%= site_text("home_service_4_title") %></h3>
+        <p class="text-gray-300 leading-relaxed mb-6 font-light">
+          <%= site_text("home_service_4_description") %>
+        </p>
+        <p class="text-xs uppercase tracking-wider text-gray-500 mb-4 font-semibold">
+          <%= site_text("home_service_4_tags") %>
+        </p>
+        <p class="text-accent text-sm font-semibold uppercase tracking-wider">Learn more →</p>
+      <% end %>
+
+      <!-- White Label AI Agents -->
+      <%= link_to ai_agents_path, class: "card-clean hover:border-accent transition-base block group reveal-hidden", data: { scroll_reveal_target: "item" } do %>
+        <div class="border-l-4 border-primary pl-8 mb-6"></div>
+        <h3 class="text-2xl font-bold text-white mb-6"><%= site_text("home_service_5_title") %></h3>
+        <p class="text-gray-300 leading-relaxed mb-6 font-light">
+          <%= site_text("home_service_5_description") %>
+        </p>
+        <p class="text-xs uppercase tracking-wider text-gray-500 mb-4 font-semibold">
+          <%= site_text("home_service_5_tags") %>
+        </p>
+        <p class="text-accent text-sm font-semibold uppercase tracking-wider">Learn more →</p>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<!-- Credentials Section - Modern Studio -->
+<section class="section-spacing-lg bg-navy">
+  <div class="container mx-auto max-w-7xl px-4 sm:px-8 lg:px-16">
+    <div class="mb-12 md:mb-24">
+      <h2 class="text-section mb-6 reveal-hidden" data-controller="scroll-reveal" data-scroll-reveal-root-value="true"><%= site_text("home_credentials_heading") %></h2>
+      <p class="text-lg text-gray-300 max-w-2xl font-light">
+        <%= site_text("home_credentials_description") %>
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-12" data-controller="scroll-reveal" data-scroll-reveal-stagger-value="100">
+      <% @credentials.each do |credential| %>
+        <div class="card-clean reveal-hidden" data-scroll-reveal-target="item">
+          <div class="border-l-4 border-primary pl-8 mb-6"></div>
+          <h3 class="text-xl font-bold text-white mb-3"><%= credential.title %></h3>
+          <% if credential.organization %>
+            <p class="text-accent text-sm font-semibold mb-4 uppercase tracking-wider"><%= credential.organization %></p>
+          <% end %>
+          <% if credential.description %>
+            <p class="text-gray-300 leading-relaxed font-light"><%= credential.description %></p>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Case Study - Modern Studio -->
+<section class="section-spacing-lg bg-dark-lighter">
+  <div class="container mx-auto max-w-7xl px-4 sm:px-8 lg:px-16">
+    <div class="mb-12 md:mb-24">
+      <h2 class="text-section mb-6 reveal-hidden" data-controller="scroll-reveal" data-scroll-reveal-root-value="true"><%= site_text("home_case_study_heading") %></h2>
+      <p class="text-lg text-gray-300 max-w-2xl font-light">
+        <%= site_text("home_case_study_description") %>
+      </p>
+    </div>
+
+    <% if @featured_case_study %>
+      <div class="card-clean max-w-5xl mx-auto reveal-hidden" data-controller="scroll-reveal" data-scroll-reveal-root-value="true" data-scroll-reveal-threshold-value="0.05">
+        <!-- Header -->
+        <div class="mb-12">
+          <div class="flex items-center gap-4 mb-4">
+            <h3 class="text-4xl md:text-5xl font-bold text-white"><%= @featured_case_study.client_name %></h3>
+            <% if @featured_case_study.website_url %>
+              <%= link_to @featured_case_study.website_url, target: "_blank", rel: "noopener noreferrer", class: "text-accent hover:text-primary-dark transition-base" do %>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              <% end %>
+            <% end %>
+          </div>
+          <% if @featured_case_study.industry %>
+            <span class="badge">
+              <%= @featured_case_study.industry %>
+            </span>
+          <% end %>
+        </div>
+
+        <!-- Challenge & Solution -->
+        <div class="grid md:grid-cols-2 gap-12 mb-12">
+          <div>
+            <div class="border-l-4 border-primary pl-8 mb-4"></div>
+            <h4 class="text-2xl font-bold text-white mb-4"><%= site_text("home_case_study_challenge_label") %></h4>
+            <p class="text-gray-300 leading-relaxed mb-4 font-light"><%= @featured_case_study.challenge_summary %></p>
+            <% if @featured_case_study.challenge_details %>
+              <p class="text-gray-400 text-sm font-light"><%= simple_format(@featured_case_study.challenge_details, class: "mb-2") %></p>
+            <% end %>
+          </div>
+
+          <div>
+            <div class="border-l-4 border-primary pl-8 mb-4"></div>
+            <h4 class="text-2xl font-bold text-white mb-4"><%= site_text("home_case_study_solution_label") %></h4>
+            <% if @featured_case_study.solution %>
+              <p class="text-gray-300 leading-relaxed font-light"><%= simple_format(@featured_case_study.solution, class: "mb-2") %></p>
+            <% end %>
+          </div>
+        </div>
+
+        <!-- Results -->
+        <div class="border-t border-gray-700 pt-12">
+          <div class="border-l-4 border-primary pl-8 mb-4"></div>
+          <h4 class="text-2xl font-bold text-white mb-6"><%= site_text("home_case_study_results_label") %></h4>
+          <% if @featured_case_study.results %>
+            <p class="text-gray-300 leading-relaxed font-light"><%= @featured_case_study.results %></p>
+          <% end %>
+        </div>
+
+      </div>
+
+      <div class="text-center mt-16">
+        <%= link_to site_text("home_case_study_link"), case_studies_path,
+            class: "text-sm font-semibold text-accent hover:text-primary-dark transition-base uppercase tracking-wider" %>
+      </div>
+    <% end %>
+  </div>
+</section>
+
+<!-- Modal Frame -->
+<%= turbo_frame_tag "modal" %>

@@ -1,0 +1,66 @@
+<% content_for :page_title, "Contacts" %>
+
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
+  <div class="flex flex-wrap gap-2">
+    <%= link_to "All", admin_contacts_path, class: "px-3 py-1 text-sm rounded #{'bg-white/10 text-white' unless params[:stage].present?} #{'text-gray-400 hover:text-white' if params[:stage].present?} transition-base" %>
+    <% Contact::STAGES.each do |stage| %>
+      <%= link_to stage.capitalize, admin_contacts_path(stage: stage), class: "px-3 py-1 text-sm rounded #{'bg-white/10 text-white' if params[:stage] == stage} #{'text-gray-400 hover:text-white' unless params[:stage] == stage} transition-base" %>
+    <% end %>
+  </div>
+  <%= link_to "New Contact", new_admin_contact_path, class: "btn-primary text-sm py-2 px-4" %>
+</div>
+
+<% if @contacts.any? %>
+  <div class="overflow-x-auto">
+    <table class="w-full">
+      <thead>
+        <tr class="border-b border-gray-700 text-xs font-semibold text-gray-400 uppercase tracking-wider">
+          <th class="text-left py-4 pr-4">Name</th>
+          <th class="text-left py-4 pr-4">Email</th>
+          <th class="text-left py-4 pr-4">Company</th>
+          <th class="text-left py-4 pr-4">Stage</th>
+          <th class="text-left py-4 pr-4">Source</th>
+          <th class="text-right py-4">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @contacts.each do |contact| %>
+          <tr class="border-b border-gray-800 hover:bg-white/5 transition-base">
+            <td class="py-4 pr-4">
+              <%= link_to contact.full_name, admin_contact_path(contact), class: "text-white font-semibold hover:text-accent transition-base" %>
+            </td>
+            <td class="py-4 pr-4 text-gray-400"><%= contact.email %></td>
+            <td class="py-4 pr-4 text-gray-400"><%= contact.company_name %></td>
+            <td class="py-4 pr-4">
+              <span class="inline-block px-2 py-1 text-xs font-semibold rounded
+                <%= case contact.stage
+                    when 'lead' then 'bg-blue-500/20 text-blue-400'
+                    when 'prospect' then 'bg-yellow-500/20 text-yellow-400'
+                    when 'client' then 'bg-green-500/20 text-green-400'
+                    when 'inactive' then 'bg-gray-500/20 text-gray-400'
+                    end %>">
+                <%= contact.stage.capitalize %>
+              </span>
+            </td>
+            <td class="py-4 pr-4 text-gray-400"><%= contact.source&.humanize %></td>
+            <td class="py-4 text-right">
+              <div class="flex justify-end items-center gap-4">
+                <%= link_to "Edit", edit_admin_contact_path(contact), class: "text-sm text-accent hover:text-primary-dark transition-base" %>
+                <%= button_to "Delete", admin_contact_path(contact), method: :delete,
+                    class: "text-sm text-red-400 hover:text-red-300 transition-base",
+                    data: { turbo_confirm: "Delete #{contact.full_name}?" } %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <%= render "admin/shared/pagination", pagy: @pagy %>
+<% else %>
+  <div class="text-center py-16 border border-gray-700 rounded-lg">
+    <p class="text-gray-400 text-lg mb-6">No contacts yet.</p>
+    <%= link_to "Add your first contact", new_admin_contact_path, class: "btn-primary" %>
+  </div>
+<% end %>
