@@ -8,7 +8,6 @@
 | `CaseStudiesController` | `GET /case_studies`, `GET /case_studies/:slug` | Portfolio case studies (read-only) |
 | `HealthChecksController` | `GET /health_checks/new`, `POST /health_checks` | Intake form submission |
 | `CapabilitiesController` | `GET /capabilities/*` | Capability detail pages |
-| `ProductsController` | `GET /products/*` | Product showcase pages |
 
 ## Admin Resources
 

@@ -30,9 +30,6 @@
 - `capabilities/integrate_extend.html.erb`
 - `capabilities/ai_agents.html.erb`
 
-### Products
-- `products/foundry_crm.html.erb` - CRM product showcase
-
 ## Admin Views
 
 ### Dashboard
