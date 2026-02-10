@@ -29,7 +29,22 @@ A lightweight CRM built with Ruby on Rails for solo consultants and small agenci
 
 ## Screenshots
 
-*Coming soon*
+![Home](screenshots/01_home.png)
+
+<table>
+  <tr>
+    <td><strong>Admin Dashboard</strong><br><img src="screenshots/05_admin_dashboard.png" alt="Admin Dashboard"></td>
+    <td><strong>Contacts</strong><br><img src="screenshots/06_admin_contacts.png" alt="Contacts"></td>
+  </tr>
+  <tr>
+    <td><strong>Invoices</strong><br><img src="screenshots/09_admin_invoices.png" alt="Invoices"></td>
+    <td><strong>Projects</strong><br><img src="screenshots/07_admin_projects.png" alt="Projects"></td>
+  </tr>
+  <tr>
+    <td><strong>Inline Edit Mode</strong><br><img src="screenshots/03_inline_edit_mode.png" alt="Inline Edit Mode"></td>
+    <td><strong>Inline Editing Active</strong><br><img src="screenshots/04_inline_editing_active.png" alt="Inline Editing Active"></td>
+  </tr>
+</table>
 
 ## Managed Hosting
 
