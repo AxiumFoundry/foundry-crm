@@ -17,7 +17,7 @@
 
       <!-- Quick Links -->
       <div>
-        <h4 class="text-cream font-semibold mb-6 text-sm uppercase tracking-wider">Quick Links</h4>
+        <h4 class="text-cream font-semibold mb-6 text-sm uppercase tracking-wider"><%= site_text("footer_quick_links_heading") %></h4>
         <ul class="space-y-3">
           <li><%= link_to "Home", root_path, class: "text-gray-300 hover:text-cream transition-base text-sm" %></li>
           <li><%= link_to "Case Studies", case_studies_path, class: "text-gray-300 hover:text-cream transition-base text-sm" %></li>
@@ -28,9 +28,9 @@
 
       <!-- Contact -->
       <div>
-        <h4 class="text-cream font-semibold mb-6 text-sm uppercase tracking-wider">Connect</h4>
+        <h4 class="text-cream font-semibold mb-6 text-sm uppercase tracking-wider"><%= site_text("footer_connect_heading") %></h4>
         <ul class="space-y-3">
-          <li><a href="mailto:<%= site_text("footer_email") %>" class="text-gray-300 hover:text-cream transition-base text-sm"><%= site_text("footer_email") %></a></li>
+          <li><a href="mailto:<%= current_settings.text("footer_email") %>" class="text-gray-300 hover:text-cream transition-base text-sm"><%= site_text("footer_email") %></a></li>
           <li><span class="text-gray-300 text-sm"><%= site_text("footer_location") %></span></li>
         </ul>
       </div>

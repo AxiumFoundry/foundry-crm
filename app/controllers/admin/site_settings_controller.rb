@@ -19,8 +19,7 @@ class Admin::SiteSettingsController < Admin::BaseController
     params.require(:site_setting).permit(
       :business_name, :tagline, :contact_email, :contact_phone,
       :website_url, :logo_url, :timezone, :default_currency,
-      :invoice_prefix, :invoice_next_number,
-      content: SiteSetting::CONTENT_DEFAULTS.keys
+      :invoice_prefix, :invoice_next_number
     )
   end
 end

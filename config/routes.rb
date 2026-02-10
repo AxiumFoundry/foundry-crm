@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     resources :knowledge_documents, except: [ :show ]
 
     resource :site_setting, only: [ :edit, :update ]
+    resource :content_update, only: [ :update ]
+    resource :inline_update, only: [ :update ]
 
     resources :contacts
     resources :health_check_submissions, only: [ :index, :show ]
@@ -38,9 +40,6 @@ Rails.application.routes.draw do
   get "capabilities/deploy-scale", to: "capabilities#deploy_scale", as: :deploy_scale
   get "capabilities/integrate-extend", to: "capabilities#integrate_extend", as: :integrate_extend
   get "capabilities/ai-agents", to: "capabilities#ai_agents", as: :ai_agents
-
-  # Product pages
-  get "products/foundry-crm", to: "products#foundry_crm", as: :foundry_crm
 
   # About page
   get "about", to: "pages#about", as: :about

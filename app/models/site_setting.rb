@@ -36,6 +36,7 @@ class SiteSetting < ApplicationRecord
     "home_service_5_title" => "White Label AI Agents",
     "home_service_5_description" => "Custom AI agents integrated into your product. Customer support, data analysis, content generation, workflow automation. Fully white labeled as your product.",
     "home_service_5_tags" => "LLM Integration • Custom Agents • RAG • Function Calling",
+    "home_service_learn_more" => "Learn more →",
 
     "home_credentials_heading" => "Proven Track Record",
     "home_credentials_description" => "Trusted by fast-growing startups to solve their toughest technical challenges",
@@ -111,6 +112,8 @@ class SiteSetting < ApplicationRecord
     "about_cta_button" => "Get Your Free Health Check →",
     "about_cta_secondary" => "View My Work",
 
+    "footer_quick_links_heading" => "Quick Links",
+    "footer_connect_heading" => "Connect",
     "footer_description" => "Expert technical consultancy for ambitious startups. Ship faster without hiring senior developers.",
     "footer_cta" => "Start a Project →",
     "footer_copyright" => "Foundry CRM. Licensed under Elastic License 2.0.",
@@ -122,6 +125,26 @@ class SiteSetting < ApplicationRecord
     "health_check_description" => "30-minute technical audit of your startup's engineering practices",
     "health_check_submit" => "Request Free Health Check →",
     "health_check_privacy" => "I respect your privacy. Your information will only be used to contact you about your health check.",
+
+    "case_studies_heading" => "My Work",
+    "case_studies_description" => "Real results from real startups. See how I help companies ship faster without hiring senior developers.",
+    "case_studies_view_link" => "View Case Study →",
+    "case_studies_empty_heading" => "Case studies coming soon",
+    "case_studies_empty_description" => "I'm wrapping up some exciting projects. In the meantime, let's talk about yours.",
+    "case_studies_empty_cta" => "Get in Touch →",
+    "case_studies_cta_heading" => "Want similar results?",
+    "case_studies_cta_description" => "Let's discuss how I can help your startup ship faster. Get a free technical health check.",
+    "case_studies_cta_button" => "Get Your Free Health Check",
+    "case_studies_cta_back" => "← Back to Home",
+
+    "case_study_back_link" => "All Case Studies",
+    "case_study_challenge_label" => "The Challenge",
+    "case_study_solution_label" => "The Solution",
+    "case_study_results_label" => "The Results",
+    "case_study_cta_heading" => "Ready for similar results?",
+    "case_study_cta_description" => "Let's discuss how I can help your startup ship faster. Get a free technical health check.",
+    "case_study_cta_button" => "Get Your Free Health Check",
+    "case_study_cta_back" => "← Back to All Case Studies",
 
     "chat_title" => "Foundry CRM",
     "chat_subtitle" => "AI Assistant",

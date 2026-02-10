@@ -20,9 +20,9 @@
     </script>
     <!-- End Google Tag Manager -->
 
-    <title><%= content_for(:title) || site_text("site_title") %></title>
+    <title><%= content_for(:title) || site_text("site_title", editable: false) %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="<%= site_text("site_description") %>">
+    <meta name="description" content="<%= site_text("site_description", editable: false) %>">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="honeybadger-api-key" content="<%= ENV['HONEYBADGER_API_KEY'] %>">

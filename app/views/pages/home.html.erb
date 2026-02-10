@@ -47,7 +47,7 @@
         <p class="text-xs uppercase tracking-wider text-gray-500 mb-4 font-semibold">
           <%= site_text("home_service_1_tags") %>
         </p>
-        <p class="text-accent text-sm font-semibold uppercase tracking-wider">Learn more →</p>
+        <p class="text-accent text-sm font-semibold uppercase tracking-wider"><%= site_text("home_service_learn_more") %></p>
       <% end %>
 
       <!-- Rescue & Modernize -->
@@ -60,7 +60,7 @@
         <p class="text-xs uppercase tracking-wider text-gray-500 mb-4 font-semibold">
           <%= site_text("home_service_2_tags") %>
         </p>
-        <p class="text-accent text-sm font-semibold uppercase tracking-wider">Learn more →</p>
+        <p class="text-accent text-sm font-semibold uppercase tracking-wider"><%= site_text("home_service_learn_more") %></p>
       <% end %>
 
       <!-- Deploy & Scale -->
@@ -73,7 +73,7 @@
         <p class="text-xs uppercase tracking-wider text-gray-500 mb-4 font-semibold">
           <%= site_text("home_service_3_tags") %>
         </p>
-        <p class="text-accent text-sm font-semibold uppercase tracking-wider">Learn more →</p>
+        <p class="text-accent text-sm font-semibold uppercase tracking-wider"><%= site_text("home_service_learn_more") %></p>
       <% end %>
 
       <!-- Integrate & Extend -->
@@ -86,7 +86,7 @@
         <p class="text-xs uppercase tracking-wider text-gray-500 mb-4 font-semibold">
           <%= site_text("home_service_4_tags") %>
         </p>
-        <p class="text-accent text-sm font-semibold uppercase tracking-wider">Learn more →</p>
+        <p class="text-accent text-sm font-semibold uppercase tracking-wider"><%= site_text("home_service_learn_more") %></p>
       <% end %>
 
       <!-- White Label AI Agents -->
@@ -99,7 +99,7 @@
         <p class="text-xs uppercase tracking-wider text-gray-500 mb-4 font-semibold">
           <%= site_text("home_service_5_tags") %>
         </p>
-        <p class="text-accent text-sm font-semibold uppercase tracking-wider">Learn more →</p>
+        <p class="text-accent text-sm font-semibold uppercase tracking-wider"><%= site_text("home_service_learn_more") %></p>
       <% end %>
     </div>
   </div>
@@ -119,12 +119,12 @@
       <% @credentials.each do |credential| %>
         <div class="card-clean reveal-hidden" data-scroll-reveal-target="item">
           <div class="border-l-4 border-primary pl-8 mb-6"></div>
-          <h3 class="text-xl font-bold text-white mb-3"><%= credential.title %></h3>
+          <h3 class="text-xl font-bold text-white mb-3"><%= editable_field(credential, :title) %></h3>
           <% if credential.organization %>
-            <p class="text-accent text-sm font-semibold mb-4 uppercase tracking-wider"><%= credential.organization %></p>
+            <p class="text-accent text-sm font-semibold mb-4 uppercase tracking-wider"><%= editable_field(credential, :organization) %></p>
           <% end %>
           <% if credential.description %>
-            <p class="text-gray-300 leading-relaxed font-light"><%= credential.description %></p>
+            <p class="text-gray-300 leading-relaxed font-light"><%= editable_field(credential, :description) %></p>
           <% end %>
         </div>
       <% end %>

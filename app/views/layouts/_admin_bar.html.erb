@@ -1,7 +1,15 @@
-<div class="fixed top-0 left-0 right-0 z-[60] bg-accent">
+<div class="fixed top-0 left-0 right-0 z-[60] bg-accent" data-controller="edit-mode">
   <div class="max-w-7xl mx-auto px-8 lg:px-16 flex justify-between items-center py-1">
     <%= link_to "Dashboard", admin_root_path, class: "text-xs font-semibold text-navy hover:text-navy/70 uppercase tracking-wider transition-base cursor-pointer" %>
-    <%= button_to "Logout", session_path, method: :delete,
-        class: "text-xs font-semibold text-navy hover:text-navy/70 uppercase tracking-wider transition-base cursor-pointer" %>
+    <div class="flex items-center gap-4">
+      <button type="button"
+        data-edit-mode-target="button"
+        data-action="click->edit-mode#toggle"
+        class="text-xs font-semibold text-navy hover:text-navy/70 uppercase tracking-wider transition-base cursor-pointer">
+        Edit Content
+      </button>
+      <%= button_to "Logout", session_path, method: :delete,
+          class: "text-xs font-semibold text-navy hover:text-navy/70 uppercase tracking-wider transition-base cursor-pointer" %>
+    </div>
   </div>
 </div>
