@@ -27,9 +27,9 @@ jobs:
         run: |
           BWS_JSON=$(bws secret list --output json)
 
-          SSH_KEY=$(echo "$BWS_JSON" | jq -r '.[] | select(.key == "SSH_PRIVATE_KEY_HETZNER") | .value')
+          SSH_KEY=$(echo "$BWS_JSON" | jq -r '.[] | select(.key == "SSH_PRIVATE_KEY") | .value')
           if [ -z "$SSH_KEY" ]; then
-            echo "::error::SSH_PRIVATE_KEY_HETZNER not found in BWS"
+            echo "::error::SSH_PRIVATE_KEY not found in BWS"
             exit 1
           fi
           echo "::add-mask::$SSH_KEY"

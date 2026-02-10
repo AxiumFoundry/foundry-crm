@@ -121,13 +121,19 @@ kamal console      # Remote Rails console
 
 Configuration is in `config/deploy.yml`. Secrets are fetched from BWS at deploy time.
 
-### BWS Secrets Management
+### BWS Environment Variables
 
-This project uses [Bitwarden Secrets Manager](https://bitwarden.com/products/secrets-manager/) (BWS) to manage environment variables. The `.devcontainer/setup-bws-env.sh` script:
+This project uses [Bitwarden Secrets Manager](https://bitwarden.com/products/secrets-manager/) (BWS) to manage environment variables. The BWS CLI is built from source and installed in the devcontainer Dockerfile.
 
-1. Reads secrets with the `FOUNDRY_CRM_` prefix from BWS
-2. Maps them to standard env vars (e.g., `FOUNDRY_CRM_RAILS_MASTER_KEY` → `RAILS_MASTER_KEY`)
-3. Sources them into the shell session
+The `.devcontainer/setup-bws-env.sh` script runs automatically when the devcontainer starts and adds environment variables to your shell. It:
+
+1. Uses `bws run` to fetch all secrets with the `FOUNDRY_CRM_` prefix
+2. Maps them to standard env vars:
+   - `FOUNDRY_CRM_RAILS_MASTER_KEY` → `RAILS_MASTER_KEY`
+   - `FOUNDRY_CRM_HONEYBADGER_API_KEY` → `HONEYBADGER_API_KEY`
+   - `FOUNDRY_CRM_BREVO_SMTP_KEY` → `BREVO_SMTP_KEY`
+   - `FOUNDRY_CRM_OPENAI_API_KEY` → `OPENAI_API_KEY`
+3. Writes them to `/tmp/bws-env.sh` and sources it into `~/.bashrc` so they persist across shell sessions
 
 #### Setup
 
@@ -143,9 +149,16 @@ This project uses [Bitwarden Secrets Manager](https://bitwarden.com/products/sec
 | `RAILS_MASTER_KEY` | Decrypts credentials | Production |
 | `HONEYBADGER_API_KEY` | Error monitoring | Production |
 | `BREVO_SMTP_KEY` | Transactional email | Production |
+| `BREVO_SMTP_USERNAME` | SMTP username for email notifications | Production |
 | `OPENAI_API_KEY` | AI chat widget | Optional |
 | `POSTGRES_PASSWORD` | Database password | Production |
-| `DATABASE_URL` | Database connection | CI/Production |
+| `DATABASE_URL` | Database connection | CI |
+| `KAMAL_REGISTRY_PASSWORD` | Docker registry password for Kamal | Production |
+| `DOCKER_REGISTRY_USER` | Docker registry username | Production |
+| `SSH_PRIVATE_KEY` | SSH key for server access during deploy | Production |
+| `DEPLOY_NOTIFICATION_EMAIL` | Recipient for deploy/CI notification emails | Production |
+| `BWS_ACCESS_TOKEN` | Bitwarden Secrets Manager access token | Production/CI |
+| `CLAUDE_CODE_OAUTH_TOKEN` | Auth token for Claude Code GitHub Actions | CI |
 
 ## CI/CD
 

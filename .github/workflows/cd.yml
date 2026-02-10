@@ -74,9 +74,9 @@ jobs:
           echo "::add-mask::$BREVO_SMTP_KEY"
           echo "brevo_smtp_key=$BREVO_SMTP_KEY" >> $GITHUB_OUTPUT
 
-          SSH_KEY=$(echo "$BWS_JSON" | jq -r '.[] | select(.key == "SSH_PRIVATE_KEY_HETZNER") | .value')
+          SSH_KEY=$(echo "$BWS_JSON" | jq -r '.[] | select(.key == "SSH_PRIVATE_KEY") | .value')
           if [ -z "$SSH_KEY" ]; then
-            echo "::error::SSH_PRIVATE_KEY_HETZNER not found in BWS"
+            echo "::error::SSH_PRIVATE_KEY not found in BWS"
             exit 1
           fi
           echo "::add-mask::$SSH_KEY"
