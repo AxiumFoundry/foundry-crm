@@ -14,6 +14,7 @@
     "CAPYBARA_SERVER_PORT": "45678",
     "BWS_ACCESS_TOKEN": "${localEnv:BWS_ACCESS_TOKEN}",
     "HONEYBADGER_PERSONAL_AUTH_TOKEN": "${localEnv:HONEYBADGER_PERSONAL_AUTH_TOKEN}",
+    "NOTIFICATION_EMAIL": "dev@axiumfoundry.com",
     "SELENIUM_HOST": "selenium",
     "DB_HOST": "postgres"
   },

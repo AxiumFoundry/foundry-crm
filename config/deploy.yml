@@ -44,6 +44,7 @@ env:
     - POSTGRES_PASSWORD
     - BREVO_SMTP_KEY
     - OPENAI_API_KEY
+    - NOTIFICATION_EMAIL
   clear:
     # Run the Solid Queue Supervisor inside the web server's Puma process to do jobs.
     # When you start using multiple servers, you should split out job processing to a dedicated machine.

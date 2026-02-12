@@ -4,7 +4,7 @@ class ChatMailer < ApplicationMailer
     @messages = conversation.chat_messages.ordered
 
     mail(
-      to: ENV.fetch("ADMIN_EMAIL", "admin@example.com"),
+      to: NOTIFICATION_EMAIL,
       subject: "Chat Visitor Wants to Talk to a Human"
     )
   end
@@ -14,7 +14,7 @@ class ChatMailer < ApplicationMailer
     @messages = conversation.chat_messages.ordered
 
     mail(
-      to: "dmitry.sychev@me.com",
+      to: NOTIFICATION_EMAIL,
       subject: "Chat Conversation Transcript - #{conversation.created_at.strftime('%b %d')}"
     )
   end
@@ -24,7 +24,7 @@ class ChatMailer < ApplicationMailer
     @total_messages = ChatMessage.where(chat_conversation: conversations).count
 
     mail(
-      to: "dmitry.sychev@me.com",
+      to: NOTIFICATION_EMAIL,
       subject: "Daily Chat Digest - #{Date.current.strftime('%b %d, %Y')}"
     )
   end

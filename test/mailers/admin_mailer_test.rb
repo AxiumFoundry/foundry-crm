@@ -5,6 +5,6 @@ class AdminMailerTest < ActionMailer::TestCase
     submission = health_check_submissions(:one)
     mail = AdminMailer.new_health_check_submission(submission)
     assert_equal "New Health Check Submission from #{submission.company_name}", mail.subject
-    assert_equal [ "dmitry.sychev@me.com" ], mail.to
+    assert_equal [ ApplicationMailer::NOTIFICATION_EMAIL ], mail.to
   end
 end
