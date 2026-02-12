@@ -156,7 +156,7 @@ The `.devcontainer/setup-bws-env.sh` script runs automatically when the devconta
 | `KAMAL_REGISTRY_PASSWORD` | Docker registry password for Kamal | Production |
 | `DOCKER_REGISTRY_USER` | Docker registry username | Production |
 | `SSH_PRIVATE_KEY` | SSH key for server access during deploy | Production |
-| `DEPLOY_NOTIFICATION_EMAIL` | Recipient for deploy/CI notification emails | Production |
+| `NOTIFICATION_EMAIL` | Recipient for deploy/CI/mailer notification emails | Production |
 | `BWS_ACCESS_TOKEN` | Bitwarden Secrets Manager access token | Production/CI |
 | `CLAUDE_CODE_OAUTH_TOKEN` | Auth token for Claude Code GitHub Actions | CI |
 

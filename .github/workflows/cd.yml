@@ -59,12 +59,12 @@ jobs:
           fi
           echo "brevo_smtp_username=$BREVO_SMTP_USERNAME" >> $GITHUB_OUTPUT
 
-          DEPLOY_NOTIFICATION_EMAIL=$(echo "$BWS_JSON" | jq -r '.[] | select(.key == "DEPLOY_NOTIFICATION_EMAIL") | .value')
-          if [ -z "$DEPLOY_NOTIFICATION_EMAIL" ]; then
-            echo "::error::DEPLOY_NOTIFICATION_EMAIL not found in BWS"
+          NOTIFICATION_EMAIL=$(echo "$BWS_JSON" | jq -r '.[] | select(.key == "NOTIFICATION_EMAIL") | .value')
+          if [ -z "$NOTIFICATION_EMAIL" ]; then
+            echo "::error::NOTIFICATION_EMAIL not found in BWS"
             exit 1
           fi
-          echo "deploy_notification_email=$DEPLOY_NOTIFICATION_EMAIL" >> $GITHUB_OUTPUT
+          echo "notification_email=$NOTIFICATION_EMAIL" >> $GITHUB_OUTPUT
 
           BREVO_SMTP_KEY=$(echo "$BWS_JSON" | jq -r ".[] | select(.key == \"${BWS_PREFIX}_BREVO_SMTP_KEY\") | .value")
           if [ -z "$BREVO_SMTP_KEY" ]; then
@@ -93,7 +93,7 @@ jobs:
           username: ${{ steps.bws_secrets.outputs.brevo_smtp_username }}
           password: ${{ steps.bws_secrets.outputs.brevo_smtp_key }}
           subject: "[${{ github.event.repository.name }}] Deployment started to production"
-          to: ${{ steps.bws_secrets.outputs.deploy_notification_email }}
+          to: ${{ steps.bws_secrets.outputs.notification_email }}
           from: Foundry CRM Deployments <notifications@exampleurl.com>
           body: |
             Deployment STARTED for ${{ github.event.repository.name }}
@@ -185,7 +185,7 @@ jobs:
           username: ${{ steps.bws_secrets.outputs.brevo_smtp_username }}
           password: ${{ steps.bws_secrets.outputs.brevo_smtp_key }}
           subject: "[${{ github.event.repository.name }}] Deployment succeeded to production"
-          to: ${{ steps.bws_secrets.outputs.deploy_notification_email }}
+          to: ${{ steps.bws_secrets.outputs.notification_email }}
           from: Foundry CRM Deployments <notifications@exampleurl.com>
           body: |
             Deployment SUCCEEDED for ${{ github.event.repository.name }}
@@ -228,12 +228,12 @@ jobs:
           fi
           echo "brevo_smtp_username=$BREVO_SMTP_USERNAME" >> $GITHUB_OUTPUT
 
-          DEPLOY_NOTIFICATION_EMAIL=$(echo "$BWS_JSON" | jq -r '.[] | select(.key == "DEPLOY_NOTIFICATION_EMAIL") | .value')
-          if [ -z "$DEPLOY_NOTIFICATION_EMAIL" ]; then
-            echo "::error::DEPLOY_NOTIFICATION_EMAIL not found in BWS"
+          NOTIFICATION_EMAIL=$(echo "$BWS_JSON" | jq -r '.[] | select(.key == "NOTIFICATION_EMAIL") | .value')
+          if [ -z "$NOTIFICATION_EMAIL" ]; then
+            echo "::error::NOTIFICATION_EMAIL not found in BWS"
             exit 1
           fi
-          echo "deploy_notification_email=$DEPLOY_NOTIFICATION_EMAIL" >> $GITHUB_OUTPUT
+          echo "notification_email=$NOTIFICATION_EMAIL" >> $GITHUB_OUTPUT
 
           BREVO_SMTP_KEY=$(echo "$BWS_JSON" | jq -r ".[] | select(.key == \"${BWS_PREFIX}_BREVO_SMTP_KEY\") | .value")
           if [ -z "$BREVO_SMTP_KEY" ]; then
@@ -252,7 +252,7 @@ jobs:
           username: ${{ steps.bws_secrets.outputs.brevo_smtp_username }}
           password: ${{ steps.bws_secrets.outputs.brevo_smtp_key }}
           subject: "[${{ github.event.repository.name }}] Deployment FAILED to production"
-          to: ${{ steps.bws_secrets.outputs.deploy_notification_email }}
+          to: ${{ steps.bws_secrets.outputs.notification_email }}
           from: Foundry CRM Deployments <notifications@exampleurl.com>
           body: |
             Deployment FAILED for ${{ github.event.repository.name }}

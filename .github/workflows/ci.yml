@@ -92,6 +92,7 @@ jobs:
         env:
           RAILS_ENV: test
           DATABASE_URL: postgres://postgres:postgres@localhost:5432
+          NOTIFICATION_EMAIL: test@example.com
         run: bin/rails db:test:prepare test
 
   system-test:
@@ -125,6 +126,7 @@ jobs:
         env:
           RAILS_ENV: test
           DATABASE_URL: postgres://postgres:postgres@localhost:5432
+          NOTIFICATION_EMAIL: test@example.com
         run: bin/rails db:test:prepare test:system
 
       - name: Keep screenshots from failed system tests
@@ -255,12 +257,12 @@ jobs:
           fi
           echo "brevo_smtp_username=$BREVO_SMTP_USERNAME" >> $GITHUB_OUTPUT
 
-          DEPLOY_NOTIFICATION_EMAIL=$(echo "$BWS_JSON" | jq -r '.[] | select(.key == "DEPLOY_NOTIFICATION_EMAIL") | .value')
-          if [ -z "$DEPLOY_NOTIFICATION_EMAIL" ]; then
-            echo "::error::DEPLOY_NOTIFICATION_EMAIL not found in BWS"
+          NOTIFICATION_EMAIL=$(echo "$BWS_JSON" | jq -r '.[] | select(.key == "NOTIFICATION_EMAIL") | .value')
+          if [ -z "$NOTIFICATION_EMAIL" ]; then
+            echo "::error::NOTIFICATION_EMAIL not found in BWS"
             exit 1
           fi
-          echo "deploy_notification_email=$DEPLOY_NOTIFICATION_EMAIL" >> $GITHUB_OUTPUT
+          echo "notification_email=$NOTIFICATION_EMAIL" >> $GITHUB_OUTPUT
 
           BREVO_SMTP_KEY=$(echo "$BWS_JSON" | jq -r ".[] | select(.key == \"${BWS_PREFIX}_BREVO_SMTP_KEY\") | .value")
           if [ -z "$BREVO_SMTP_KEY" ]; then
@@ -279,7 +281,7 @@ jobs:
           username: ${{ steps.secrets.outputs.brevo_smtp_username }}
           password: ${{ steps.secrets.outputs.brevo_smtp_key }}
           subject: "[${{ github.event.repository.name }}] CI checks failed on ${{ github.ref_name }}"
-          to: ${{ steps.secrets.outputs.deploy_notification_email }}
+          to: ${{ steps.secrets.outputs.notification_email }}
           from: Foundry CRM Deployments <notifications@exampleurl.com>
           body: |
             CI checks FAILED for ${{ github.event.repository.name }}
