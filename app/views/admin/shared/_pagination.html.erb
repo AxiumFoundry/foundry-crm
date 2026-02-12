@@ -8,7 +8,7 @@
       <span class="px-3 py-2 text-sm text-gray-600 cursor-not-allowed">&larr; Prev</span>
     <% end %>
 
-    <% pagy.series.each do |item| %>
+    <% pagy.send(:series).each do |item| %>
       <% if item.is_a?(Integer) %>
         <%= link_to item, pagy.page_url(item), class: "px-3 py-2 text-sm text-gray-400 hover:text-white hover:bg-white/10 rounded transition-base" %>
       <% elsif item.is_a?(String) %>
