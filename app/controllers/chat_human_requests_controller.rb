@@ -1,5 +1,6 @@
 class ChatHumanRequestsController < ApplicationController
   def create
+    return head :ok if params[:website_url].present?
     @conversation = ChatConversation.find_by(id: session[:chat_conversation_id])
     return head :not_found unless @conversation
 

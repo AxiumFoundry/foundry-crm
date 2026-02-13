@@ -1,6 +1,15 @@
 require "test_helper"
 
 class ChatHumanRequestsControllerTest < ActionDispatch::IntegrationTest
+  test "create with honeypot filled does not process request" do
+    post chat_human_requests_path, params: {
+      contact_name: "Spammer",
+      contact_email: "spam@example.com",
+      website_url: "http://spam.example.com"
+    }, as: :turbo_stream
+    assert_response :ok
+  end
+
   test "returns not found when no conversation in session" do
     post chat_human_requests_path, as: :turbo_stream
     assert_response :not_found

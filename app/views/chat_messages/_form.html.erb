@@ -1,6 +1,9 @@
 <div id="chat-form" class="border-t border-gray-700 p-3 shrink-0" data-controller="human-request-form">
   <div data-human-request-form-target="chatForm">
     <%= form_with url: chat_messages_path, method: :post, data: { turbo_stream: true, action: "submit->chat-widget#submitMessage" } do |f| %>
+      <div style="position:absolute;left:-9999px" aria-hidden="true">
+        <%= f.text_field :website_url, tabindex: "-1", autocomplete: "off" %>
+      </div>
       <div class="flex gap-2">
         <%= f.text_field :content,
             data: { chat_widget_target: "input" },
@@ -23,6 +26,9 @@
   <% if show_human_request %>
     <div id="human-request-section" class="hidden" data-human-request-form-target="form">
       <%= form_with url: chat_human_requests_path, method: :post, data: { turbo_stream: true } do |f| %>
+        <div style="position:absolute;left:-9999px" aria-hidden="true">
+          <%= f.text_field :website_url, tabindex: "-1", autocomplete: "off" %>
+        </div>
         <p class="text-xs text-gray-400 mb-2 text-center">Leave your info and we'll get back to you:</p>
         <div class="space-y-2">
           <%= f.text_field :contact_name,

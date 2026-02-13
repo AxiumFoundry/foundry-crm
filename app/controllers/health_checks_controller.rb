@@ -4,6 +4,20 @@ class HealthChecksController < ApplicationController
   end
 
   def create
+    if params.dig(:health_check_submission, :website_url).present?
+      @submission = HealthCheckSubmission.new(submission_params)
+      return respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.replace(
+            "health_check_form",
+            partial: "health_checks/success",
+            locals: { submission: @submission }
+          )
+        end
+        format.html { redirect_to root_path, notice: "Health check request received!" }
+      end
+    end
+
     @submission = HealthCheckSubmission.new(submission_params)
 
     if @submission.save
