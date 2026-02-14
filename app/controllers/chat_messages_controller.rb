@@ -1,5 +1,6 @@
 class ChatMessagesController < ApplicationController
   def create
+    return head :ok if params[:website_url].present?
     return head :unprocessable_entity if params[:content].blank?
 
     @conversation = find_or_create_conversation

@@ -22,6 +22,9 @@
 
         <%= turbo_frame_tag "health_check_form" do %>
           <%= form_with model: @submission, url: health_checks_path, data: { controller: "form" }, class: "space-y-6" do |f| %>
+            <div style="position:absolute;left:-9999px" aria-hidden="true">
+              <%= f.text_field :website_url, tabindex: "-1", autocomplete: "off" %>
+            </div>
             <!-- Grid Layout for Inputs -->
             <div class="grid md:grid-cols-2 gap-6">
               <!-- Company Name -->
