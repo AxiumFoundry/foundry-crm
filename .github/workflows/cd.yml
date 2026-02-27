@@ -85,7 +85,7 @@ jobs:
           echo "EOF_SSH_KEY" >> $GITHUB_OUTPUT
 
       - name: Send deployment started notification
-        uses: dawidd6/action-send-mail@v9
+        uses: dawidd6/action-send-mail@v11
         continue-on-error: true
         with:
           server_address: smtp-relay.brevo.com
@@ -177,7 +177,7 @@ jobs:
         run: kamal deploy
 
       - name: Send deployment succeeded notification
-        uses: dawidd6/action-send-mail@v9
+        uses: dawidd6/action-send-mail@v11
         continue-on-error: true
         with:
           server_address: smtp-relay.brevo.com
@@ -244,7 +244,7 @@ jobs:
           echo "brevo_smtp_key=$BREVO_SMTP_KEY" >> $GITHUB_OUTPUT
 
       - name: Send deployment failed notification
-        uses: dawidd6/action-send-mail@v9
+        uses: dawidd6/action-send-mail@v11
         continue-on-error: true
         with:
           server_address: smtp-relay.brevo.com
