@@ -46,7 +46,7 @@ jobs:
           echo "registry_password=$REGISTRY_PASSWORD" >> $GITHUB_OUTPUT
 
       - name: Set up SSH
-        uses: webfactory/ssh-agent@v0.9.1
+        uses: webfactory/ssh-agent@v0.10.0
         with:
           ssh-private-key: ${{ steps.bws_secrets.outputs.private_key }}
 

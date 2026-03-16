@@ -136,7 +136,7 @@ jobs:
             RAILS_ENV=production
 
       - name: Set up SSH
-        uses: webfactory/ssh-agent@v0.9.1
+        uses: webfactory/ssh-agent@v0.10.0
         with:
           ssh-private-key: ${{ steps.bws_secrets.outputs.private_key }}
 
